@@ -19,23 +19,37 @@ const Footer = () => {
                          <div>
                               <h2 className="text-xl text-center md:text-left font-semibold text-white mb-4">Contact Info</h2>
 
-                              <p className="flex items-center gap-2 mb-2">
-                                   <i className="text-red-400 fa-solid fa-location-dot"></i>
-                                   <span>Bhubaneswar, Odisha, India</span>
-                              </p>
+                              <div className="flex flex-col gap-3">
+                                   <div className="flex">
+                                        <p className="hover:text-white group flex gap-2">
+                                             <i className="text-red-400 group-hover:text-red-500 fa-solid fa-location-dot pt-1"></i>
+                                             <span>T G Road, Ramnagar 2/3, Agartala, West Tripura, 799002</span>
+                                        </p>
+                                   </div>
 
-                              <p className="flex items-center gap-2 mb-2">
-                                   <i className="text-red-400 fa-solid fa-phone"></i>
-                                   <span>+91 60333 22529 / 60333 22530</span>
-                              </p>
+                                   <div className="flex">
+                                        <p className="hover:text-white group flex gap-2 min-w-fit">
+                                             <i className="text-red-400 group-hover:text-red-500 fa-solid fa-phone pt-1"></i>
+                                             <a className="min-w-fit" href="tel:+916033322521">
+                                                  +91 60333 22529
+                                             </a>
+                                             <span>/</span>
+                                             <a className="min-w-fit" href="tel:+916033322521">
+                                                  60333 22530
+                                             </a>
+                                        </p>
+                                   </div>
 
-                              <p className="flex items-center gap-2 mb-2">
-                                   <i className="text-red-400 fa-solid fa-envelope"></i>
-                                   <span>info@solarservices.com</span>
-                              </p>
+                                   <div className="flex">
+                                        <p className="hover:text-white group flex items-center gap-2">
+                                             <i className="text-red-400 group-hover:text-red-500 fa-solid fa-envelope pt-1"></i>
+                                             <a href="mailto:team@raimaenergy.com">team@raimaenergy.com</a>
+                                        </p>
+                                   </div>
+                              </div>
 
                               <Link to="/contact" className="md:block w-full">
-                                   <button className="px-6 py-3 rounded-md w-full bg-green-600 text-white font-semibold text-sm md:text-base lg:text-lg shadow-md cursor-pointer hover:bg-green-700 hover:shadow-lg hover:scale-105 transition-all duration-300 ease-out mt-4">GET A QUOTE</button>
+                                   <button className="px-6 py-3 rounded-md w-full bg-green-600 text-white font-semibold text-sm md:text-base lg:text-lg shadow-md cursor-pointer hover:bg-green-700 hover:shadow-lg hover:scale-105 transition-all duration-300 ease-out mt-6">GET A QUOTE</button>
                               </Link>
                          </div>
 
@@ -43,24 +57,31 @@ const Footer = () => {
                          <div>
                               <h2 className="text-xl text-center md:text-left font-semibold text-white mb-4">Business Hours</h2>
 
-                              <p className="flex items-center gap-2 mb-2">
-                                   <i className="text-red-400 fa-solid fa-clock"></i>
-                                   <span>Mon - Sat: 10 AM - 6 PM</span>
-                              </p>
+                              {/* TIMINGS */}
+                              <div className="flex flex-col gap-3">
+                                   <div className="flex">
+                                        <div className="hover:text-white group flex items-center gap-2">
+                                             <i className="text-red-400 group-hover:text-red-500 fa-solid fa-clock"></i>
+                                             <span>Mon - Sat: 10 AM - 9 PM</span>
+                                        </div>
+                                   </div>
 
-                              <p className="flex items-center gap-2 mb-2">
-                                   <i className="text-red-400 fa-solid fa-clock"></i>
-                                   <span>Sunday: Closed</span>
-                              </p>
+                                   <div className="flex">
+                                        <div className="hover:text-white group flex items-center align-middle gap-2">
+                                             <i className="text-red-400 group-hover:text-red-500 fa-solid fa-clock"></i>
+                                             <span>Sunday: Closed</span>
+                                        </div>
+                                   </div>
+                              </div>
 
                               {/* SOCIAL ICONS */}
                               <div className="flex items-center gap-4 mt-8">
-                                   <a href="https://facebook.com" target="_blank" className="hover:opacity-80">
-                                        <i className="text-3xl fa-brands fa-facebook"></i>
+                                   <a href="https://www.facebook.com/share/1D8NwXwRCG/" target="_blank" className="hover:opacity-80">
+                                        <i className="hover:text-blue-500 transition text-3xl fa-brands fa-facebook"></i>
                                    </a>
 
                                    <a href="https://instagram.com" target="_blank" className="hover:opacity-80">
-                                        <i className="text-3xl fa-brands fa-instagram"></i>
+                                        <i className="hover:text-pink-500 transition text-3xl fa-brands fa-instagram"></i>
                                    </a>
                               </div>
                          </div>
