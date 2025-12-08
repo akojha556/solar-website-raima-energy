@@ -20,11 +20,11 @@ const Navbar = () => {
         {/* DESKTOP MENU */}
         <ul className="hidden md:flex md:items-center md:text-base lg:text-lg font-medium h-full">
           <li className="h-full">
-            <Link to="/" className="relative block h-full p-6 md:px-4 lg:px-6 hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full">Home</Link>
+            <Link to="/" className="relative flex items-center h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 lg:hover:after:w-full focus:text-green-600 focus:after:w-full">Home</Link>
           </li>
 
           <li className="h-full">
-            <Link to="/about" className="relative block h-full p-6 md:px-4 lg:px-6 hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full">
+            <Link to="/about" className="relative flex items-center h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 lg:hover:after:w-full focus:text-green-600 focus:after:w-full">
               About Us
             </Link>
           </li>
@@ -34,7 +34,7 @@ const Navbar = () => {
           <ServiceDropdown />
 
           <li className="h-full">
-            <Link to="/contact" className="relative block h-full p-6 md:px-4 lg:px-6 hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full">
+            <Link to="/contact" className="relative flex items-center h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 lg:hover:after:w-full focus:text-green-600 focus:after:w-full">
               Contact Us
             </Link>
           </li>

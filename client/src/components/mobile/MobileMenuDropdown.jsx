@@ -4,11 +4,12 @@ import MobileProductDropdown from "./MobileProductDropdown";
 import MobileServiceDropdown from "./MobileServiceDropdown";
 
 const MobileMenuDropdown = () => {
-     const [isOpen, setIsOpen] = useState(false);
      const [openMenu, setOpenMenu] = useState(null);
+     const toggleMenu = (menu) => setOpenMenu(openMenu === menu ? null : menu);
+     const [isOpen, setIsOpen] = useState(false);
 
      const toggleDrawer = () => setIsOpen(!isOpen);
-     const toggleMenu = (menu) => setOpenMenu(openMenu === menu ? null : menu);
+
      // 1️⃣ Disable body scroll when menu is open
      useEffect(() => {
           document.body.style.overflow = isOpen ? "hidden" : "auto";
