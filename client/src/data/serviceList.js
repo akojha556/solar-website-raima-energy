@@ -4,4 +4,5 @@ export const serviceList = [
   "AMC Services",
   "Energy Audit",
   "Solar Consultancy",
+  "Solar System Upgradation"
 ];

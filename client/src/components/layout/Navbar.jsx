@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
-import ProductDropdown from "./desktop/ProductDropdown.jsx";
-import ServiceDropdown from "./desktop/ServiceDropdown.jsx";
-import MobileMenuDropdown from "./mobile/MobileMenuDropdown.jsx";
+import logo from "../../assets/logo.png";
+import ProductDropdown from "../desktop/ProductDropdown.jsx";
+import ServiceDropdown from "../desktop/ServiceDropdown.jsx";
+import MobileMenuDropdown from "../mobile/MobileMenuDropdown.jsx";
 
 const Navbar = () => {
 
   return (
-    <nav className="w-full bg-white shadow-md">
+    <nav className="w-full bg-white shadow-md mb-1">
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
 
         {/* LOGO */}
