@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { productList } from "../../data/productList"
+import { productList } from "../../data/productList";
 
 const ProductDropdown = () => {
      const [productOpen, setProductOpen] = useState(false);
@@ -21,16 +21,16 @@ const ProductDropdown = () => {
      return (
           <>
                {/* PRODUCTS — DROPDOWN */}
-               <li ref={productRef} className="relative h-full">
+               <li ref={productRef} className="relative h-full group">
                     {/* main button */}
                     <button onClick={() => {
                          setProductOpen(!productOpen);
-                    }} className={`cursor-pointer h-full relative flex items-center p-6 md:px-4 lg:px-6 hover:text-green-500 ${productOpen ? "text-green-600 transform font-semibold" : ""}`}>
+                    }} className={`cursor-pointer h-full relative flex items-center p-6 md:px-4 lg:px-6 md:group-hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 md:group-hover:after:w-full ${productOpen ? "focus:text-green-600 focus:after:w-full transform" : ""}`}>
                          <span className="">Products</span>
-                         <i className={"fa-solid fa-caret-down ml-1 transition-transform duration-200 " + (productOpen ? "rotate-180" : "")}></i>
+                         <i className={"fa-solid fa-caret-down ml-1 transition-transform duration-200 group-hover:rotate-180 " + (productOpen ? "rotate-180" : "")}></i>
                     </button>
                     {/* dropdown menu */}
-                    <ul className={`absolute left-0 top-full z-50 mt-1 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible transform transition-all duration-300 ease-out ${productOpen ? "opacity-100 translate-y-0 visible" : "translate-y-2"}`}>
+                    <ul className={`absolute left-0 top-full z-50 mt-1 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible transform md:group-hover:opacity-100 md:group-hover:-translate-y-1 md:group-hover:visible transition-all duration-300 ease-out ${productOpen ? "opacity-100 -translate-y-1 visible" : "translate-y-2"}`}>
                          {productList.map((item, index) => (
                               <li key={index}>
                                    <Link

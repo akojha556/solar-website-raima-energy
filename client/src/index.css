@@ -17,6 +17,22 @@
   }
 }
 
+@keyframes slidwUp {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
 .animate-slideDown {
+  animation: slideDown 0.35s ease-out;
+}
+
+.animate-slideUp {
   animation: slideDown 0.35s ease-out;
 }

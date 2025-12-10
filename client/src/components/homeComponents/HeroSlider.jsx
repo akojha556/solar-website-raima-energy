@@ -43,7 +43,6 @@ export default function HeroSlider() {
                                    <img src={image} alt={`solar${index + 1}`} className="w-full h-full object-cover" />
                                    <div className="absolute inset-0 bg-green-600 opacity-30"></div>
                                    {/* TEXT CONTENT */}
-                                   {/* TEXT CONTENT */}
                                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
                                         <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">
                                              Power Your Future With Clean Energy
@@ -54,11 +53,11 @@ export default function HeroSlider() {
                                         </p>
 
                                         <div className="mt-6 flex gap-4">
-                                             <button className="bg-white text-green-700 px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition">
+                                             <button className="bg-white text-green-700 px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition cursor-pointer">
                                                   View Products
                                              </button>
 
-                                             <button className="border border-white px-6 py-2 rounded-md font-semibold hover:bg-white hover:text-green-700 transition">
+                                             <button className="border border-white px-6 py-2 rounded-md font-semibold hover:bg-white hover:text-green-700 transition cursor-pointer">
                                                   Contact Us
                                              </button>
                                         </div>
