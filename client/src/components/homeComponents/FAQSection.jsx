@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function FAQSection() {
-     const faqs = [
+     const faqs1 = [
           {
                q: "What is a solar rooftop system and how does it work?",
                a: "A solar rooftop system converts sunlight into electricity using solar panels. The generated DC power is converted to AC using an inverter and used to run household appliances."
@@ -18,6 +18,9 @@ export default function FAQSection() {
                q: "What government subsidies are available?",
                a: "Under PM Surya Ghar Muft Bijli Yojana, homeowners can receive subsidies on rooftop solar installations. Eligibility depends on system size and location."
           },
+     ];
+
+     const faqs2 = [
           {
                q: "How long do solar panels last?",
                a: "High-quality solar panels typically last 25-30 years with minimal maintenance."
@@ -34,53 +37,72 @@ export default function FAQSection() {
                q: "Can I run AC, water heaters, and heavy appliances on solar?",
                a: "Yes. With the right system size and inverter capacity, you can run all household appliances including ACs and pumps."
           }
-     ];
+     ]
 
-     const [openIndex, setOpenIndex] = useState(null);
+     const [openLeftIndex, setOpenLeftIndex] = useState(null);
+     const [openRightIndex, setOpenRightIndex] = useState(null);
 
-     const toggleFAQ = (i) => {
-          setOpenIndex(openIndex === i ? null : i);
-     };
+     const toggleLeftFaq = (index) => {
+          setOpenLeftIndex(openLeftIndex === index ? null : index);
+     }
+
+     const toggleRightFaq = (index) => {
+          setOpenRightIndex(openRightIndex === index ? null : index);
+     }
 
      return (
           <section className="py-20 bg-white">
-               <div className="max-w-7xl mx-auto px-4">
+               <div className="px-4 max-w-7xl md:px-12 mx-auto">
+                    <div>
+                         <h1 className="text-3xl font-bold text-green-600 text-center mb-10">Frequently Asked Questions</h1>
+                         <div className="flex flex-col md:flex-row md:gap-4 justify-between">
+                              <div className="flex-1">
+                                   {faqs1.map((faq, index) => {
+                                        return (
+                                             <div key={index} className="py-1 px-2 border mb-2 border-green-200 rounded-lg shadow-md bg-white">
+                                                  {/* QUESTION */}
+                                                  <div>
+                                                       <button onClick={() => {
+                                                            toggleLeftFaq(index);
+                                                            toggleRightFaq("null");
+                                                       }} className="text-green-700 px-4 py-2 text-base flex gap-2 items-center justify-between cursor-pointer transition-all transform hover:text-green-600 w-full">
+                                                            <p className="text-left">{faq.q}</p>
+                                                            <i className={`fa-solid fa-plus transition ${openLeftIndex === index ? "rotate-45" : ""}`}></i>
+                                                       </button>
+                                                  </div>
+                                                  {/* ANSWER */}
+                                                  <div className={`overflow-hidden w-full transition-all duration-300 ${openLeftIndex === index ? "max-h-96" : "max-h-0"}`}>
+                                                       <p className="py-2 px-4 text-base text-gray-600">{faq.a}</p>
+                                                  </div>
+                                             </div>
+                                        )
 
-                    {/* Heading */}
-                    <div className="text-center mb-12">
-                         <h2 className="text-3xl md:text-4xl font-bold text-green-700">
-                              Frequently Asked Questions
-                         </h2>
-                         <p className="text-green-600 mt-2 text-lg">
-                              Everything you need to know about switching to solar energy.
-                         </p>
-                    </div>
-
-                    {/* Grid Layout */}
-                    <div className="grid grid-cols-1 gap-6">
-
-                         {faqs.map((faq, i) => (
-                              <div
-                                   key={i}
-                                   className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition border border-green-600"
-                              >
-                                   <button
-                                        onClick={() => toggleFAQ(i)}
-                                        className="flex justify-between items-center w-full text-left font-semibold text-green-700 text-base md:text-lg cursor-pointer"
-                                   >
-                                        {faq.q}
-                                        <i className={`fa-solid fa-chevron-${openIndex === i ? "up" : "down"} text-green-600 ml-3`}></i>
-                                   </button>
-
-                                   {/* Answer */}
-                                   {openIndex === i && (
-                                        <p className="mt-3 text-green-600 text-sm md:text-base leading-relaxed">
-                                             {faq.a}
-                                        </p>
-                                   )}
+                                   })}
                               </div>
-                         ))}
+                              <div className="flex-1">
+                                   {faqs2.map((faq, index) => {
+                                        return (
+                                             <div key={index} className="py-1 px-2 border mb-2 border-green-200 rounded-lg shadow-md bg-white">
+                                                  {/* QUESTION */}
+                                                  <div>
+                                                       <button onClick={() => {
+                                                            toggleRightFaq(index);
+                                                            toggleLeftFaq(null);
+                                                       }} className="text-green-700 px-4 py-2 text-base flex gap-2 items-center justify-between cursor-pointer transition-all transform hover:text-green-600 w-full">
+                                                            <p className="text-left">{faq.q}</p>
+                                                            <i className={`fa-solid fa-plus transition ${openRightIndex === index ? "rotate-45" : ""}`}></i>
+                                                       </button>
+                                                  </div>
+                                                  {/* ANSWER */}
+                                                  <div className={`overflow-hidden w-full transition-all duration-300 ${openRightIndex === index ? "max-h-96" : "max-h-0"}`}>
+                                                       <p className="py-2 px-4 text-base text-gray-600">{faq.a}</p>
+                                                  </div>
+                                             </div>
+                                        )
 
+                                   })}
+                              </div>
+                         </div>
                     </div>
                </div>
           </section>

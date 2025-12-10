@@ -4,7 +4,7 @@ import logo from "../../assets/logojpg.png";
 
 const Footer = () => {
      return (
-          <footer className="bg-gray-900 text-gray-300 py-12 mt-32">
+          <footer className="bg-gray-900 text-gray-300 py-12">
                <div className="max-w-7xl mx-auto px-6 relative">
 
                     {/* LOGO */}
@@ -13,7 +13,7 @@ const Footer = () => {
                     </div>
 
                     {/* GRID */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pt-24">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16 pt-24">
 
                          {/* CONTACT INFO */}
                          <div>
@@ -27,7 +27,7 @@ const Footer = () => {
                                         </p>
                                    </div>
 
-                                   <div className="flex">
+                                   <div className="flex flex-wrap">
                                         <p className="hover:text-white group flex gap-2 min-w-fit">
                                              <i className="text-red-400 group-hover:text-red-500 fa-solid fa-phone pt-1"></i>
                                              <a className="min-w-fit" href="tel:+916033322521">

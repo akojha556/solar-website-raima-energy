@@ -19,18 +19,16 @@ const ServiceDropdown = () => {
      return (
           <>
                {/* SERVICES — DROPDOWN */}
-               <li ref={serviceRef} className="relative group h-full">
+               <li ref={serviceRef} className="relative h-full">
                     {/* main button */}
                     <button onClick={() => {
-                         if (window.innerWidth < 1024) {
-                              setServiceOpen(!serviceOpen);
-                         }
-                    }} className={`flex items-center cursor-pointer h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 lg:group-hover:after:w-full ${serviceOpen ? "focus:after:w-full text-green-600 transform" : ""}`}>
+                         setServiceOpen(!serviceOpen);
+                    }} className={`flex items-center cursor-pointer h-full p-6 md:px-4 lg:px-6 hover:text-green-500 ${serviceOpen ? "text-green-600 font-semibold transform" : ""}`}>
                          <span>Services</span>
-                         <i className={"fa-solid fa-caret-down ml-1 transition-transform duration-200 lg:group-hover:rotate-180 " + (serviceOpen ? "rotate-180" : "")}></i>
+                         <i className={"fa-solid fa-caret-down ml-1 transition-transform duration-200 " + (serviceOpen ? "rotate-180" : "")}></i>
                     </button>
                     {/* dropdown menu */}
-                    <ul className={`absolute left-0 top-full z-50 mt-1 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:group-hover:visible transition-all duration-300 ease-out ${serviceOpen ? "opacity-100 visible translate-y-0" : "translate-y-2"}`}>
+                    <ul className={`absolute left-0 top-full z-50 mt-1 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 ease-out ${serviceOpen ? "opacity-100 visible translate-y-0" : "translate-y-2"}`}>
 
                          {serviceList.map((item, index) => (
                               <li key={index}>

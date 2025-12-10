@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import ProductDropdown from "../desktop/ProductDropdown.jsx";
 import ServiceDropdown from "../desktop/ServiceDropdown.jsx";
@@ -12,21 +12,23 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
 
         {/* LOGO */}
-        <Link to="/">
+        <NavLink to="/" >
           <img src={logo} alt="RaimaEnergy Logo" className="lg:h-30 w-auto h-25 sm:h-26" />
-        </Link>
+        </NavLink>
 
 
         {/* DESKTOP MENU */}
         <ul className="hidden md:flex md:items-center md:text-base lg:text-lg font-medium h-full">
           <li className="h-full">
-            <Link to="/" className="relative flex items-center h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 lg:hover:after:w-full focus:text-green-600 focus:after:w-full">Home</Link>
+            <NavLink to="/" className={({isActive}) =>
+              `relative flex items-center h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 ${isActive ? "text-green-600 after:w-full" : ""}`}>Home</NavLink>
           </li>
 
           <li className="h-full">
-            <Link to="/about" className="relative flex items-center h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 lg:hover:after:w-full focus:text-green-600 focus:after:w-full">
+            <NavLink to="/about" className={({ isActive }) =>
+              `relative flex items-center h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 ${isActive ? "text-green-600 after:w-full" : ""}`}>
               About Us
-            </Link>
+            </NavLink>
           </li>
 
           <ProductDropdown />
@@ -34,9 +36,14 @@ const Navbar = () => {
           <ServiceDropdown />
 
           <li className="h-full">
-            <Link to="/contact" className="relative flex items-center h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 lg:hover:after:w-full focus:text-green-600 focus:after:w-full">
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `relative flex items-center h-full p-6 md:px-4 lg:px-6 lg:hover:text-green-600 after:content-[''] after:absolute after:left-0 after:bottom-2 after:w-0 after:h-0.5 after:bg-green-600 after:transition-all after:duration-300 ${isActive ? "text-green-600 after:w-full" : ""}`
+              }
+            >
               Contact Us
-            </Link>
+            </NavLink>
           </li>
         </ul>
 
