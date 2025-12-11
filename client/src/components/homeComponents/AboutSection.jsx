@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import aboutImg from "../../assets/about.jpg"; // <-- REPLACE with your image
 
-export default function AboutSection() {
+export default function AboutSection({ fadeUp, fadeLeft, fadeRight }) {
      const [customers, setCustomers] = useState(0);
      const [experience, setExperience] = useState(0);
      const [startCount, setStartCount] = useState(false);
@@ -63,7 +64,13 @@ export default function AboutSection() {
                <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
                     {/* LEFT SIDE CONTENT */}
-                    <div className="space-y-6 flex flex-col items-center">
+                    <motion.div
+                         layout
+                         variants={fadeRight}
+                         initial="hidden"
+                         whileInView="visible"
+                         viewport={{ once: true }}
+                         className="space-y-6 flex flex-col items-center">
 
                          <div className="space-y-4 flex flex-col items-center lg:block">
 
@@ -90,7 +97,13 @@ export default function AboutSection() {
                          </div>
 
                          {/* COUNTERS */}
-                         <div className="grid grid-cols-2 gap-5">
+                         <motion.div
+                              layout
+                              variants={fadeUp}
+                              initial="hidden"
+                              whileInView="visible"
+                              viewport={{ once: true }}
+                              className="grid grid-cols-2 gap-5">
 
                               <div className="bg-[#f3fff5] p-6 rounded-xl shadow-sm border border-green-100 text-center">
                                    <h3 className="text-3xl md:text-4xl font-bold text-green-700">
@@ -110,26 +123,37 @@ export default function AboutSection() {
                                    </p>
                               </div>
 
-                         </div>
+                         </motion.div>
 
                          {/* BUTTON */}
-                         <div>
+                         <motion.div
+                              layout
+                              variants={fadeUp}
+                              initial="hidden"
+                              whileInView="visible"
+                              viewport={{ once: true }}
+                         >
                               <Link to="/about">
                                    <button className="px-6 py-2 rounded-md bg-green-600 text-white font-semibold  text-base shadow hover:bg-green-700 hover:shadow-lg hover:scale-105 not-visited:transition-all duration-300 ">
                                         KNOW MORE
                                    </button>
                               </Link>
-                         </div>
-                    </div>
+                         </motion.div>
+                    </motion.div>
 
                     {/* RIGHT SIDE IMAGE */}
-                    <div className="w-full h-full flex justify-center">
+                    <motion.div
+                         variants={fadeLeft}
+                         initial="hidden"
+                         whileInView="visible"
+                         viewport={{ once: true }}
+                         className="w-full h-full flex justify-center">
                          <img
                               src={aboutImg}
                               alt="About Raima Energy"
                               className="shadow-lg w-full h-120 object-cover"
                          />
-                    </div>
+                    </motion.div>
 
                </div>
           </section>

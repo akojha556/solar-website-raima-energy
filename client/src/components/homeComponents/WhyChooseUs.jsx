@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import choose from "../../assets/choose.jpg";
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({ fadeLeft, fadeRight }) {
      const features = [
           {
                title: "Tailored Solar Solutions",
@@ -28,7 +29,13 @@ export default function WhyChooseUs() {
           <section className="py-16 bg-[#ffffff]">
                <div className="grid lg:grid-cols-2 grid-cols-1 gap-10 mx-auto max-w-7xl px-4  items-start">
                     {/* LEFT SECTION */}
-                    <div className="px-4 flex flex-col items-center lg:block">
+                    <motion.div
+                         layout
+                         variants={fadeRight}
+                         initial="hidden"
+                         whileInView="visible"
+                         viewport={{ once: true }}
+                         className="px-4 flex flex-col items-center lg:block">
                          {/* Heading */}
                          <h2 className="text-3xl md:text-4xl font-bold text-green-700">
                               Why Choose Us
@@ -39,10 +46,15 @@ export default function WhyChooseUs() {
                          <div>
                               <img src={choose} alt="choose-us" className="h-60 w-140 md:h-120 md:w-200 object-cover" />
                          </div>
-                    </div>
+                    </motion.div>
                     {/* RIGHT SECTION */}
                     {/* Grid */}
-                    <div className="grid grid-cols-1 gap-8">
+                    <motion.div
+                         layout
+                         variants={fadeLeft}
+                         initial="hidden"
+                         whileInView="visible"
+                         viewport={{ once: true }} className="grid grid-cols-1 gap-8">
                          {features.map((item, index) => (
                               <div
                                    key={index}
@@ -65,7 +77,7 @@ export default function WhyChooseUs() {
                               </div>
 
                          ))}
-                    </div>
+                    </motion.div>
                </div>
           </section>
      );

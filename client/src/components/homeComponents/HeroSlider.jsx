@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -13,9 +14,15 @@ import hero5 from "../../assets/hero5.jpeg";
 
 const images = [hero1, hero2, hero3, hero4, hero5];
 
-export default function HeroSlider() {
+export default function HeroSlider({ fadeUp }) {
      return (
-          <div className="relative w-full h-[80vh] md:h-[90vh]">
+          <motion.div
+               layout
+               variants={fadeUp}
+               initial="hidden"
+               whileInView="visible"
+               viewport={{ once: true }}
+               className="relative w-full h-[95vh] md:h-[90vh]">
                {/* CUSTOM BUTTONS */}
                <button className="custom-prev absolute left-5 top-1/2 z-50 text-5xl -translate-y-1/2 cursor-pointer opacity-50 hover:opacity-30 hidden md:block">
                     <i class="fa-solid fa-chevron-left"></i>
@@ -66,6 +73,6 @@ export default function HeroSlider() {
                          </SwiperSlide>)
                     })}
                </Swiper>
-          </div>
+          </motion.div>
      )
 }

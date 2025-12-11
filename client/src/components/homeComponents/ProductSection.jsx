@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import p1 from "../../assets/products/p1.jpg";
 import p2 from "../../assets/products/p2.jpg";
@@ -7,7 +8,7 @@ import p4 from "../../assets/products/p4.jpg";
 import p5 from "../../assets/products/p5.jpg";
 import p6 from "../../assets/products/p6.jpg";
 
-export default function ProductsSection() {
+export default function ProductsSection({ fadeLeft, fadeRight }) {
      const products = [
           { name: "Residential Rooftop Solar Power Plant", img: p1 },
           { name: "Commercial Solar Power Plant", img: p2 },
@@ -23,7 +24,13 @@ export default function ProductsSection() {
                <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-4 items-start">
 
                     {/* LEFT TEXT SECTION */}
-                    <div className="space-y-4 md:space-y-6 lg:text-left lg:max-w-120 flex flex-col items-center lg:block">
+                    <motion.div
+                         layout
+                         variants={fadeLeft}
+                         initial="hidden"
+                         whileInView="visible"
+                         viewport={{ once: true }}
+                         className="space-y-4 md:space-y-6 lg:text-left lg:max-w-120 flex flex-col items-center lg:block">
                          <h2 className="text-xl md:text-2xl font-bold text-white border w-fit p-4 bg-green-600 mb-8">
                               Our Products
                          </h2>
@@ -63,11 +70,17 @@ export default function ProductsSection() {
                               </div>
 
                          </div>
-                    </div>
+                    </motion.div>
 
 
                     {/* RIGHT PRODUCT GRID */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                    <motion.div
+                         layout
+                         variants={fadeRight}
+                         initial="hidden"
+                         whileInView="visible"
+                         viewport={{ once: true }}
+                         className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                          {products.map((product, i) => (
                               <div
                                    key={i}
@@ -86,7 +99,7 @@ export default function ProductsSection() {
                                    </h4>
                               </div>
                          ))}
-                    </div>
+                    </motion.div>
                     <div className="text-center lg:hidden">
                          <button className="px-4 py-2 cursor-pointer rounded-md w-fit transform transition-all text-green-600 hover:scale-[1.03] border text-xs">Explore Products</button>
                     </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
-export default function FAQSection() {
+export default function FAQSection({ fadeUp, fadeLeft, fadeRight }) {
      const faqs1 = [
           {
                q: "What is a solar rooftop system and how does it work?",
@@ -54,9 +55,21 @@ export default function FAQSection() {
           <section className="py-20 bg-white">
                <div className="px-4 max-w-7xl md:px-12 mx-auto">
                     <div>
-                         <h1 className="text-3xl font-bold text-green-600 text-center mb-10">Frequently Asked Questions</h1>
+                         <motion.h1
+                              layout
+                              variants={fadeUp}
+                              initial="hidden"
+                              whileInView="visible"
+                              viewport={{ once: true }}
+                              className="text-3xl font-bold text-green-600 text-center mb-10">Frequently Asked Questions</motion.h1>
                          <div className="flex flex-col md:flex-row md:gap-4 justify-between">
-                              <div className="flex-1">
+                              <motion.div
+                                   layout
+                                   variants={fadeRight}
+                                   initial="hidden"
+                                   whileInView="visible"
+                                   viewport={{ once: true }}
+                                   className="flex-1">
                                    {faqs1.map((faq, index) => {
                                         return (
                                              <div key={index} className="py-1 px-2 border mb-2 border-green-200 rounded-lg shadow-md bg-white">
@@ -78,8 +91,14 @@ export default function FAQSection() {
                                         )
 
                                    })}
-                              </div>
-                              <div className="flex-1">
+                              </motion.div>
+                              <motion.div
+                                   layout
+                                   variants={fadeLeft}
+                                   initial="hidden"
+                                   whileInView="visible"
+                                   viewport={{ once: true }}
+                                   className="flex-1">
                                    {faqs2.map((faq, index) => {
                                         return (
                                              <div key={index} className="py-1 px-2 border mb-2 border-green-200 rounded-lg shadow-md bg-white">
@@ -101,7 +120,7 @@ export default function FAQSection() {
                                         )
 
                                    })}
-                              </div>
+                              </motion.div>
                          </div>
                     </div>
                </div>

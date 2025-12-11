@@ -1,4 +1,6 @@
-export default function ServicesSection() {
+import { motion } from "framer-motion";
+
+export default function ServicesSection({ fadeUp }) {
      const services = [
           { title: "Solar Installation", icon: "fa-solid fa-screwdriver-wrench" },
           { title: "Solar Maintenance", icon: "fa-solid fa-wrench" },
@@ -10,7 +12,13 @@ export default function ServicesSection() {
 
      return (
           <section className="py-20 bg-white">
-               <div className="max-w-7xl mx-auto px-4">
+               <motion.div
+                    layout
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="max-w-7xl mx-auto px-4">
 
                     {/* Heading */}
                     <div className="text-center mb-12">
@@ -42,7 +50,7 @@ export default function ServicesSection() {
                          ))}
 
                     </div>
-               </div>
+               </motion.div>
           </section>
      );
 }

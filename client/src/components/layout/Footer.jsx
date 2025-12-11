@@ -9,7 +9,7 @@ const Footer = () => {
 
                     {/* LOGO */}
                     <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 z-10">
-                         <img src={logo} alt="RaimaEnergy Logo" className="w-auto h-28 md:h-32" />
+                         <img src={logo} alt="RaimaEnergy Logo" className="w-auto h-26 md:h-28" />
                     </div>
 
                     {/* GRID */}
