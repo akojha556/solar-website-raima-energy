@@ -30,8 +30,7 @@ const FeaturesSection = ({ fadeLeft, className = "" }) => {
                variants={fadeLeft}
                initial="hidden"
                whileInView="visible"
-               viewport={{ once: true }} className={`grid gap-8 ${className}`}
-          >
+               viewport={{ once: true }} className={`grid gap-8 ${className}`}>
                {features.map((item, index) => (
                     <div
                          key={index}

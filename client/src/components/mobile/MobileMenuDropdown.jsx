@@ -10,25 +10,18 @@ const MobileMenuDropdown = () => {
 
      const toggleDrawer = () => setIsOpen(!isOpen);
 
-     // 1️⃣ Disable body scroll when menu is open
      useEffect(() => {
-          document.body.style.overflow = isOpen ? "hidden" : "auto";
-          return () => (document.body.style.overflow = "auto");
+          const html = document.documentElement;
+          if (isOpen) {
+               html.style.overflow = "hidden";
+               document.body.style.touchAction = "none";
+          } else {
+               html.style.overflow = "";
+               document.body.style.touchAction = "";
+          }
      }, [isOpen]);
 
-     // 2️⃣ Reset menu + body scroll when resizing to desktop
-     useEffect(() => {
-          const handleResize = () => {
-               if (window.innerWidth >= 768) {
-                    setIsOpen(false);
-                    setOpenMenu(null);
-                    document.body.style.overflow = "auto";
-               }
-          };
 
-          window.addEventListener("resize", handleResize);
-          return () => window.removeEventListener("resize", handleResize);
-     }, []);
 
      return (
           <div>

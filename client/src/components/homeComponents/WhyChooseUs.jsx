@@ -14,8 +14,7 @@ export default function WhyChooseUs({ fadeLeft, fadeRight }) {
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true }}
-                         className="px-4 flex flex-col items-center lg:block"
-                    >
+                         className="px-4 flex flex-col items-center lg:block">
                          {/* Heading */}
                          <h2 className="text-3xl md:text-4xl font-bold text-green-700">
                               Why Choose Us
