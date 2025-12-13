@@ -7,8 +7,9 @@ import p4 from "../../assets/products/p4.jpg";
 import p5 from "../../assets/products/p5.jpg";
 import p6 from "../../assets/products/p6.jpg";
 import CallCTA from "../common/CallCTA";
+import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 
-export default function ProductsSection({ fadeLeft, fadeRight }) {
+export default function ProductsSection() {
      const products = [
           { name: "Residential Rooftop Solar Power Plant", img: p1 },
           { name: "Commercial Solar Power Plant", img: p2 },
@@ -26,7 +27,7 @@ export default function ProductsSection({ fadeLeft, fadeRight }) {
                     {/* LEFT TEXT SECTION */}
                     <motion.div
                          layout={false}
-                         variants={fadeLeft}
+                         variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true }}
@@ -47,16 +48,22 @@ export default function ProductsSection({ fadeLeft, fadeRight }) {
                          </p>
 
                          {/* BUTTONS  */}
-                         <div className="w-full flex flex-col items-center md:flex-row md:justify-center lg:justify-normal gap-2">
+                         <motion.div
+                              layout={false}
+                              variants={fadeUp}
+                              initial="hidden"
+                              whileInView="visible"
+                              viewport={{ once: true }}
+                              className="w-full flex flex-col items-center md:flex-row md:justify-center lg:justify-normal gap-2">
                               <CallCTA primaryText="GET A QUOTE" secondaryText="CALL NOW" primaryVariant="primary" secondaryVariant="ghost" secondaryIconClass="group-hover:text-blue-900" />
-                         </div>
+                         </motion.div>
                     </motion.div>
 
 
                     {/* RIGHT PRODUCT GRID */}
                     <motion.div
                          layout={false}
-                         variants={fadeRight}
+                         variants={fadeLeft}
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true }}

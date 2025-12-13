@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import { fadeUp } from "../../animations/motionVariants";
 
-export default function ServicesSection({ fadeUp }) {
+export default function ServicesSection() {
      const services = [
           { title: "Solar Installation", icon: "fa-solid fa-screwdriver-wrench" },
           { title: "Solar Maintenance", icon: "fa-solid fa-wrench" },
@@ -17,7 +18,7 @@ export default function ServicesSection({ fadeUp }) {
                     variants={fadeUp}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount:0.2 }}
                     className="max-w-7xl mx-auto px-4">
 
                     {/* Heading */}

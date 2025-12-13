@@ -1,16 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logojpg.png";
+import { motion } from "framer-motion";
+import { fade, fadeUp } from "../../animations/motionVariants";
 
 const Footer = () => {
+
      return (
           <footer className="bg-gray-900 text-gray-300 py-12">
                <div className="max-w-7xl mx-auto px-6 relative">
 
                     {/* LOGO */}
-                    <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 z-10">
+                    <motion.div
+                         layout={false}
+                         variants={fade}
+                         initial="hidden"
+                         whileInView="visible"
+                         viewport={{ once: true, amount: 0.5 }}
+                         className="absolute -top-20 left-1/2 transform -translate-x-1/2 z-10">
                          <img src={logo} alt="RaimaEnergy Logo" className="w-auto h-26 md:h-28" />
-                    </div>
+                    </motion.div>
 
                     {/* GRID */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16 pt-24">
@@ -49,7 +58,13 @@ const Footer = () => {
                               </div>
 
                               <Link to="/contact" className="md:block w-full">
-                                   <button className="px-6 py-3 rounded-md w-full bg-green-600 text-white font-semibold text-sm md:text-base lg:text-lg shadow-md cursor-pointer hover:bg-green-700 hover:shadow-lg hover:scale-105 transition-all duration-300 ease-out mt-6">GET A QUOTE</button>
+                                   <motion.button
+                                        layout={false}
+                                        variants={fadeUp}
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{ once: true, amount: 0.2 }}
+                                        className="px-6 py-3 rounded-md w-full bg-green-600 text-white font-semibold text-sm md:text-base lg:text-lg shadow-md cursor-pointer hover:bg-green-700 hover:shadow-lg hover:scale-105 transition-all duration-300 ease-out mt-6">GET A QUOTE</motion.button>
                               </Link>
                          </div>
 

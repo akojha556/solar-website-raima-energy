@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import choose from "../../assets/choose.jpg";
 import FeaturesSection from "../common/FeaturesSection";
+import { fadeLeft, fadeRight } from "../../animations/motionVariants";
 
-export default function WhyChooseUs({ fadeLeft, fadeRight }) {
+export default function WhyChooseUs() {
 
      return (
           <section className="py-16 bg-[#ffffff]">
@@ -28,7 +29,7 @@ export default function WhyChooseUs({ fadeLeft, fadeRight }) {
                     </motion.div>
                     {/* RIGHT SECTION */}
                     {/* Grid */}
-                    <FeaturesSection fadeLeft={fadeLeft} className="grid-cols-1" />
+                    <FeaturesSection className="grid-cols-1" />
                </div>
           </section>
      );

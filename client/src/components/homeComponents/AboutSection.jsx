@@ -2,8 +2,9 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import aboutImg from "../../assets/about.jpg"; // <-- REPLACE with your image
+import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 
-export default function AboutSection({ fadeUp, fadeLeft, fadeRight }) {
+export default function AboutSection() {
      const [customers, setCustomers] = useState(0);
      const [experience, setExperience] = useState(0);
      const [startCount, setStartCount] = useState(false);

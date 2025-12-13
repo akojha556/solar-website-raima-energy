@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import { fadeLeft, fadeRight } from "../../animations/motionVariants";
 
-export default function CTASection({ fadeLeft, fadeRight }) {
+export default function CTASection() {
      return (
           <section className="bg-green-600 text-white py-16 px-6 md:px-12 lg:px-20">
                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">

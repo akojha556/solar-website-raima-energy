@@ -11,14 +11,16 @@ import hero2 from "../../assets/hero2.jpeg";
 import hero3 from "../../assets/hero3.jpeg";
 import hero4 from "../../assets/hero4.jpeg";
 import hero5 from "../../assets/hero5.jpeg";
+import { fade } from "../../animations/motionVariants";
 
 const images = [hero1, hero2, hero3, hero4, hero5];
 
-export default function HeroSlider({ fadeUp }) {
+export default function HeroSlider() {
+
      return (
           <motion.div
                layout={false}
-               variants={fadeUp}
+               variants={fade}
                initial="hidden"
                whileInView="visible"
                viewport={{ once: true }}

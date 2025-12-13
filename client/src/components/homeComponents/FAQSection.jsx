@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 
-export default function FAQSection({ fadeUp, fadeLeft, fadeRight }) {
+export default function FAQSection() {
      const faqs1 = [
           {
                q: "What is a solar rooftop system and how does it work?",
