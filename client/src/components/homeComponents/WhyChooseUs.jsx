@@ -9,12 +9,13 @@ export default function WhyChooseUs({ fadeLeft, fadeRight }) {
                <div className="grid lg:grid-cols-2 grid-cols-1 gap-10 mx-auto max-w-7xl px-4  items-start">
                     {/* LEFT SECTION */}
                     <motion.div
-                         layout
+                         layout={false}
                          variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true }}
-                         className="px-4 flex flex-col items-center lg:block">
+                         className="px-4 flex flex-col items-center lg:block"
+                    >
                          {/* Heading */}
                          <h2 className="text-3xl md:text-4xl font-bold text-green-700">
                               Why Choose Us

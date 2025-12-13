@@ -16,7 +16,6 @@ const Navbar = () => {
           <img src={logo} alt="RaimaEnergy Logo" className="lg:h-30 w-auto h-25 sm:h-26" />
         </Link>
 
-
         {/* DESKTOP MENU */}
         <ul className="hidden md:flex md:items-center md:text-base lg:text-lg font-medium h-full">
           <li className="h-full">

@@ -7,7 +7,7 @@ export default function CTASection({ fadeLeft, fadeRight }) {
 
                     {/* Left Content */}
                     <motion.div
-                         layout
+                         layout={false}
                          variants={fadeLeft}
                          initial="hidden"
                          whileInView="visible"
@@ -28,7 +28,7 @@ export default function CTASection({ fadeLeft, fadeRight }) {
 
                     {/* Right Content - Optional Image */}
                     <motion.div
-                         layout
+                         layout={false}
                          variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"

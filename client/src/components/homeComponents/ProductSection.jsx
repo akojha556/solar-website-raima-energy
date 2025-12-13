@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import p1 from "../../assets/products/p1.jpg";
 import p2 from "../../assets/products/p2.jpg";
 import p3 from "../../assets/products/p3.jpg";
 import p4 from "../../assets/products/p4.jpg";
 import p5 from "../../assets/products/p5.jpg";
 import p6 from "../../assets/products/p6.jpg";
+import CallCTA from "../common/CallCTA";
 
 export default function ProductsSection({ fadeLeft, fadeRight }) {
      const products = [
@@ -25,7 +25,7 @@ export default function ProductsSection({ fadeLeft, fadeRight }) {
 
                     {/* LEFT TEXT SECTION */}
                     <motion.div
-                         layout
+                         layout={false}
                          variants={fadeLeft}
                          initial="hidden"
                          whileInView="visible"
@@ -46,36 +46,16 @@ export default function ProductsSection({ fadeLeft, fadeRight }) {
                               every home and business with innovative, durable, and sustainable products.
                          </p>
 
-                         {/* BUTTONS */}
-                         <div className="w-full flex flex-col items-center align-middle md:flex-row md:justify-center lg:justify-normal gap-2">
-
-                              {/* GET QUOTE BTN */}
-                              <Link to="/contact" className="w-full sm:w-auto">
-                                   <button className="w-full my-2 sm:w-auto px-4 py-2 rounded-md bg-green-600 text-white font-semibold text-sm md:text-base shadow hover:bg-green-700 hover:shadow-lg hover:scale-[1.03] transition-all duration-300 cursor-pointer">
-                                        GET A QUOTE
-                                   </button>
-                              </Link>
-
-                              {/* CALL NOW BTN */}
-                              <div>
-                                   <a
-                                        href="tel:+919876543210"
-                                        className="w-full sm:w-auto"
-                                   >
-                                        <button className="px-4 py-2 text-black font-semibold text-sm md:text-base hover:scale-[1.03] transition-all duration-300 cursor-pointer hover:text-blue-900 group">
-                                             <i className="fa-solid fa-phone mr-2 text-red-500 group-hover:text-blue-900"></i>
-                                             CALL NOW
-                                        </button>
-                                   </a>
-                              </div>
-
+                         {/* BUTTONS  */}
+                         <div className="w-full flex flex-col items-center md:flex-row md:justify-center lg:justify-normal gap-2">
+                              <CallCTA primaryText="GET A QUOTE" secondaryText="CALL NOW" primaryVariant="primary" secondaryVariant="ghost" secondaryIconClass="group-hover:text-blue-900" />
                          </div>
                     </motion.div>
 
 
                     {/* RIGHT PRODUCT GRID */}
                     <motion.div
-                         layout
+                         layout={false}
                          variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"

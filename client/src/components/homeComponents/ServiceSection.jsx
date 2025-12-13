@@ -13,7 +13,7 @@ export default function ServicesSection({ fadeUp }) {
      return (
           <section className="py-20 bg-white">
                <motion.div
-                    layout
+                    layout={false}
                     variants={fadeUp}
                     initial="hidden"
                     whileInView="visible"

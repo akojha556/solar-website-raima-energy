@@ -26,15 +26,16 @@ const FeaturesSection = ({ fadeLeft, className = "" }) => {
 
      return (
           <motion.div
-               layout
+               layout={false}
                variants={fadeLeft}
                initial="hidden"
                whileInView="visible"
-               viewport={{ once: true }} className={`grid gap-8 ${className}`}>
+               viewport={{ once: true }} className={`grid gap-8 ${className}`}
+          >
                {features.map((item, index) => (
                     <div
                          key={index}
-                         className="flex bg-white border border-green-100 shadow-sm hover:shadow-lg transition-all rounded-2xl p-6 hover:-translate-y-1"
+                         className="flex bg-white border border-green-100 shadow-sm hover:shadow-lg transition-all rounded-2xl p-6 hover:-translate-y-1 cursor-default"
                     >
                          {/* Font Awesome icon */}
                          <div className="text-3xl md:text-4xl text-green-600 mr-4">

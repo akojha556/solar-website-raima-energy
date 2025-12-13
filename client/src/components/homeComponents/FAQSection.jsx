@@ -56,7 +56,7 @@ export default function FAQSection({ fadeUp, fadeLeft, fadeRight }) {
                <div className="px-4 max-w-7xl md:px-12 mx-auto">
                     <div>
                          <motion.h1
-                              layout
+                              layout={false}
                               variants={fadeUp}
                               initial="hidden"
                               whileInView="visible"
@@ -64,7 +64,7 @@ export default function FAQSection({ fadeUp, fadeLeft, fadeRight }) {
                               className="text-3xl font-bold text-green-600 text-center mb-10">Frequently Asked Questions</motion.h1>
                          <div className="flex flex-col md:flex-row md:gap-4 justify-between">
                               <motion.div
-                                   layout
+                                   layout={false}
                                    variants={fadeRight}
                                    initial="hidden"
                                    whileInView="visible"
@@ -93,7 +93,7 @@ export default function FAQSection({ fadeUp, fadeLeft, fadeRight }) {
                                    })}
                               </motion.div>
                               <motion.div
-                                   layout
+                                   layout={false}
                                    variants={fadeLeft}
                                    initial="hidden"
                                    whileInView="visible"

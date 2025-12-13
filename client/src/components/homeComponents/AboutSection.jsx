@@ -65,7 +65,7 @@ export default function AboutSection({ fadeUp, fadeLeft, fadeRight }) {
 
                     {/* LEFT SIDE CONTENT */}
                     <motion.div
-                         layout
+                         layout={false}
                          variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"
@@ -98,7 +98,7 @@ export default function AboutSection({ fadeUp, fadeLeft, fadeRight }) {
 
                          {/* COUNTERS */}
                          <motion.div
-                              layout
+                              layout={false}
                               variants={fadeUp}
                               initial="hidden"
                               whileInView="visible"
@@ -127,7 +127,7 @@ export default function AboutSection({ fadeUp, fadeLeft, fadeRight }) {
 
                          {/* BUTTON */}
                          <motion.div
-                              layout
+                              layout={false}
                               variants={fadeUp}
                               initial="hidden"
                               whileInView="visible"
