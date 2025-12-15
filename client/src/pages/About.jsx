@@ -109,7 +109,7 @@ const About = () => {
 
       {/* CTA Section */}
       <section className="py-12">
-        <div className="max-w-7xl">
+        <div className="max-w-7xl mx-auto">
           <div className="relative md:min-h-110 lg:min-h-135 min-h-98">
             <img src={cta} alt="chontact-us" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/50"></div>

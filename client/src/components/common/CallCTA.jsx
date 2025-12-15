@@ -13,7 +13,7 @@ const CallCTA = ({ primaryText, secondaryText, primaryVariant, secondaryVariant,
 
                {/* CALL NOW */}
                <div>
-                    <a href="tel:+919876543210" className="w-full sm:w-auto">
+                    <a href="tel:+916033322529" className="w-full sm:w-auto">
                          <Button variant={secondaryVariant}>
                               <i className={`fa-solid fa-phone transition-colors duration-300 mr-2 text-red-500 ${secondaryIconClass}`}></i>
                               {secondaryText}

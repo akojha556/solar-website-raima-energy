@@ -39,11 +39,11 @@ const Footer = () => {
                                    <div className="flex flex-wrap">
                                         <p className="hover:text-white group flex gap-2 min-w-fit">
                                              <i className="text-red-400 group-hover:text-red-500 fa-solid fa-phone pt-1"></i>
-                                             <a className="min-w-fit" href="tel:+916033322521">
+                                             <a className="min-w-fit" href="tel:+916033322529">
                                                   +91 60333 22529
                                              </a>
                                              <span>/</span>
-                                             <a className="min-w-fit" href="tel:+916033322521">
+                                             <a className="min-w-fit" href="tel:+916033322530">
                                                   60333 22530
                                              </a>
                                         </p>
