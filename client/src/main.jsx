@@ -8,11 +8,13 @@ import About from "./pages/About";
 import Products from "./pages/Products"
 import Contact from "./pages/Contact";
 import Faq from "./pages/Faq.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFound />,
     children: [
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
