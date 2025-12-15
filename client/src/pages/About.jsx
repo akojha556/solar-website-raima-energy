@@ -124,7 +124,7 @@ const About = () => {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.2 }}
                   className="flex flex-col md:flex-row items-center">
-                  <CallCTA primaryText="Contact Us" secondaryText="+916033322521" primaryVariant="primary" secondaryVariant="ghostWhite" secondaryIconClass="group-hover:text-white" />
+                  <CallCTA primaryText="Contact Us" secondaryText="+916033322529" primaryVariant="primary" secondaryVariant="ghostWhite" secondaryIconClass="group-hover:text-white" />
                 </motion.div>
               </div>
             </div>
