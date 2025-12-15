@@ -77,7 +77,7 @@ const Footer = () => {
                                    <div className="flex">
                                         <div className="hover:text-white group flex items-center gap-2">
                                              <i className="text-red-400 group-hover:text-red-500 fa-solid fa-clock"></i>
-                                             <span>Mon - Sat: 10 AM - 9 PM</span>
+                                             <span>Mon - Sat: 10 AM - 6 PM</span>
                                         </div>
                                    </div>
 

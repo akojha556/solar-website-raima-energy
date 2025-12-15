@@ -29,22 +29,26 @@ const ContactSection = () => {
                                    <div className="flex items-start gap-4">
                                         <i className="fa-solid fa-location-dot text-green-600 text-lg"></i>
                                         <p className="text-gray-700">
-                                             Bhubaneswar, Odisha, India
+                                             T G Road, Ramnagar 2/3, Agartala, West Tripura, 799002
                                         </p>
                                    </div>
 
-                                   <div className="flex items-start gap-4">
-                                        <i className="fa-solid fa-phone text-green-600 text-lg"></i>
-                                        <p className="text-gray-700">
-                                             +91 98765 43210
+                                   <div className="flex gap-4 items-start">
+                                        <p className="flex gap-2 min-w-fit">
+                                             <i className="text-green-600 fa-solid fa-phone pt-1"></i>
+                                             <a className="min-w-fit text-gray-700" href="tel:+916033322521">
+                                                  +91 60333 22529
+                                             </a>
+                                             <span>/</span>
+                                             <a className="min-w-fit text-gray-700" href="tel:+916033322521">
+                                                  60333 22530
+                                             </a>
                                         </p>
                                    </div>
 
-                                   <div className="flex items-start gap-4">
-                                        <i className="fa-solid fa-envelope text-green-600 text-lg"></i>
-                                        <p className="text-gray-700">
-                                             info@yourcompany.com
-                                        </p>
+                                   <div className="flex gap-4 items-start">
+                                        <i className="text-green-600 fa-solid fa-envelope pt-1"></i>
+                                        <a href="mailto:team@raimaenergy.com" className="text-gray-700">team@raimaenergy.com</a>
                                    </div>
 
                                    <div className="flex items-start gap-4">

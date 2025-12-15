@@ -1,67 +1,13 @@
-import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import aboutImg from "../../assets/page-hero-bg.jpg"
 import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
+import AboutHighlights from "../common/AboutHighlights";
 
 export default function AboutSection() {
-     const [customers, setCustomers] = useState(0);
-     const [experience, setExperience] = useState(0);
-     const [startCount, setStartCount] = useState(false);
-
-     const sectionRef = useRef(null);
-
-     // Detect when About section enters Viewport
-     useEffect(() => {
-          const observer = new IntersectionObserver(
-               (entries) => {
-                    if (entries[0].isIntersecting) {
-                         setStartCount(true);
-                    }
-               },
-               { threshold: 0.4 }
-          );
-
-          if (sectionRef.current) observer.observe(sectionRef.current);
-
-          return () => observer.disconnect();
-     }, []);
-
-     // Start counters
-     useEffect(() => {
-          if (!startCount) return;
-
-          const customerTarget = 2500;
-          const experienceTarget = 50;
-
-          let customerInterval = setInterval(() => {
-               setCustomers((prev) => {
-                    if (prev >= customerTarget) {
-                         clearInterval(customerInterval);
-                         return customerTarget;
-                    }
-                    return prev + Math.floor(customerTarget / 40);
-               });
-          }, 40);
-
-          let experienceInterval = setInterval(() => {
-               setExperience((prev) => {
-                    if (prev >= experienceTarget) {
-                         clearInterval(experienceInterval);
-                         return experienceTarget;
-                    }
-                    return prev + 2;
-               });
-          }, 80);
-
-          return () => {
-               clearInterval(customerInterval);
-               clearInterval(experienceInterval);
-          };
-     }, [startCount]);
 
      return (
-          <section ref={sectionRef} className="py-20 bg-[#f3fff5]">
+          <section className="py-20 bg-[#f3fff5]">
                <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
                     {/* LEFT SIDE CONTENT */}
@@ -97,34 +43,7 @@ export default function AboutSection() {
                               </p>
                          </div>
 
-                         {/* COUNTERS */}
-                         <motion.div
-                              layout={false}
-                              variants={fadeUp}
-                              initial="hidden"
-                              whileInView="visible"
-                              viewport={{ once: true }}
-                              className="grid grid-cols-2 gap-5">
-
-                              <div className="bg-[#f3fff5] p-6 rounded-xl shadow-sm border border-green-100 text-center">
-                                   <h3 className="text-3xl md:text-4xl font-bold text-green-700">
-                                        {customers}+
-                                   </h3>
-                                   <p className="text-green-600 font-semibold mt-2 text-sm md:text-base">
-                                        Satisfied Customers
-                                   </p>
-                              </div>
-
-                              <div className="bg-[#f3fff5] p-6 rounded-xl shadow-sm border border-green-100 text-center">
-                                   <h3 className="text-3xl md:text-4xl font-bold text-green-700">
-                                        {experience}+
-                                   </h3>
-                                   <p className="text-green-600 font-semibold mt-2 text-sm md:text-base">
-                                        Years of Experience
-                                   </p>
-                              </div>
-
-                         </motion.div>
+                         <AboutHighlights />
 
                          {/* BUTTON */}
                          <motion.div
