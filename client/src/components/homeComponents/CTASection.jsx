@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeLeft, fadeRight } from "../../animations/motionVariants";
 
@@ -22,8 +23,8 @@ export default function CTASection() {
                               Our experts are here to guide you every step of the way.
                          </p>
 
-                         <button className="bg-white text-green-600 font-semibold px-8 py-3 rounded-md shadow-md hover:bg-gray-200 transition duration-300 cursor-pointer">
-                              Contact Us
+                         <button>
+                              <Link to="/contact" className="bg-white text-green-600 font-semibold px-8 py-3 rounded-md shadow-md hover:bg-gray-200 transition duration-300 cursor-pointer">Contact Us</Link>
                          </button>
                     </motion.div>
 

@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectFade, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 //importing images
-import hero1 from "../../assets/hero1.jpeg";
-import hero2 from "../../assets/hero2.jpeg";
-import hero3 from "../../assets/hero3.jpeg";
-import hero4 from "../../assets/hero4.jpeg";
-import hero5 from "../../assets/hero5.jpeg";
+import hero1 from "../../assets/heroSlider/hero1.png";
+import hero2 from "../../assets/heroSlider/hero2.png";
+import hero3 from "../../assets/heroSlider/hero3.png";
+import hero4 from "../../assets/heroSlider/hero4.png";
+import hero5 from "../../assets/heroSlider/hero5.png";
 import { fade } from "../../animations/motionVariants";
 
 const images = [hero1, hero2, hero3, hero4, hero5];
@@ -45,32 +46,35 @@ export default function HeroSlider() {
                     loop={true}
                     className="h-full w-full"
                >
+
                     {images.map((image, index) => {
                          return (<SwiperSlide key={index}>
                               <div className="w-full h-full relative">
                                    {/* Background Image */}
                                    <img src={image} alt={`solar${index + 1}`} className="w-full h-full object-cover" />
-                                   <div className="absolute inset-0 bg-green-600 opacity-30"></div>
+                                   {/* OVERLAY */}
+                                   <div className="absolute inset-0 bg-linear-to-b from-black/35 to-black/15"></div>
+
                                    {/* TEXT CONTENT */}
                                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-                                        <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">
+                                        <h1 className="text-4xl md:text-6xl font-bold drop-shadow-xl">
                                              Power Your Future With Clean Energy
                                         </h1>
-
-                                        <p className="mt-4 text-lg md:text-xl max-w-2xl">
-                                             Premium solar solutions for homes and businesses.
+                                        <p className="mt-4 text-lg md:text-xl max-w-2xl drop-shadow-2xl">
+                                             We design and install high-performance solar power systems tailored for residential, commercial, and industrial needs across the North-East.
                                         </p>
 
                                         <div className="mt-6 flex gap-4">
-                                             <button className="bg-white text-green-700 px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition cursor-pointer">
-                                                  View Products
+                                             <button>
+                                                  <Link to="/products" className="h-full w-full px-6 py-2 bg-white text-green-700 rounded-md font-semibold hover:bg-gray-200 transition cursor-pointer">View Products</Link>
                                              </button>
 
-                                             <button className="border border-white px-6 py-2 rounded-md font-semibold hover:bg-white hover:text-green-700 transition cursor-pointer">
-                                                  Contact Us
+                                             <button>
+                                                  <Link to="/contact" className="w-full h-full px-6 py-2 border border-white rounded-md font-semibold hover:bg-white hover:text-green-700 transition cursor-pointer">Contact Us</Link>
                                              </button>
                                         </div>
                                    </div>
+
                               </div>
                          </SwiperSlide>)
                     })}

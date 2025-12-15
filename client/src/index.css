@@ -4,15 +4,10 @@
 @import 'swiper/css/pagination';
 @import 'swiper/css/effect-fade';
 
-@layer base {
-  body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-}
-
 html,
 body {
   overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
 }
 
 @keyframes slideDown {

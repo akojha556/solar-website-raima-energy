@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import story from "../assets/story.jpg";
 import mission from "../assets/mission.jpg";
@@ -29,6 +30,8 @@ const About = () => {
     }
   ];
 
+  const MotionLink = motion(Link);
+
   return (
     <div className="bg-[#f3fff5]">
 
@@ -45,17 +48,25 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="flex flex-col lg:flex-2 gap-4">
+            className="flex flex-col lg:flex-2 gap-4"
+          >
             <h2 className="text-green-600 text-2xl md:text-3xl font-bold">The Raima Energy Story</h2>
             <p className="text-gray-600">
               Raima Energy is a leading provider of solar energy solutions in the North East, offering end-to-end services for residential, commercial, and institutional clients. With a strong commitment to sustainability and innovation, we align with key national initiatives, including the PM SuryaGhar Muft Bijli Yojana, to accelerate the region's transition to renewable energy.
 
               We deliver reliable, efficient, and cost-effective solar systems backed by professional service, technical expertise, and a customer-first approach. Our vision is to establish Raima Energy as the preferred solar partner across the North East, contributing to long-term energy security and environmental responsibility.</p>
-            <motion.button
-              layout
-              whileHover={{ scale: 1.1 }}
+
+            <MotionLink
+              to="/contact"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full py-2 my-4 text-green-600 border border-green-400 hover:bg-green-400 cursor-pointer transition-colors hover:text-white md:mt-8">Contact Us</motion.button>
+              className="inline-flex items-center justify-center px-6 py-2 mt-8
+             text-green-600 border border-green-400 rounded-md
+             hover:bg-green-400 hover:text-white transition-colors"
+            >
+              Contact Us
+            </MotionLink>
+
           </motion.div>
           {/* RIGHT SECTION */}
           <div className="lg:flex-3">
