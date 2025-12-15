@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import aboutImg from "../../assets/about.jpg"; // <-- REPLACE with your image
+import aboutImg from "../../assets/page-hero-bg.jpg"
 import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 
 export default function AboutSection() {

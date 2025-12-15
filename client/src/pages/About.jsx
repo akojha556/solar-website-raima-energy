@@ -1,13 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import about from "../assets/about.jpg";
 import story from "../assets/story.jpg";
 import mission from "../assets/mission.jpg";
 import cta from "../assets/cta.jpg";
 import chooseAbout from "../assets/chooseAbout.jpg"
 import FeaturesSection from "../components/common/FeaturesSection";
 import CallCTA from "../components/common/CallCTA";
-import { fade, fadeRight, fadeDown, fadeUp } from "../animations/motionVariants";
+import { fadeRight, fadeDown, fadeUp } from "../animations/motionVariants";
+import PageHero from "../components/common/PageHero";
 
 const About = () => {
   const missionPoints = [
@@ -33,17 +33,7 @@ const About = () => {
     <div className="bg-[#f3fff5]">
 
       {/* ABOUT HERO */}
-      <motion.section
-        layout={false}
-        variants={fade}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="relative h-80 lg:h-120 flex items-center justify-center">
-        <img src={about} className="absolute inset-0 object-cover h-full w-full" />
-        <div className="absolute inset-0 bg-black/50"></div>
-        <h1 className="text-white text-3xl md:text-4xl font-bold text-center z-10 pt-40">About Us</h1>
-      </motion.section>
+      <PageHero heading="About" />
 
       {/* STORY SECTION */}
       <section className="py-6">
