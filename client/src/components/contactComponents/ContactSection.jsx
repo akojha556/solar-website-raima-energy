@@ -13,7 +13,7 @@ const ContactSection = () => {
                               variants={fadeUp}
                               initial="hidden"
                               whileInView="visible"
-                              viewport={{ once: true, amount: 0.6 }}
+                              viewport={{ once: true }}
                          >
                               <h2 className="text-2xl font-bold text-gray-900">
                                    Get in Touch
@@ -67,7 +67,7 @@ const ContactSection = () => {
                                    variants={fadeLeft}
                                    initial="hidden"
                                    whileInView="visible"
-                                   viewport={{ once: true, amount: 0.6 }}
+                                   viewport={{ once: true }}
                                    className="space-y-5"
                               >
                                    {/* Full Name - REQUIRED */}

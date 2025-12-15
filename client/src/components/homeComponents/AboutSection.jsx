@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import aboutImg from "../../assets/page-hero-bg.jpg"
+import aboutImg from "../../assets/page-hero-bg.png"
 import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 import AboutHighlights from "../common/AboutHighlights";
 

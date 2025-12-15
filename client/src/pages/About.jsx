@@ -33,7 +33,7 @@ const About = () => {
     <div className="bg-[#f3fff5]">
 
       {/* ABOUT HERO */}
-      <PageHero heading="About" />
+      <PageHero heading="About Us" />
 
       {/* STORY SECTION */}
       <section className="py-6">
@@ -44,7 +44,7 @@ const About = () => {
             variants={fadeRight}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col lg:flex-2 gap-4">
             <h2 className="text-green-600 text-2xl md:text-3xl font-bold">The Raima Energy Story</h2>
             <p className="text-gray-600">
@@ -90,7 +90,7 @@ const About = () => {
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="absolute top-4/5 md:top-2/3 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl">
               {missionPoints.map((point, index) => {
                 return (

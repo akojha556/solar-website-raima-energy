@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { productList } from "../../data/productList";
 
-const MobileProductDropdown = ({ openMenu, toggleMenu }) => {
+const MobileProductDropdown = ({ openMenu, toggleMenu, setIsOpen }) => {
   const isOpen = openMenu === "products";
 
   return (
@@ -20,7 +20,7 @@ const MobileProductDropdown = ({ openMenu, toggleMenu }) => {
 
       {/* Dropdown */}
       <div
-        className={`overflow-hidden transition-all duration-400 ease-out ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        className={`overflow-hidden transition-all duration-400 ease-out ${isOpen ? "max-h-125 opacity-100" : "max-h-0 opacity-0"
           }`}
       >
         <ul className="pl-5 mt-2 space-y-1">
@@ -38,6 +38,20 @@ const MobileProductDropdown = ({ openMenu, toggleMenu }) => {
               </Link>
             </li>
           ))}
+          {/* View All Products */}
+          <li className="pt-2 mt-2 border-t border-green-200">
+            <Link
+              onClick={() => {
+                setIsOpen(false);
+                toggleMenu(null);
+              }}
+              to="/products"
+              className="group/menu flex items-center py-2 pr-3 text-[14px] font-semibold text-green-600 active:text-green-700 transition-all"
+            >
+              View All Products
+              <i className="fa-solid fa-arrow-right ml-1 mt-1 inline-block transition-transform duration-200 group-active/menu:translate-x-2 text-xs"></i>
+            </Link>
+          </li>
         </ul>
       </div>
     </li>

@@ -30,17 +30,38 @@ const ProductDropdown = () => {
                          <i className={"fa-solid fa-caret-down ml-1 transition-transform duration-200 group-hover:rotate-180 " + (productOpen ? "rotate-180" : "")}></i>
                     </button>
                     {/* dropdown menu */}
-                    <ul className={`absolute left-0 top-full z-50 mt-1 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible transform md:group-hover:opacity-100 md:group-hover:-translate-y-1 md:group-hover:visible transition-all duration-300 ease-out ${productOpen ? "opacity-100 -translate-y-1 visible" : "translate-y-2"}`}>
+                    <ul
+                         className={`absolute left-0 top-full z-50 mt-2 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible transform md:group-hover:opacity-100 md:group-hover:-translate-y-2 md:group-hover:visible transition-all duration-300 ease-out ${productOpen ? "opacity-100 -translate-y-2 visible" : "translate-y-2"}`}
+                    >
                          {productList.map((item, index) => (
                               <li key={index}>
-                                   <Link
+                                   <Link onClick={() => setProductOpen(false)}
                                         to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
-                                        className="block px-4 py-2 hover:pl-5 text-base md:text-sm lg:text-base hover:bg-[#8bd158] transition-all duration-300">
+                                        className="block px-4 py-2 text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
+                                   >
                                         {item}
                                    </Link>
                               </li>
+
                          ))}
+
+                         {/* Divider */}
+                         <li className="border-t my-1"></li>
+
+                         {/* View All */}
+                         <li>
+                              <Link
+                                   onClick={() => setProductOpen(false)}
+                                   to="/products"
+                                   className="group/menu flex items-center px-4 py-2 text-sm font-semibold text-green-600 hover:bg-green-50 transition-all rounded-md"
+                              >
+                                   View All Products
+                                   <i className="fa-solid fa-arrow-right ml-1 mt-1 inline-block transition-transform duration-200 group-hover/menu:translate-x-2 text-xs"></i>
+                              </Link>
+                         </li>
+
                     </ul>
+
 
                </li>
           </>

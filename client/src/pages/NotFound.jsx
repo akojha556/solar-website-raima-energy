@@ -13,8 +13,8 @@ const NotFound = () => {
                     </h2>
 
                     <p className="text-gray-600 mb-6">
-                         The page you’re looking for doesn’t exist or may have been moved.
-                         Don’t worry — you can continue exploring our website below.
+                         The page you're looking for doesn't exist or may have been moved.
+                         Don't worry — you can continue exploring our website below.
                     </p>
 
                     {/* Action Buttons */}
@@ -27,7 +27,7 @@ const NotFound = () => {
                          </Link>
 
                          <a
-                              href="https://wa.me/9436389597"
+                              href="https://wa.me/6033322529"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="px-6 py-3 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition"

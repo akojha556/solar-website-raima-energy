@@ -92,11 +92,11 @@ const Footer = () => {
                               {/* SOCIAL ICONS */}
                               <div className="flex items-center gap-4 mt-8">
                                    <a href="https://www.facebook.com/share/1D8NwXwRCG/" target="_blank" className="hover:opacity-80">
-                                        <i className="hover:text-blue-500 transition text-3xl fa-brands fa-facebook"></i>
+                                        <i className="hover:text-blue-500 transition-all hover:scale-110 text-3xl fa-brands fa-facebook"></i>
                                    </a>
 
-                                   <a href="https://instagram.com" target="_blank" className="hover:opacity-80">
-                                        <i className="hover:text-pink-500 transition text-3xl fa-brands fa-instagram"></i>
+                                   <a href="https://wa.me/6033322529" target="_blank" className="hover:opacity-80">
+                                        <i className="hover:text-green-500 transition-all hover:scale-110 text-3xl fa-brands fa-whatsapp"></i>
                                    </a>
                               </div>
                          </div>

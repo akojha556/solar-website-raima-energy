@@ -72,8 +72,8 @@ const MobileMenuDropdown = () => {
                               </li>
 
                               {/* Dropdowns */}
-                              <MobileProductDropdown openMenu={openMenu} toggleMenu={toggleMenu} />
-                              <MobileServiceDropdown openMenu={openMenu} toggleMenu={toggleMenu} />
+                              <MobileProductDropdown openMenu={openMenu} toggleMenu={toggleMenu} setIsOpen={setIsOpen} />
+                              <MobileServiceDropdown openMenu={openMenu} toggleMenu={toggleMenu} setIsOpen={setIsOpen} />
 
                               {/* Contact */}
                               <li>

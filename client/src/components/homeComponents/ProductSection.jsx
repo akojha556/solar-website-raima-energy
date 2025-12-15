@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import p1 from "../../assets/products/p1.jpg";
-import p2 from "../../assets/products/p2.jpg";
-import p3 from "../../assets/products/p3.jpg";
-import p4 from "../../assets/products/p4.jpg";
-import p5 from "../../assets/products/p5.jpg";
-import p6 from "../../assets/products/p6.jpg";
+import p1 from "../../assets/products/p1.png";
+import p2 from "../../assets/products/p2.png";
+import p3 from "../../assets/products/p3.png";
+import p4 from "../../assets/products/p4.png";
+import p5 from "../../assets/products/p5.png";
+import p6 from "../../assets/products/p6.png";
 import CallCTA from "../common/CallCTA";
 import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 
