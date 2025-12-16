@@ -6,6 +6,7 @@ import ServicesSection from "../components/homeComponents/ServiceSection";
 import AboutSection from "../components/homeComponents/AboutSection";
 import FAQSection from "../components/homeComponents/FAQSection";
 import CTASection from "../components/homeComponents/CTASection";
+import TestimonialSection from "../components/homeComponents/TestimonialSection";
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
       <ProductsSection />
       <ServicesSection />
       <AboutSection />
+      <TestimonialSection />
       <FAQSection />
       <CTASection />
     </div>

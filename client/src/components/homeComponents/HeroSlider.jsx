@@ -28,10 +28,10 @@ export default function HeroSlider() {
                className="relative w-full h-[95vh] md:h-[90vh]">
                {/* CUSTOM BUTTONS */}
                <button className="custom-prev absolute left-5 top-1/2 z-50 text-5xl -translate-y-1/2 cursor-pointer opacity-50 hover:opacity-30 hidden md:block">
-                    <i class="fa-solid fa-chevron-left"></i>
+                    <i className="fa-solid fa-chevron-left"></i>
                </button>
                <button className="custom-next cursor-pointer transform absolute right-5 top-1/2 -translate-y-1/2 z-50 text-5xl opacity-50 hover:opacity-30 hidden md:block">
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <i className="fa-solid fa-chevron-right"></i>
                </button>
 
                <Swiper

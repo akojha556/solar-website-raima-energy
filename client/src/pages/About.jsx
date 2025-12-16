@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import story from "../assets/story.jpg";
 import mission from "../assets/mission.jpg";
 import cta from "../assets/cta.jpg";
-import chooseAbout from "../assets/chooseAbout.jpg"
+import chooseAbout from "../assets/chooseAbout.jpg";
 import FeaturesSection from "../components/common/FeaturesSection";
 import CallCTA from "../components/common/CallCTA";
 import { fadeRight, fadeDown, fadeUp } from "../animations/motionVariants";
