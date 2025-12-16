@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logojpg.png";
+import logo from "../../assets/logojpg.jpg";
 import { motion } from "framer-motion";
 import { fade, fadeUp } from "../../animations/motionVariants";
 
