@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
+import ProductDetails from "./pages/products/ProductDetails.jsx";
 import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact";
 import Faq from "./pages/Faq.jsx";
@@ -17,14 +18,15 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <NotFound />,
     children: [
-      { path: "/", element: <Home /> },
+      { index: true, element: <Home /> },
       { path: "/about", element: <About /> },
       { path: "/products", element: <Products /> },
+      { path: "/products/:slug", element: <ProductDetails /> },
       { path: "/services", element: <Services /> },
       { path: "/contact", element: <Contact /> },
       { path: "/faq", element: <Faq /> },
+      { path: "*", element: <NotFound /> }
     ]
   }
 ])

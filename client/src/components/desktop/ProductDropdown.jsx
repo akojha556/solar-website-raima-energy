@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { productList } from "../../data/productList";
+import { productsData } from "../../data/productsData";
 
 const ProductDropdown = () => {
      const [productOpen, setProductOpen] = useState(false);
@@ -33,13 +33,13 @@ const ProductDropdown = () => {
                     <ul
                          className={`absolute left-0 top-full z-50 mt-2 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible transform md:group-hover:opacity-100 md:group-hover:-translate-y-2 md:group-hover:visible transition-all duration-300 ease-out ${productOpen ? "opacity-100 -translate-y-2 visible" : "translate-y-2"}`}
                     >
-                         {productList.map((item, index) => (
-                              <li key={index}>
+                         {productsData.map((item) => (
+                              <li key={item.slug}>
                                    <Link onClick={() => setProductOpen(false)}
-                                        to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
+                                        to={`/products/${item.slug}`}
                                         className="block px-4 py-2 text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
                                    >
-                                        {item}
+                                        {item.title}
                                    </Link>
                               </li>
 

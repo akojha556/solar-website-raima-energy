@@ -1,8 +1,15 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeUp } from "../../animations/motionVariants";
 
 const ContactMap = () => {
      return (
-          <section className="py-20 bg-[#f3fff5]">
+          <motion.section
+               variants={fadeUp}
+               initial="hidden"
+               whileInView="visible"
+               viewport={{ once: true }}
+               className="py-20 bg-[#f3fff5]">
                <div className="max-w-7xl mx-auto px-6">
                     <div className="mb-8 text-center">
                          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -24,7 +31,7 @@ const ContactMap = () => {
                          ></iframe>
                     </div>
                </div>
-          </section>
+          </motion.section>
      );
 };
 

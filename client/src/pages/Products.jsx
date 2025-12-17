@@ -4,7 +4,7 @@ import SectionCTA from "../components/common/SectionCTA";
 
 const Products = () => {
   return (
-    <div>
+    <div className="bg-[#f3fff5]">
       <SectionHero title="Our Products" subtitle="Explore our range of high-quality solar products designed for residential, commercial, and industrial applications." />
       <ProductGrid />
       <SectionCTA

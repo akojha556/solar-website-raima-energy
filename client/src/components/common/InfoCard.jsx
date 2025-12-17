@@ -1,6 +1,9 @@
-const InfoCard = ({ title, info, img, alt }) => {
+import { Link } from "react-router-dom";
+
+const InfoCard = ({ title, info, img, alt, slug }) => {
      return (
-          <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <Link to={`/products/${slug}`}
+          className="group bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 block">
 
                {/* Image */}
                <div className="relative h-58 w-full overflow-hidden bg-gray-50">
@@ -20,13 +23,15 @@ const InfoCard = ({ title, info, img, alt }) => {
                     <p className="text-sm text-gray-600 leading-relaxed mb-4">
                          {info}
                     </p>
+                    <Link to={`/products/${slug}`}>
+                         <button className="inline-flex items-center text-green-600 font-medium text-sm hover:text-green-700 transition cursor-pointer">
+                              Enquire Now
+                              <i className="fa-solid fa-arrow-right ml-1 mt-1 inline-block transition-transform duration-200 group-hover:translate-x-2 text-xs"></i>
+                         </button>
+                    </Link>
 
-                    <button className="inline-flex items-center text-green-600 font-medium text-sm hover:text-green-700 transition cursor-pointer">
-                         Enquire Now
-                         <i className="fa-solid fa-arrow-right ml-1 mt-1 inline-block transition-transform duration-200 group-hover:translate-x-2 text-xs"></i>
-                    </button>
                </div>
-          </div>
+          </Link>
      );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { productList } from "../../data/productList";
+import { productsData } from "../../data/productsData";
 
 const MobileProductDropdown = ({ openMenu, toggleMenu, setIsOpen }) => {
   const isOpen = openMenu === "products";
@@ -24,17 +24,21 @@ const MobileProductDropdown = ({ openMenu, toggleMenu, setIsOpen }) => {
           }`}
       >
         <ul className="pl-5 mt-2 space-y-1">
-          {productList.map((name, i) => (
+          {productsData.map((name, i) => (
             <li
               key={i}
               className="transition-all duration-300 hover:translate-x-1"
               style={{ transitionDelay: `${i * 25}ms` }}
             >
               <Link
-                to={`/products/${name.toLowerCase().replace(/ /g, "-")}`}
+                to={`/products/${name.slug}`}
+                onClick={() => {
+                  setIsOpen(false);
+                  toggleMenu(null);
+                }}
                 className="block py-1.5 pr-3 text-[14px] text-gray-700 hover:text-green-700"
               >
-                {name}
+                {name.title}
               </Link>
             </li>
           ))}

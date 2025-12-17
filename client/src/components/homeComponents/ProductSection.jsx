@@ -1,23 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import p1 from "../../assets/products/p1.png";
-import p2 from "../../assets/products/p2.png";
-import p3 from "../../assets/products/p3.png";
-import p4 from "../../assets/products/p4.png";
-import p5 from "../../assets/products/p5.png";
-import p6 from "../../assets/products/p6.png";
 import CallCTA from "../common/CallCTA";
 import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
+import { productsData } from "../../data/productsData";
+import { Link } from "react-router-dom";
 
 export default function ProductsSection() {
-     const products = [
-          { name: "Residential Rooftop Solar Power Plant", img: p1 },
-          { name: "Commercial Solar Power Plant", img: p2 },
-          { name: "Solar Pumps", img: p3 },
-          { name: "Solar Street Lights", img: p4 },
-          { name: "Solar Panel", img: p5 },
-          { name: "Solar Ongrid Inverter", img: p6 },
-     ];
 
      return (
           <section className="py-16 bg-[#f3fff5]">
@@ -68,24 +56,27 @@ export default function ProductsSection() {
                          whileInView="visible"
                          viewport={{ once: true }}
                          className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                         {products.map((product, i) => (
-                              <div
-                                   key={i}
-                                   className="group bg-white px-2 py-6 shadow-sm border border-green-100 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
-                              >
-                                   <div className="overflow-hidden">
-                                        <img
-                                             src={product.img}
-                                             alt={product.name}
-                                             className="w-full h-40 object-cover group-hover:scale-110 transition-all duration-300"
-                                        />
-                                   </div>
+                         {productsData.slice(0, 6).map((product, i) => {
+                              return (
+                                   <Link to={`/products/${product.slug}`}
+                                   aria-label={`View details of ${product.title}`}
+                                        key={product.slug}
+                                        className="block group bg-white px-2 py-6 shadow-sm border border-green-100 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
+                                   >
+                                        <div className="overflow-hidden">
+                                             <img
+                                                  src={product.images.main}
+                                                  alt={product.title}
+                                                  className="w-full h-40 object-cover group-hover:scale-110 transition-all duration-300"
+                                             />
+                                        </div>
 
-                                   <h4 className="text-center mt-2 sm:mt-3 text-green-700 font-semibold text-sm sm:text-base leading-tight">
-                                        {product.name}
-                                   </h4>
-                              </div>
-                         ))}
+                                        <h4 className="text-center mt-2 sm:mt-3 text-green-700 font-semibold text-sm sm:text-base leading-tight">
+                                             {product.title}
+                                        </h4>
+                                   </Link>
+                              );
+                         })}
                     </motion.div>
                     <div className="text-center lg:hidden">
                          <button className="px-4 py-2 cursor-pointer rounded-md w-fit transform transition-all text-green-600 hover:scale-[1.03] border text-xs">Explore Products</button>

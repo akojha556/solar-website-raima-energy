@@ -17,8 +17,8 @@ const Footer = () => {
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true, amount: 0.5 }}
-                         className="absolute -top-20 left-1/2 transform -translate-x-1/2 z-10">
-                         <img src={logo} alt="RaimaEnergy Logo" className="w-auto h-26 md:h-28" />
+                         className="absolute -top-25 left-1/2 transform -translate-x-1/2 z-10">
+                         <Link to="/"><img src={logo} alt="RaimaEnergy Logo" className="w-auto h-26 md:h-28" /></Link>
                     </motion.div>
 
                     {/* GRID */}

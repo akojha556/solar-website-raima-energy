@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
      return (
-          <section className="min-h-[70vh] flex items-center justify-center px-6 bg-white">
+          <section className="min-h-[70vh] flex items-center justify-center px-6 bg-[#f3fff5]">
                <div className="text-center max-w-xl">
                     {/* Error Code */}
                     <h1 className="text-7xl font-bold text-green-600 mb-4">404</h1>
@@ -14,7 +14,7 @@ const NotFound = () => {
 
                     <p className="text-gray-600 mb-6">
                          The page you're looking for doesn't exist or may have been moved.
-                         Don't worry — you can continue exploring our website below.
+                         Don't worry — you can continue exploring our website.
                     </p>
 
                     {/* Action Buttons */}
@@ -34,27 +34,6 @@ const NotFound = () => {
                          >
                               WhatsApp Us
                          </a>
-                    </div>
-
-                    {/* Popular Links */}
-                    <div className="text-sm text-gray-500">
-                         <p className="mb-2 font-medium text-gray-700">
-                              Popular pages:
-                         </p>
-                         <div className="flex flex-wrap justify-center gap-4">
-                              <Link to="/about" className="hover:text-green-600 transition">
-                                   About Us
-                              </Link>
-                              <Link to="/products" className="hover:text-green-600 transition">
-                                   Products
-                              </Link>
-                              <Link to="/contact" className="hover:text-green-600 transition">
-                                   Contact
-                              </Link>
-                              <Link to="/faq" className="hover:text-green-600 transition">
-                                   FAQ
-                              </Link>
-                         </div>
                     </div>
                </div>
           </section>

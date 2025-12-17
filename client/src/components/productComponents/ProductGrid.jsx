@@ -5,19 +5,20 @@ import { productsData } from "../../data/productsData";
 
 const ProductGrid = () => {
      return (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-6 max-w-7xl mx-auto bg-[#f3fff5]">
                {productsData.map((product) => (
                     <motion.div
+                         key={product.slug}
                          variants={cardInView}
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true, amount: 0.3 }}
                     >
                          <InfoCard
-                              key={product.slug}
                               title={product.title}
                               info={product.shortDesc}
-                              img={product.image}
+                              img={product.images.main}
+                              slug={product.slug}
                          />
                     </motion.div>
                ))}
