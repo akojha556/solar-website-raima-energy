@@ -121,7 +121,7 @@ const ProductDetails = () => {
                                         Types of {product.title}
                                    </h3>
 
-                                   <ul className="mt-6 space-y-4 text-gray-700 max-w-2xl mx-auto">
+                                   <ul className="mt-6 space-y-4 text-gray-700 max-w-3xl mx-auto">
                                         {product.types.map((type, index) => (
                                              <li key={index} className="flex items-start gap-3">
                                                   <span className=" text-green-600">
@@ -159,7 +159,7 @@ const ProductDetails = () => {
                                    <img
                                         src={product.images.main}
                                         alt={product.title}
-                                        className="w-full h-full object-cover rounded-2xl shadow-md"
+                                        className="w-full h-95 lg:h-160 object-cover rounded-2xl shadow-md"
                                    />
                               </div>
 
@@ -185,12 +185,12 @@ const ProductDetails = () => {
 
                                                   {/* Text */}
                                                   <div>
-                                                       <h4 className="font-semibold text-gray-800">
-                                                            {item.title}
-                                                       </h4>
-                                                       <p className="text-gray-600 text-sm mt-1">
+                                                       <span className="font-semibold text-gray-800 mr-2">
+                                                            {item.title}:
+                                                       </span>
+                                                       <span className="text-gray-600 mt-1">
                                                             {item.desc}
-                                                       </p>
+                                                       </span>
                                                   </div>
                                              </li>
                                         ))}
@@ -229,12 +229,12 @@ const ProductDetails = () => {
                                                   </span>
 
                                                   <div>
-                                                       <h4 className="font-semibold text-gray-800">
-                                                            {item.title}
-                                                       </h4>
-                                                       <p className="text-sm text-gray-600 mt-1">
+                                                       <span className="font-semibold text-gray-800">
+                                                            {item.title}-
+                                                       </span>
+                                                       <span className="text-gray-600 ml-2">
                                                             {item.desc}
-                                                       </p>
+                                                       </span>
                                                   </div>
                                              </li>
                                         ))}
@@ -246,7 +246,7 @@ const ProductDetails = () => {
                                    <img
                                         src={product.images.secondary}
                                         alt={product.title}
-                                        className="w-full h-full object-cover rounded-2xl shadow-md"
+                                        className="w-full h-95 lg:h-140 object-cover rounded-2xl shadow-md"
                                    />
                               </div>
 
