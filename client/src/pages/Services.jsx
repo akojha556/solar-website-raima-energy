@@ -1,4 +1,3 @@
-import React from "react";
 import SectionHero from "../components/common/SectionHero";
 import ServiceGrid from "../components/serviceComponent/ServiceGrid";
 import SectionCTA from "../components/common/SectionCTA";

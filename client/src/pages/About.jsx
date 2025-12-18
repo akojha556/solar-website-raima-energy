@@ -30,7 +30,7 @@ const About = () => {
     }
   ];
 
-  const MotionLink = motion(Link);
+  const MotionLink = motion.create(Link);
 
   return (
     <div className="bg-[#f3fff5]">

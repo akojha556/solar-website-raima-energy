@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { serviceList } from "../../data/serviceList";
+import { servicesData } from "../../data/servicesData";
 
 const MobileServiceDropdown = ({ openMenu, toggleMenu, setIsOpen }) => {
   const isOpen = openMenu === "services";
@@ -23,21 +23,20 @@ const MobileServiceDropdown = ({ openMenu, toggleMenu, setIsOpen }) => {
             }`}
         >
           <ul className="pl-5 mt-2 space-y-1 border-l border-green-300">
-            {serviceList.map((name, i) => (
+            {servicesData.map((service) => (
               <li
-                key={i}
+                key={service.slug}
                 className="transition-all duration-300 hover:translate-x-1"
-                style={{ transitionDelay: `${i * 25}ms` }}
               >
                 <Link
                   onClick={() => {
                     setIsOpen(false);
                     toggleMenu(null);
                   }}
-                  to={`/services/${name.toLowerCase().replace(/ /g, "-")}`}
+                  to={`/services/${service.slug}`}
                   className="block py-1.5 pr-3 text-[14px] text-gray-700 hover:text-green-700"
                 >
-                  {name}
+                  {service.title}
                 </Link>
               </li>
             ))}

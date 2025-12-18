@@ -36,7 +36,7 @@ const testimonials = [
 
 const TestimonialSection = () => {
      return (
-          <section className="py-20 bg-[#f7fff9]">
+          <section className="py-20 bg-white">
                <div className="max-w-7xl mx-auto px-6">
 
                     {/* Section Header */}

@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import CallCTA from "../common/CallCTA";
 import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 import { productsData } from "../../data/productsData";
 import { Link } from "react-router-dom";
+import { Button } from "../ui/Button";
 
 export default function ProductsSection() {
 
@@ -25,14 +25,11 @@ export default function ProductsSection() {
                          </h2>
 
                          <p className="lg:text-2xl text-xl text-green-700 font-medium leading-snug text-center md:text-left">
-                              Choose Raima Energy & Save Big on Your Energy Bills—Browse Our Solar Solutions!
+                              Discover Smart Solar Solutions with Raima Energy—Built to Reduce Costs and Power Your Future!
                          </p>
 
                          <p className="text-green-600 text-sm sm:text-base leading-relaxed text-center md:text-left">
-                              Raima Energy is dedicated to transforming energy consumption across the North East
-                              with high-performance and cost-efficient solar technologies. Supporting initiatives
-                              like the PM Surya Ghar Muft Bijli Yojana, we aim to make solar power accessible to
-                              every home and business with innovative, durable, and sustainable products.
+                              Raima Energy delivers high-performance and cost-efficient solar products designed to transform energy consumption across the North East. Aligned with initiatives like the PM Surya Ghar Muft Bijli Yojana, our solar solutions help homes and businesses generate clean energy, reduce electricity bills, and achieve long-term energy independence through reliable, durable, and innovative technology.
                          </p>
 
                          {/* BUTTONS  */}
@@ -43,7 +40,16 @@ export default function ProductsSection() {
                               whileInView="visible"
                               viewport={{ once: true }}
                               className="w-full flex flex-col items-center md:flex-row md:justify-center lg:justify-normal gap-2">
-                              <CallCTA primaryText="GET A QUOTE" secondaryText="CALL NOW" primaryVariant="primary" secondaryVariant="ghost" secondaryIconClass="group-hover:text-blue-900" />
+                              <div className="flex gap-4">
+                                   <Link to="/products">
+                                        <Button variant="primary" size="md">View All Products</Button>
+                                   </Link>
+
+                                   <Link to="/products#solutions">
+                                        <Button variant="neutralOutline" size="md">Compare Solar Solutions</Button>
+                                   </Link>
+
+                              </div>
                          </motion.div>
                     </motion.div>
 
@@ -59,7 +65,7 @@ export default function ProductsSection() {
                          {productsData.slice(0, 6).map((product, i) => {
                               return (
                                    <Link to={`/products/${product.slug}`}
-                                   aria-label={`View details of ${product.title}`}
+                                        aria-label={`View details of ${product.title}`}
                                         key={product.slug}
                                         className="block group bg-white px-2 py-6 shadow-sm border border-green-100 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
                                    >
@@ -78,9 +84,6 @@ export default function ProductsSection() {
                               );
                          })}
                     </motion.div>
-                    <div className="text-center lg:hidden">
-                         <button className="px-4 py-2 cursor-pointer rounded-md w-fit transform transition-all text-green-600 hover:scale-[1.03] border text-xs">Explore Products</button>
-                    </div>
                </div>
           </section>
      );

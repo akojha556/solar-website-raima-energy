@@ -54,7 +54,7 @@ export default function FAQSection() {
 
      return (
           <section className="py-20 bg-white">
-               <div className="px-4 max-w-7xl md:px-12 mx-auto">
+               <div className="px-4 max-w-5xl md:px-12 mx-auto">
                     <div>
                          <motion.h1
                               layout={false}

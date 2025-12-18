@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectFade, Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
@@ -12,20 +11,13 @@ import hero2 from "../../assets/heroSlider/hero2.png";
 import hero3 from "../../assets/heroSlider/hero3.png";
 import hero4 from "../../assets/heroSlider/hero4.png";
 import hero5 from "../../assets/heroSlider/hero5.png";
-import { fade } from "../../animations/motionVariants";
 
 const images = [hero1, hero2, hero3, hero4, hero5];
 
 export default function HeroSlider() {
 
      return (
-          <motion.div
-               layout={false}
-               variants={fade}
-               initial="hidden"
-               whileInView="visible"
-               viewport={{ once: true }}
-               className="relative w-full h-[95vh] md:h-[90vh]">
+          <div className="relative w-full h-[95vh] md:h-[90vh]">
                {/* CUSTOM BUTTONS */}
                <button className="custom-prev absolute left-5 top-1/2 z-50 text-5xl -translate-y-1/2 cursor-pointer opacity-50 hover:opacity-30 hidden md:block">
                     <i className="fa-solid fa-chevron-left"></i>
@@ -51,7 +43,7 @@ export default function HeroSlider() {
                          return (<SwiperSlide key={index}>
                               <div className="w-full h-full relative">
                                    {/* Background Image */}
-                                   <img src={image} alt={`solar${index + 1}`} className="w-full h-full object-cover" />
+                                   <img src={image} alt={`solar${index + 1}`} width="1920" height="3080" className="w-full h-full object-cover" />
                                    {/* OVERLAY */}
                                    <div className="absolute inset-0 bg-linear-to-b from-black/35 to-black/15"></div>
 
@@ -79,6 +71,6 @@ export default function HeroSlider() {
                          </SwiperSlide>)
                     })}
                </Swiper>
-          </motion.div>
+          </div>
      )
 }

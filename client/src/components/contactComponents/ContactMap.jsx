@@ -4,14 +4,14 @@ import { fadeUp } from "../../animations/motionVariants";
 
 const ContactMap = () => {
      return (
-          <motion.section
-               variants={fadeUp}
-               initial="hidden"
-               whileInView="visible"
-               viewport={{ once: true }}
-               className="py-20 bg-[#f3fff5]">
+          <section className="py-20 bg-[#f3fff5]">
                <div className="max-w-7xl mx-auto px-6">
-                    <div className="mb-8 text-center">
+                    <motion.div 
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{once: true}}
+                    className="mb-8 text-center">
                          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                               Our Location
                          </h2>
@@ -19,7 +19,7 @@ const ContactMap = () => {
                               Visit our office or reach out to us for any assistance related to
                               solar solutions.
                          </p>
-                    </div>
+                    </motion.div>
 
                     <div className="w-full h-87.5 rounded-xl overflow-hidden shadow-sm">
                          <iframe
@@ -31,7 +31,7 @@ const ContactMap = () => {
                          ></iframe>
                     </div>
                </div>
-          </motion.section>
+          </section>
      );
 };
 

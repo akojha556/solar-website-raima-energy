@@ -8,8 +8,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
-import ProductDetails from "./pages/products/ProductDetails.jsx";
+import ProductDetails from "./pages/ProductDetails.jsx";
 import Services from "./pages/Services.jsx";
+import ServiceDetails from "./pages/ServiceDetails.jsx";
 import Contact from "./pages/Contact";
 import Faq from "./pages/Faq.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "/products", element: <Products /> },
       { path: "/products/:slug", element: <ProductDetails /> },
       { path: "/services", element: <Services /> },
+      { path: "/services/:slug", element: <ServiceDetails /> },
       { path: "/contact", element: <Contact /> },
       { path: "/faq", element: <Faq /> },
       { path: "*", element: <NotFound /> }

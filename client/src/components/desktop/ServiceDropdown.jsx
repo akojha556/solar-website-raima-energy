@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { serviceList } from "../../data/serviceList";
+import { servicesData } from "../../data/servicesData";
 
 const ServiceDropdown = () => {
      const [serviceOpen, setServiceOpen] = useState(false)
@@ -29,12 +29,12 @@ const ServiceDropdown = () => {
                     </button>
                     {/* dropdown menu */}
                     <ul className={`absolute left-0 top-full z-50 mt-1 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible transform md:group-hover:opacity-100 md:group-hover:-translate-y-1 md:group-hover:visible transition-all duration-300 ease-out ${serviceOpen ? "opacity-100 -translate-y-1 visible" : "translate-y-2"}`}>
-                         {serviceList.map((item, index) => (
-                              <li key={index}>
-                                   <Link to={`/services/${item.toLowerCase().replace(/ /g, "-")}`}
+                         {servicesData.map((service) => (
+                              <li key={service.slug}>
+                                   <Link to={`/services/${service.slug}`}
                                         className="block px-4 py-2 text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
                                    >
-                                        {item}
+                                        {service.title}
                                    </Link>
                               </li>
                          ))}

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeUp, fadeLeft } from "../../animations/motionVariants";
+import ConsultationForm from "../forms/ConsultationForm";
 
 const ContactSection = () => {
      return (
@@ -62,72 +63,15 @@ const ContactSection = () => {
                          </motion.div>
 
                          {/* RIGHT : CONTACT FORM */}
-                         <div className="bg-[#f3fff5] p-6 border border-gray-200 rounded-xl">
-                              <motion.form
+                         <div className="bg-[#f3fff5] p-16 border border-gray-200 rounded-xl">
+                              <motion.div
                                    variants={fadeLeft}
                                    initial="hidden"
                                    whileInView="visible"
                                    viewport={{ once: true }}
-                                   className="space-y-5"
                               >
-                                   {/* Full Name - REQUIRED */}
-                                   <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                                             Full Name <span className="text-red-500">*</span>
-                                        </label>
-                                        <input
-                                             type="text"
-                                             placeholder="Enter your full name"
-                                             required
-                                             className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"
-                                        />
-                                   </div>
-
-                                   {/* Phone Number - REQUIRED */}
-                                   <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                                             Phone Number <span className="text-red-500">*</span>
-                                        </label>
-                                        <input
-                                             type="tel"
-                                             placeholder="Enter your phone number"
-                                             required
-                                             className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"
-                                        />
-                                   </div>
-
-                                   {/* City - REQUIRED */}
-                                   <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                                             City <span className="text-red-500">*</span>
-                                        </label>
-                                        <input
-                                             type="text"
-                                             placeholder="Enter your city"
-                                             required
-                                             className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"
-                                        />
-                                   </div>
-
-                                   {/* Message - OPTIONAL */}
-                                   <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                                             Your Message
-                                        </label>
-                                        <textarea
-                                             rows="4"
-                                             placeholder="Write your message (optional)"
-                                             className="w-full border border-gray-300 rounded-md px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-green-500"
-                                        ></textarea>
-                                   </div>
-
-                                   <button
-                                        type="submit"
-                                        className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 rounded-md transition"
-                                   >
-                                        Submit
-                                   </button>
-                              </motion.form>
+                                   <ConsultationForm />
+                              </motion.div>
                          </div>
 
 

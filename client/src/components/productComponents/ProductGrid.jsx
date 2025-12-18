@@ -3,9 +3,9 @@ import { cardInView } from "../../animations/motionVariants";
 import InfoCard from "../common/InfoCard";
 import { productsData } from "../../data/productsData";
 
-const ProductGrid = () => {
+const ProductGrid = ({ id }) => {
      return (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-6 max-w-7xl mx-auto bg-[#f3fff5]">
+          <section id={id} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-6 max-w-7xl mx-auto bg-[#f3fff5]">
                {productsData.map((product) => (
                     <motion.div
                          key={product.slug}
@@ -22,7 +22,7 @@ const ProductGrid = () => {
                          />
                     </motion.div>
                ))}
-          </div>
+          </section>
      );
 };
 

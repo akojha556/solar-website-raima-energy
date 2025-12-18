@@ -1,57 +1,86 @@
 import { motion } from "framer-motion";
-import { fadeUp } from "../../animations/motionVariants";
+import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
+import { servicesData } from "../../data/servicesData";
+import { Link } from "react-router-dom";
+import { Button } from "../ui/Button";
 
 export default function ServicesSection() {
-     const services = [
-          { title: "Solar Installation", icon: "fa-solid fa-screwdriver-wrench" },
-          { title: "Solar Maintenance", icon: "fa-solid fa-wrench" },
-          { title: "AMC Services", icon: "fa-solid fa-helmet-safety" },
-          { title: "Energy Audit", icon: "fa-solid fa-bolt" },
-          { title: "Solar Consultancy", icon: "fa-solid fa-lightbulb" },
-          { title: "Solar System Upgradation", icon: "fa-solid fa-arrow-up" },
-     ];
 
      return (
           <section className="py-20 bg-white">
-               <motion.div
-                    layout={false}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount:0.2 }}
-                    className="max-w-7xl mx-auto px-4">
+               <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 items-start">
+                    {/* LEFT PRODUCT GRI */}
+                    <motion.div
+                         layout={false}
+                         variants={fadeLeft}
+                         initial="hidden"
+                         whileInView="visible"
+                         viewport={{ once: true }}
+                         className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                         {servicesData.slice(0, 6).map((service, i) => {
+                              return (
+                                   <Link to={`/products/${service.slug}`}
+                                        aria-label={`View details of ${service.title}`}
+                                        key={service.slug}
+                                        className="block group bg-white px-2 py-6 shadow-sm border border-green-100 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
+                                   >
+                                        <div className="overflow-hidden">
+                                             <img
+                                                  src={service.images.main}
+                                                  alt={service.title}
+                                                  className="w-full h-40 object-cover group-hover:scale-110 transition-all duration-300"
+                                             />
+                                        </div>
 
-                    {/* Heading */}
-                    <div className="text-center mb-12">
-                         <h2 className="text-3xl md:text-4xl font-bold text-green-700">
+                                        <h4 className="text-center mt-2 sm:mt-3 text-green-700 font-semibold text-sm sm:text-base leading-tight">
+                                             {service.title}
+                                        </h4>
+                                   </Link>
+                              );
+                         })}
+                    </motion.div>
+
+                    {/* RIGHT TEXT SECTION */}
+                    <motion.div
+                         layout={false}
+                         variants={fadeRight}
+                         initial="hidden"
+                         whileInView="visible"
+                         viewport={{ once: true }}
+                         className="space-y-4 md:space-y-6 lg:text-left lg:max-w-120 flex flex-col items-center lg:block">
+                         <h2 className="text-xl lg:text-right md:text-2xl font-bold text-white border w-fit p-4 bg-green-600 mb-8">
                               Our Services
                          </h2>
-                         <p className="text-green-600 mt-2 text-lg">
-                              End-to-end solar services for homes, businesses, and industries.
+
+                         <p className="lg:text-2xl text-xl text-green-700 font-medium leading-snug text-center md:text-left">
+                              Power Your Solar Journey with Raima Energy—Explore Our Expert Installation & Maintenance Services!
                          </p>
-                    </div>
 
-                    {/* Services Grid */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+                         <p className="text-green-600 text-sm sm:text-base leading-relaxed text-center md:text-left">
+                              Raima Energy is committed to delivering reliable and professional solar services across the North East, ensuring seamless installation, maintenance, and long-term system performance. By supporting initiatives like the PM Surya Ghar Muft Bijli Yojana, we help homeowners and businesses adopt solar energy with expert guidance, quality workmanship, and end-to-end service support.
+                         </p>
 
-                         {services.map((service, i) => (
-                              <div
-                                   key={i}
-                                   className="bg-[#f3fff5] p-5 sm:p-6 rounded-xl text-center shadow-sm border border-green-100 
-                         hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
-                              >
-                                   <div className="text-3xl sm:text-4xl text-green-600 mb-3">
-                                        <i className={service.icon}></i>
-                                   </div>
+                         {/* BUTTONS  */}
+                         <motion.div
+                              layout={false}
+                              variants={fadeUp}
+                              initial="hidden"
+                              whileInView="visible"
+                              viewport={{ once: true }}
+                              className="w-full flex flex-col items-center md:flex-row md:justify-center lg:justify-normal gap-2">
+                              <div className="flex gap-4">
+                                   <Link to="/contact">
+                                        <Button variant="primary" size="md">Get Free Consultation</Button>
+                                   </Link>
 
-                                   <h3 className="text-sm sm:text-base font-semibold text-green-700 leading-tight">
-                                        {service.title}
-                                   </h3>
+                                   <Link to="/services">
+                                        <Button variant="neutralOutline" size="md">View All Services</Button>
+                                   </Link>
+
                               </div>
-                         ))}
-
-                    </div>
-               </motion.div>
+                         </motion.div>
+                    </motion.div>
+               </div>
           </section>
      );
 }

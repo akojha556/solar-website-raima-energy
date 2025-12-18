@@ -26,7 +26,7 @@ const InfoCard = ({ title, info, img, alt, slug }) => {
                     <Link to={`/products/${slug}`}>
                          <button className="inline-flex items-center text-green-600 font-medium text-sm hover:text-green-700 transition cursor-pointer">
                               Enquire Now
-                              <i className="fa-solid fa-arrow-right ml-1 mt-1 inline-block transition-transform duration-200 group-hover:translate-x-2 text-xs"></i>
+                              <i className="fa-solid fa-arrow-right ml-1 inline-block transition-transform duration-200 group-hover:translate-x-2 text-xs"></i>
                          </button>
                     </Link>
 
