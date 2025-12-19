@@ -4,8 +4,9 @@ import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 import { productsData } from "../../data/productsData";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/Button";
+import ProductServiceCTAButtons from "../common/cta/ProductServiceCTAButtons";
 
-export default function ProductsSection() {
+export default function HomeProductsSection() {
 
      return (
           <section className="py-16 bg-[#f3fff5]">
@@ -14,7 +15,7 @@ export default function ProductsSection() {
 
                     {/* LEFT TEXT SECTION */}
                     <motion.div
-                         layout={false}
+                         layout="position"
                          variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"
@@ -34,29 +35,20 @@ export default function ProductsSection() {
 
                          {/* BUTTONS  */}
                          <motion.div
-                              layout={false}
+                              layout="position"
                               variants={fadeUp}
                               initial="hidden"
                               whileInView="visible"
                               viewport={{ once: true }}
                               className="w-full flex flex-col items-center md:flex-row md:justify-center lg:justify-normal gap-2">
-                              <div className="flex gap-4">
-                                   <Link to="/products">
-                                        <Button variant="primary" size="md">View All Products</Button>
-                                   </Link>
-
-                                   <Link to="/products#solutions">
-                                        <Button variant="neutralOutline" size="md">Compare Solar Solutions</Button>
-                                   </Link>
-
-                              </div>
+                              {/* CTA buttons */}
+                              <ProductServiceCTAButtons primaryText="View All Products" secondaryText="Compare Solar Solutions" primaryTo="/products" secondaryTo="/products#solutions" />
                          </motion.div>
                     </motion.div>
 
-
                     {/* RIGHT PRODUCT GRID */}
                     <motion.div
-                         layout={false}
+                         layout="position"
                          variants={fadeLeft}
                          initial="hidden"
                          whileInView="visible"

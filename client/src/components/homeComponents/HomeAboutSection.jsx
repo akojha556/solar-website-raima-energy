@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import aboutImg from "../../assets/page-hero-bg.png"
 import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 import AboutHighlights from "../common/AboutHighlights";
+import { Button } from "../ui/Button";
 
-export default function AboutSection() {
+export default function HomeAboutSection() {
 
      return (
           <section className="py-20 bg-[#f3fff5]">
@@ -12,12 +13,12 @@ export default function AboutSection() {
 
                     {/* LEFT SIDE CONTENT */}
                     <motion.div
-                         layout={false}
+                         layout="position"
                          variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true }}
-                         className="space-y-6 flex flex-col items-center">
+                         className="space-y-6 flex flex-col items-center lg:items-start">
 
                          <div className="space-y-4 flex flex-col items-center lg:block">
 
@@ -47,16 +48,14 @@ export default function AboutSection() {
 
                          {/* BUTTON */}
                          <motion.div
-                              layout={false}
+                              layout="position"
                               variants={fadeUp}
                               initial="hidden"
                               whileInView="visible"
                               viewport={{ once: true }}
                          >
                               <Link to="/about">
-                                   <button className="px-6 py-2 rounded-md bg-green-600 text-white font-semibold  text-base shadow hover:bg-green-700 hover:shadow-lg hover:scale-105 not-visited:transition-all duration-300 ">
-                                        KNOW MORE
-                                   </button>
+                                   <Button variant="primary" size="lg">KNOW MORE</Button>
                               </Link>
                          </motion.div>
                     </motion.div>

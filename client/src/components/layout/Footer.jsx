@@ -12,7 +12,7 @@ const Footer = () => {
 
                     {/* LOGO */}
                     <motion.div
-                         layout={false}
+                         layout="position"
                          variants={fade}
                          initial="hidden"
                          whileInView="visible"
@@ -59,7 +59,7 @@ const Footer = () => {
 
                               <Link to="/contact" className="md:block w-full">
                                    <motion.button
-                                        layout={false}
+                                        layout="position"
                                         variants={fadeUp}
                                         initial="hidden"
                                         whileInView="visible"
@@ -118,7 +118,7 @@ const Footer = () => {
 
 
                                    <li className="flex items-center gap-2">
-                                        <Link to="/faq" className="flex items-center gap-2 group hover:text-white transition">
+                                        <Link to="/faqs" className="flex items-center gap-2 group hover:text-white transition">
                                              <i className="text-red-400 fa-solid fa-circle-question p-1 group-hover:text-red-600 transition"></i>
                                              <span>FAQs</span>
                                         </Link>

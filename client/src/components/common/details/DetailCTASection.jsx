@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { fadeUp } from "../../animations/motionVariants"
+import { fadeUp } from "../../../animations/motionVariants";
+import { href, Link } from "react-router-dom";
 
-const SectionCTA = ({ title, description, primaryText, secondaryText }) => {
+const DetailCTASection = ({ title, description, primaryText, secondaryText, primaryTo, secondaryTo }) => {
      return (
           <section className="relative py-20 overflow-hidden">
                {/* Background */}
@@ -22,19 +23,22 @@ const SectionCTA = ({ title, description, primaryText, secondaryText }) => {
                     </p>
 
                     <motion.div
-                         layout={false}
+                         layout="position"
                          variants={fadeUp}
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true, amount: 0.1 }}
                          className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                         <button className="bg-white text-green-700 font-semibold px-8 py-3 rounded-full transition hover:bg-gray-100">
-                              {primaryText}
-                         </button>
-
-                         <button className="border border-white/70 text-white font-medium px-8 py-3 rounded-full transition hover:bg-white/10">
-                              {secondaryText}
-                         </button>
+                         <Link to={primaryTo}>
+                              <button className="bg-white text-green-700 font-semibold px-8 py-3 rounded-full transition hover:bg-gray-100">
+                                   {primaryText}
+                              </button>
+                         </Link>
+                         <a href={secondaryTo} target="_blank">
+                              <button className="border border-white/70 text-white font-medium px-8 py-3 rounded-full transition hover:bg-white/10">
+                                   {secondaryText}
+                              </button>
+                         </a>
                     </motion.div>
                </div>
           </section>
@@ -42,4 +46,4 @@ const SectionCTA = ({ title, description, primaryText, secondaryText }) => {
      )
 }
 
-export default SectionCTA;
+export default DetailCTASection;

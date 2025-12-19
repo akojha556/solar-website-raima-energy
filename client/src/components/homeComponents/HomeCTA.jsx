@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeLeft, fadeRight } from "../../animations/motionVariants";
 
-export default function CTASection() {
+export default function HomeCTA() {
      return (
           <section className="bg-green-600 text-white py-16 px-6 md:px-12 lg:px-20">
                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
 
                     {/* Left Content */}
                     <motion.div
-                         layout={false}
+                         layout="position"
                          variants={fadeLeft}
                          initial="hidden"
                          whileInView="visible"
@@ -30,7 +30,7 @@ export default function CTASection() {
 
                     {/* Right Content - Optional Image */}
                     <motion.div
-                         layout={false}
+                         layout="position"
                          variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"
@@ -44,6 +44,5 @@ export default function CTASection() {
                     </motion.div>
                </div>
           </section>
-
      )
 }

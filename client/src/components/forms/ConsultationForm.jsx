@@ -1,4 +1,9 @@
 const ConsultationForm = () => {
+     const handleSubmit = (e) => {
+          e.preventDefault();
+          console.log("Form Submitted");
+     }
+
      return (
           <div className="bg-blue-100 p-6 rounded-lg shadow-xl">
                <h3 className="text-xl font-semibold text-gray-700 text-center">
@@ -6,7 +11,7 @@ const ConsultationForm = () => {
                </h3>
                <p className="mt-4">Please fill up the form below and we will get in touch with you shortly</p>
 
-               <form className="mt-6 space-y-5">
+               <form onSubmit={handleSubmit} className="mt-6 space-y-5">
                     <div>
                          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                               Full Name <span className="text-red-500">*</span>

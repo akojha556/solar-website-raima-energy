@@ -7,7 +7,7 @@ const ContactSection = () => {
      return (
           <section className="py-20 bg-white">
                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
                          {/* LEFT : CONTACT INFO */}
                          <motion.div
@@ -63,7 +63,7 @@ const ContactSection = () => {
                          </motion.div>
 
                          {/* RIGHT : CONTACT FORM */}
-                         <div className="bg-[#f3fff5] p-16 border border-gray-200 rounded-xl">
+                         <div className="bg-[#f3fff5] md:px-50 lg:px-20 md:py-16 border border-gray-200 rounded-xl">
                               <motion.div
                                    variants={fadeLeft}
                                    initial="hidden"

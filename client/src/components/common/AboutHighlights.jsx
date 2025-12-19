@@ -1,5 +1,3 @@
-import React from "react";
-
 const trustPoints = [
      { icon: "fa-solid fa-circle-check", text: "MNRE-Compliant Solutions" },
      { icon: "fa-solid fa-solar-panel", text: "Tier-1 Solar Components" },
@@ -10,7 +8,7 @@ const trustPoints = [
 const AboutTrustStrip = () => {
      return (
           <div className="mt-6">
-               <ul className="flex flex-col sm:flex-row flex-wrap gap-y-3 gap-x-6 text-sm text-gray-700">
+               <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-6 text-sm text-gray-700">
                     {trustPoints.map((item, index) => (
                          <li
                               key={index}

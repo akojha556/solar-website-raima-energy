@@ -1,14 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import story from "../assets/story.jpg";
 import mission from "../assets/mission.jpg";
-import cta from "../assets/cta.jpg";
 import chooseAbout from "../assets/chooseAbout.jpg";
 import FeaturesSection from "../components/common/FeaturesSection";
-import CallCTA from "../components/common/CallCTA";
 import { fadeRight, fadeDown, fadeUp } from "../animations/motionVariants";
 import PageHero from "../components/common/PageHero";
+import CTASection from "../components/common/cta/CTASection";
 
 const About = () => {
   const missionPoints = [
@@ -43,7 +41,7 @@ const About = () => {
         <div className="flex flex-col md:flex-row max-w-7xl mx-auto md:gap-20 justify-between">
           {/* LEFT SECTION */}
           <motion.div
-            layout={false}
+            layout="position"
             variants={fadeRight}
             initial="hidden"
             whileInView="visible"
@@ -85,7 +83,7 @@ const About = () => {
               <div className="absolute inset-0 bg-black/50"></div>
               <div className="z-10 flex flex-col gap-4 items-center align-middle p-4 max-w-6xl mx-auto">
                 <motion.h2
-                  layout={false}
+                  layout="position"
                   variants={fadeDown}
                   initial="hidden"
                   whileInView="visible"
@@ -97,7 +95,7 @@ const About = () => {
             </div>
             {/* RIGHT */}
             <motion.div
-              layout={false}
+              layout="position"
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
@@ -119,30 +117,7 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative md:min-h-110 lg:min-h-135 min-h-98">
-            <img src={cta} alt="chontact-us" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/50"></div>
-            <div className="absolute inset-0 flex justify-between items-center bg-blue-600/80 z-50 m-4 p-4 md:p-6 md:m-0 md:left-0 md:top-0 md:bottom-0 md:right-1/2 lg:right-3/5">
-              <div className="flex flex-col">
-                <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold text-center md:text-left pb-12">Raima Energy believes in making a positive impact on society and the planet. Join us on our journey towards a more sustainable future. </h2>
-                {/* BUTTON section */}
-                <motion.div
-                  layout={false}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  className="flex flex-col md:flex-row items-center">
-                  <CallCTA primaryText="Contact Us" secondaryText="+916033322529" primaryVariant="primary" secondaryVariant="ghostWhite" secondaryIconClass="group-hover:text-white" />
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <CTASection />
       {/* Why choose us section */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto pb-270 md:pb-110 lg:pb-0">
@@ -155,7 +130,7 @@ const About = () => {
             <div className="absolute z-10 bg-white mx-4 top-1/2 translate-y-18 md:translate-y-0 lg:mx-0 lg:w-[70%] lg:top-1/2 lg:-translate-y-1/2 lg:right-0 px-6 lg:px-12 py-10 flex flex-col gap-8">
               <div>
                 <motion.h2
-                  layout={false}
+                  layout="position"
                   variants={fadeDown}
                   initial="hidden"
                   whileInView="visible"

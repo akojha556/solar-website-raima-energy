@@ -13,8 +13,9 @@ const ServiceDropdown = () => {
                }
           }
 
-          document.addEventListener("mousedown", handleClickOutside);
-     }, [])
+          document.addEventListener("pointerdown", handleClickOutside);
+          return () => document.removeEventListener("pointerdown", handleClickOutside);
+     }, []);
 
      return (
           <>
@@ -32,7 +33,7 @@ const ServiceDropdown = () => {
                          {servicesData.map((service) => (
                               <li key={service.slug}>
                                    <Link to={`/services/${service.slug}`}
-                                        className="block px-4 py-2 text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
+                                        className="block px-4 py-2 text-xs lg:text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
                                    >
                                         {service.title}
                                    </Link>
@@ -46,7 +47,7 @@ const ServiceDropdown = () => {
                               <Link
                                    onClick={() => setServiceOpen(false)}
                                    to="/services"
-                                   className="group/menu flex items-center px-4 py-2 text-sm font-semibold text-green-600 hover:bg-green-50 transition-all rounded-md"
+                                   className="group/menu flex items-center px-4 py-2 text-xs lg:text-sm font-semibold text-green-600 hover:bg-green-50 transition-all rounded-md"
                               >
                                    View All Services
                                    <i className="fa-solid fa-arrow-right ml-1 mt-1 inline-block transition-transform duration-200 group-hover/menu:translate-x-2 text-xs"></i>

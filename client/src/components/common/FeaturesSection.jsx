@@ -27,7 +27,7 @@ const FeaturesSection = ({ className = "" }) => {
 
      return (
           <motion.div
-               layout={false}
+               layout="position"
                variants={fadeLeft}
                initial="hidden"
                whileInView="visible"

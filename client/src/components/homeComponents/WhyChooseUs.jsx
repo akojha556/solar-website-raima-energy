@@ -10,7 +10,7 @@ export default function WhyChooseUs() {
                <div className="grid lg:grid-cols-2 grid-cols-1 gap-10 mx-auto max-w-7xl px-4  items-start">
                     {/* LEFT SECTION */}
                     <motion.div
-                         layout={false}
+                         layout="position"
                          variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"

@@ -19,6 +19,7 @@ const ProductGrid = ({ id }) => {
                               info={product.shortDesc}
                               img={product.images.main}
                               slug={product.slug}
+                              type="products"
                          />
                     </motion.div>
                ))}

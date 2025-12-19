@@ -1,4 +1,4 @@
-import CallCTA from "../CallCTA";
+import CTAButtons from "../cta/CTAButtons";
 
 const DetailsSolutionSection = ({ data, options }) => {
      return (
@@ -44,7 +44,7 @@ const DetailsSolutionSection = ({ data, options }) => {
 
                     {/* CTA BUTTONS */}
                     <div className="mt-10 flex flex-wrap gap-4 items-center justify-center">
-                         <CallCTA primaryText="Contact Us" secondaryText="+916033322529" primaryVariant="primary" secondaryVariant="ghost" secondaryIconClass="group-hover:text-blue-600" />
+                         <CTAButtons primaryText="Contact Us" secondaryText="+916033322529" primaryVariant="primary" secondaryVariant="ghost" secondaryIconClass="group-hover:text-blue-600" />
                     </div>
 
                </div>

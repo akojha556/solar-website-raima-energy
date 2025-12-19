@@ -1,25 +1,24 @@
-import React from "react";
-import HeroSlider from "../components/homeComponents/HeroSlider";
-import WhyChooseUs from "../components/homeComponents/WhyChooseUs";
-import ProductsSection from "../components/homeComponents/ProductSection";
-import ServicesSection from "../components/homeComponents/ServiceSection";
-import AboutSection from "../components/homeComponents/AboutSection";
-import FAQSection from "../components/homeComponents/FAQSection";
-import CTASection from "../components/homeComponents/CTASection";
+import HomeAboutSection from "../components/homeComponents/HomeAboutSection";
+import HomeHeroSlider from "../components/homeComponents/HomeHeroSlider";
+import HomeProductsSection from "../components/homeComponents/HomeProductSection";
+import HomeServicesSection from "../components/homeComponents/HomeServiceSection";
 import TestimonialSection from "../components/homeComponents/TestimonialSection";
+import HomeFAQSection from "../components/homeComponents/HomeFAQSection";
+import HomeCTA from "../components/homeComponents/HomeCTA";
+import WhyChooseUs from "../components/homeComponents/WhyChooseUs";
 
 const Home = () => {
 
   return (
     <div>
-      <HeroSlider />
+      <HomeHeroSlider />
       <WhyChooseUs />
-      <ProductsSection />
-      <ServicesSection />
-      <AboutSection />
+      <HomeProductsSection />
+      <HomeServicesSection />
+      <HomeAboutSection />
       <TestimonialSection />
-      <FAQSection />
-      <CTASection />
+      <HomeFAQSection />
+      <HomeCTA />
     </div>
   )
 }

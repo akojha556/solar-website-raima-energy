@@ -3,23 +3,25 @@ import { fadeUp, fadeLeft, fadeRight } from "../../animations/motionVariants";
 import { servicesData } from "../../data/servicesData";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/Button";
+import ProductServiceCTAButtons from "../common/cta/ProductServiceCTAButtons";
 
-export default function ServicesSection() {
+export default function HomeServicesSection() {
 
      return (
           <section className="py-20 bg-white">
                <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 items-start">
                     {/* LEFT PRODUCT GRI */}
                     <motion.div
-                         layout={false}
-                         variants={fadeLeft}
+                         layout="position"
+                         variants={fadeRight}
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true }}
-                         className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                         className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 order-2 lg:order-1"
+                    >
                          {servicesData.slice(0, 6).map((service, i) => {
                               return (
-                                   <Link to={`/products/${service.slug}`}
+                                   <Link to={`/services/${service.slug}`}
                                         aria-label={`View details of ${service.title}`}
                                         key={service.slug}
                                         className="block group bg-white px-2 py-6 shadow-sm border border-green-100 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
@@ -42,12 +44,13 @@ export default function ServicesSection() {
 
                     {/* RIGHT TEXT SECTION */}
                     <motion.div
-                         layout={false}
-                         variants={fadeRight}
+                         layout="position"
+                         variants={fadeLeft}
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true }}
-                         className="space-y-4 md:space-y-6 lg:text-left lg:max-w-120 flex flex-col items-center lg:block">
+                         className="space-y-4 md:space-y-6 lg:text-left lg:max-w-120 flex flex-col items-center lg:block order-1 lg:order-2"
+                    >
                          <h2 className="text-xl lg:text-right md:text-2xl font-bold text-white border w-fit p-4 bg-green-600 mb-8">
                               Our Services
                          </h2>
@@ -62,22 +65,14 @@ export default function ServicesSection() {
 
                          {/* BUTTONS  */}
                          <motion.div
-                              layout={false}
+                              layout="position"
                               variants={fadeUp}
                               initial="hidden"
                               whileInView="visible"
                               viewport={{ once: true }}
                               className="w-full flex flex-col items-center md:flex-row md:justify-center lg:justify-normal gap-2">
-                              <div className="flex gap-4">
-                                   <Link to="/contact">
-                                        <Button variant="primary" size="md">Get Free Consultation</Button>
-                                   </Link>
-
-                                   <Link to="/services">
-                                        <Button variant="neutralOutline" size="md">View All Services</Button>
-                                   </Link>
-
-                              </div>
+                              {/* CTA buttons */}
+                              <ProductServiceCTAButtons primaryText="Get Free Consultation" secondaryText="View All Services" primaryTo="/contact" secondaryTo="/services" />
                          </motion.div>
                     </motion.div>
                </div>

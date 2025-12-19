@@ -1,4 +1,4 @@
-import CallCTA from "../CallCTA"
+import CallCTA from "../cta/CTAButtons"
 
 const DetailsApplications = ({ data, items }) => {
      return (

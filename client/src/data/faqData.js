@@ -22,7 +22,7 @@ export const rooftopSolarFAQs = [
      {
           question: "How much electricity does a rooftop solar system generate monthly?",
           answer:
-               "Monthly energy generation depends on system size, sunlight availability, and location. On average, a 1 kW system can generate around 110–140 units per month.",
+               "Monthly energy generation depends on system size, sunlight availability, and location. On average, a 1 kW system can generate around 110-140 units per month.",
      },
      {
           question: "Does the standard rooftop solar package include batteries?",
@@ -76,7 +76,7 @@ export const solarServiceFAQs = [
      {
           question: "How frequently should solar panels be cleaned?",
           answer:
-               "Panels should ideally be cleaned once every 15–30 days, especially in dusty regions, to avoid energy loss.",
+               "Panels should ideally be cleaned once every 15-30 days, especially in dusty regions, to avoid energy loss.",
      },
      {
           question: "What should be used to clean solar panels?",

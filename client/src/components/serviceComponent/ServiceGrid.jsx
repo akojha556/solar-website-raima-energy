@@ -18,7 +18,10 @@ const ServiceGrid = () => {
                                    key={service.slug}
                                    title={service.title}
                                    info={service.shortDesc}
-                                   img={service.images.main} />
+                                   img={service.images.main}
+                                   slug={service.slug}
+                                   type="services"
+                                    />
                          </motion.div>
                     )
                })}

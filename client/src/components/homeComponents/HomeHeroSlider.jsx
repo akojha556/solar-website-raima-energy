@@ -14,7 +14,7 @@ import hero5 from "../../assets/heroSlider/hero5.png";
 
 const images = [hero1, hero2, hero3, hero4, hero5];
 
-export default function HeroSlider() {
+export default function HomeHeroSlider() {
 
      return (
           <div className="relative w-full h-[95vh] md:h-[90vh]">

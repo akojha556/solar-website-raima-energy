@@ -14,9 +14,9 @@ const ProductDropdown = () => {
                }
           }
 
-          document.addEventListener("mousedown", handleClickOutside);
-          return () => document.removeEventListener("mousedown", handleClickOutside);
-     }, [])
+          document.addEventListener("pointerdown", handleClickOutside);
+          return () => document.removeEventListener("pointerdown", handleClickOutside);
+     }, []);
 
      return (
           <>
@@ -37,7 +37,7 @@ const ProductDropdown = () => {
                               <li key={item.slug}>
                                    <Link onClick={() => setProductOpen(false)}
                                         to={`/products/${item.slug}`}
-                                        className="block px-4 py-2 text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
+                                        className="block px-4 py-2 text-xs lg:text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
                                    >
                                         {item.title}
                                    </Link>
@@ -53,7 +53,7 @@ const ProductDropdown = () => {
                               <Link
                                    onClick={() => setProductOpen(false)}
                                    to="/products"
-                                   className="group/menu flex items-center px-4 py-2 text-sm font-semibold text-green-600 hover:bg-green-50 transition-all rounded-md"
+                                   className="group/menu flex items-center px-4 py-2 text-xs lg:text-sm font-semibold text-green-600 hover:bg-green-50 transition-all rounded-md"
                               >
                                    View All Products
                                    <i className="fa-solid fa-arrow-right ml-1 mt-1 inline-block transition-transform duration-200 group-hover/menu:translate-x-2 text-xs"></i>
