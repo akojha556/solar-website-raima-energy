@@ -1,6 +1,4 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
 import ProductDropdown from "../desktop/ProductDropdown.jsx";
 import ServiceDropdown from "../desktop/ServiceDropdown.jsx";
 import MobileMenuDropdown from "../mobile/MobileMenuDropdown.jsx";
@@ -14,7 +12,7 @@ const Navbar = () => {
 
         {/* LOGO */}
         <Link to="/" >
-          <img src={logo} alt="RaimaEnergy Logo" className="lg:h-30 w-auto h-25 sm:h-26" />
+          <img src="/fevicon.png" alt="RaimaEnergy Logo" className="lg:h-30 w-auto h-25 sm:h-26" />
         </Link>
 
         {/* DESKTOP MENU */}

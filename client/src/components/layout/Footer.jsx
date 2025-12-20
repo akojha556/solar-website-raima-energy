@@ -1,6 +1,4 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logojpg.jpg";
 import { motion } from "framer-motion";
 import { fade, fadeUp } from "../../animations/motionVariants";
 
@@ -18,7 +16,7 @@ const Footer = () => {
                          whileInView="visible"
                          viewport={{ once: true, amount: 0.5 }}
                          className="absolute -top-25 left-1/2 transform -translate-x-1/2 z-10">
-                         <Link to="/"><img src={logo} alt="RaimaEnergy Logo" className="w-auto h-26 md:h-28" /></Link>
+                         <Link to="/"><img src="/logojpg.jpg" alt="RaimaEnergy Logo" className="w-auto h-26 md:h-28" /></Link>
                     </motion.div>
 
                     {/* GRID */}
