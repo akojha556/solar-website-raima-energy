@@ -17,14 +17,14 @@ export default function HomeFAQSection() {
                               initial="hidden"
                               whileInView="visible"
                               viewport={{ once: true }}
-                              className="text-3xl font-bold text-green-600 mb-10">Frequently Asked Questions
+                              className="text-3xl text-center font-bold text-green-600 mb-10">Frequently Asked Questions
                          </motion.h1>
                          <div className="flex flex-col md:flex-row md:gap-4 justify-between mb-4">
                               <FaqAccordion items={rooftopSolarFAQs.slice(0, 4)} />
                               <FaqAccordion items={solarServiceFAQs.slice(0, 4)} />
                          </div>
                          <Link to="/faqs">
-                              <Button variant="primary" size="md">
+                              <Button variant="primary" size="lg">
                                    View All
                               </Button>
                          </Link>

@@ -6,14 +6,14 @@ const CTAButtons = ({ primaryText, secondaryText, primaryVariant, secondaryVaria
           <>
                {/* GET QUOTE */}
                <Link to="/contact" className="w-full md:w-auto">
-                    <Button variant={primaryVariant} className="w-full md:w-auto" size="md">
+                    <Button variant={primaryVariant} className="w-full md:w-auto" size="lg">
                          {primaryText}
                     </Button>
                </Link>
 
                {/* CALL NOW */}
                <div>
-                    <a href="tel:+916033322529" className="w-full sm:w-auto" size="md">
+                    <a href="tel:+916033322529" className="w-full sm:w-auto" size="lg">
                          <Button variant={secondaryVariant}>
                               <i className={`fa-solid fa-phone transition-colors duration-300 mr-2 text-red-500 ${secondaryIconClass}`}></i>
                               {secondaryText}

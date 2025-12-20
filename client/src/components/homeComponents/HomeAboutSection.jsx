@@ -53,9 +53,10 @@ export default function HomeAboutSection() {
                               initial="hidden"
                               whileInView="visible"
                               viewport={{ once: true }}
+                              className="mt-4"
                          >
                               <Link to="/about">
-                                   <Button variant="primary" size="lg">KNOW MORE</Button>
+                                   <Button variant="primary" size="lg" className="px-12">KNOW MORE</Button>
                               </Link>
                          </motion.div>
                     </motion.div>

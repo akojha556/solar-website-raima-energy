@@ -1,4 +1,4 @@
-export const Button = ({ children, variant = "primary", className = "", size = "sm", ...props }) => {
+export const Button = ({ children, variant = "primary", className = "", size = "", ...props }) => {
      const base = "inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-md cursor-pointer";
      const variants = {
           primary: "bg-green-600 text-white shadow hover:bg-green-700 hover:shadow-lg hover:scale-[1.03]",

@@ -119,7 +119,7 @@ const About = () => {
       {/* CTA Section */}
       <CTASection />
       {/* Why choose us section */}
-      <section className="py-12">
+      <section className="py-12 md:pb-26">
         <div className="max-w-7xl mx-auto pb-270 md:pb-110 lg:pb-0">
           <div className="relative">
             {/* LEFT- image */}
