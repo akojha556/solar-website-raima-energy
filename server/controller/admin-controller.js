@@ -1,6 +1,8 @@
 import asyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
 import Admin from "../model/admin-model.js";
+import crypto from "crypto";
+import { sendEmail } from "../utils/sendEmail.js";
 
 //Login Admin
 export const loginAdmin = asyncHandler(async (req, res) => {
@@ -28,10 +30,59 @@ export const loginAdmin = asyncHandler(async (req, res) => {
 
 //Forget Password
 export const forgetPassword = asyncHandler(async (req, res) => {
-     res.status(200).json({ message: "Forget Password" });
+     const { username } = req.body;
+     //Find user using email
+     const admin = await Admin.findOne({ username });
+
+     if (!admin) {
+          res.status(400);
+          throw new Error("Wrong username!");
+     }
+
+     //Create token save in db
+     const resetToken = crypto.randomBytes(32).toString("hex");
+     admin.resetPasswordToken = crypto.createHash("sha256").update(resetToken).digest("hex");
+     admin.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
+     await admin.save({ validateBeforeSave: false });
+
+     const resetUrl = `http://localhost:3000/api/admin/reset-password/${resetToken}`;
+
+     //Send token using nodemailer
+     await sendEmail(
+          admin.username,
+          "Reset Password.",
+          `Click this link to reset your password, with-in 10minutes: ${resetUrl}`
+     );
+
+     res.status(200).json({ message: "Check your email and click on the reset link within 10mins to forget your password." });
 });
 
 //Reset Password
 export const resetPassword = asyncHandler(async (req, res) => {
-     res.status(200).json({ message: "Reset Password" });
+     const { token } = req.params;
+     const { password } = req.body;
+     //Hash the token and find the user from db
+     const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+     const admin = await Admin.findOne({ resetPasswordToken: hashedToken });
+
+     if (!admin) {
+          res.status(400);
+          throw new Error("Unauthorised!");
+     }
+
+     const expireLinkTime = Date.now();
+
+     if (admin.resetPasswordExpire < expireLinkTime) {
+          res.status(400);
+          throw new Error("This link is expired! Try again.");
+     }
+
+     //Hash the new password
+     const saltRound = await bcrypt.genSalt(12);
+
+     admin.password = await bcrypt.hash(password, saltRound);
+     admin.resetPasswordToken = null;
+     admin.resetPasswordExpire = null;
+     await admin.save();
+     res.status(200).json({ message: "Password changed successfully." });
 });

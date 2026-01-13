@@ -5,4 +5,4 @@ export const adminRouter = express.Router();
 
 adminRouter.post("/admin-login", loginAdmin);
 adminRouter.post("/forget-password", forgetPassword);
-adminRouter.put("/reset-password/:token", resetPassword);
+adminRouter.post("/reset-password/:token", resetPassword);

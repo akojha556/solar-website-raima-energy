@@ -11,7 +11,9 @@ const adminSchema = mongoose.Schema({
           type: String,
           required: [true, "Please enter a valid password!"],
           minlength: 6,
-     }
+     },
+     resetPasswordToken: String,
+     resetPasswordExpire: Date
 });
 
 export default mongoose.model("Admin", adminSchema);
