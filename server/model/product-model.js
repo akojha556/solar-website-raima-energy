@@ -1,80 +1,75 @@
 import mongoose from "mongoose";
 
-const textBlockSchema = new mongoose.Schema(
+//Common block schema
+const commonBlockSchema = mongoose.Schema(
      {
           title: {
                type: String,
                required: true,
-               trim: true,
+               trim: true
           },
+
           desc: {
                type: String,
                required: true,
-               trim: true,
-          },
-     },
-     { _id: false }
+               trim: true
+          }
+     }, { _id: false }
 );
 
-const imageSchema = new mongoose.Schema(
-     {
-          url: {
-               type: String,
-               required: true,
-          },
-          public_id: {
-               type: String,
-               required: true,
-          },
-     },
-     { _id: false }
-);
-
-const productSchema = new mongoose.Schema(
+//Product schema
+const productSchema = mongoose.Schema(
      {
           title: {
                type: String,
-               required: true,
-               trim: true,
+               required: [true, "Please enter a title"],
+               trim: true
           },
 
           slug: {
                type: String,
                required: true,
                unique: true,
-               lowercase: true,
+               lowercase: true
           },
 
           images: {
-               main: imageSchema,
-               secondary: imageSchema,
+               main: {
+                    public_id: { type: String, required: true },
+                    url: { type: String, required: true }
+               },
+               secondary: {
+                    public_id: { type: String, required: true },
+                    url: { type: String, required: true }
+               },
           },
 
           shortDesc: {
                type: String,
-               required: true,
-               maxlength: 300,
+               required: true
           },
 
           overview: {
                type: String,
-               required: true,
+               required: true
           },
 
-          applications: [textBlockSchema],
+          applications: [commonBlockSchema],
 
-          benefits: [textBlockSchema],
+          benifits: [commonBlockSchema],
 
-          types: [textBlockSchema],
+          types: [commonBlockSchema],
 
           idealFor: {
                type: String,
-               required: true,
+               required: true
           },
-     },
-     {
-          timestamps: true,
-     }
+
+          isActive: {
+               type: Boolean,
+               default: true
+          }
+     }, { timestamps: true }
 );
 
 export default mongoose.model("Product", productSchema);
