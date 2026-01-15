@@ -2,6 +2,7 @@ import express from "express";
 import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
 import { adminRouter } from "./router/admin-router.js";
+import { productRouter } from "./router/product-router.js";
 import { errorHandler } from "./middleware/error-middleware.js";
 
 const app = express();
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/admin", adminRouter);
+app.use("/api/products", productRouter);
 
 //Error Handler
 app.use(errorHandler);

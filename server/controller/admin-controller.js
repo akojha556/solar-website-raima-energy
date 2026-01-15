@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import Admin from "../model/admin-model.js";
 import crypto from "crypto";
 import { sendEmail } from "../utils/sendEmail.js";
+import jwt from "jsonwebtoken";
 
 //Login Admin
 export const loginAdmin = asyncHandler(async (req, res) => {
@@ -20,7 +21,8 @@ export const loginAdmin = asyncHandler(async (req, res) => {
      if (admin && await (bcrypt.compare(password, admin.password))) {
           res.status(200).json({
                _id: admin.id,
-               username
+               username,
+               token: generateToken(admin._id)
           });
      } else {
           res.status(400);
@@ -81,8 +83,15 @@ export const resetPassword = asyncHandler(async (req, res) => {
      const saltRound = await bcrypt.genSalt(12);
 
      admin.password = await bcrypt.hash(password, saltRound);
-     admin.resetPasswordToken = null;
-     admin.resetPasswordExpire = null;
+     admin.resetPasswordToken = undefined;
+     admin.resetPasswordExpire = undefined;
      await admin.save();
      res.status(200).json({ message: "Password changed successfully." });
 });
+
+//Generate token
+const generateToken = (id) => {
+     return jwt.sign({ id }, process.env.JWT_SECRET, {
+          expiresIn: "1h"
+     });
+};

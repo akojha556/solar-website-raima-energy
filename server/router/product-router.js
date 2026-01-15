@@ -1,0 +1,10 @@
+import express from "express";
+import { getProducts, addProduct, updateProduct, removeProduct } from "../controller/product-controller.js";
+import { protect } from "../middleware/auth-middleware.js";
+
+export const productRouter = express.Router();
+
+productRouter.get("/", protect, getProducts);
+productRouter.post("/add-new-product", protect, addProduct);
+productRouter.put("/update-product/:id", protect, updateProduct);
+productRouter.delete("/remove-product/:id", protect, removeProduct);
