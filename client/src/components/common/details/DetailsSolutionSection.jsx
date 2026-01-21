@@ -7,7 +7,7 @@ const DetailsSolutionSection = ({ data, options }) => {
 
                     {/* HEADING */}
                     <h2 className="text-2xl md:text-3xl font-bold text-green-700 text-center">
-                         {data.title}: An Efficient Solution for Clean Energy
+                         {data.shortDesc}
                     </h2>
 
                     {/* OVERVIEW */}
