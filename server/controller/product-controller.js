@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
 import Product from "../model/product-model.js";
+import slugify from "slugify";
 import { uploadToCloudinary } from "../utils/uploadToCloudinary.js";
 
 //Get all products
@@ -11,9 +12,33 @@ export const getProducts = asyncHandler(async (req, res) => {
 export const addProduct = asyncHandler(async (req, res) => {
      const files = req.files;
 
-     if (!files || files.length === 0) {
+     const { title, shortDesc, overview, applications, benifits, types, idealFor } = req.body;
+
+     // Validate fields
+     if (
+          !title ||
+          !shortDesc ||
+          !overview ||
+          !applications ||
+          !benifits ||
+          !types ||
+          !idealFor ||
+          !files ||
+          files.length === 0
+     ) {
           res.status(400);
-          throw new Error("Only images are allowed.");
+          throw new Error("All fields required!");
+     }
+
+     // Generate slug
+     const slug = slugify(title, { lower: true, strict: true });
+
+     // Check duplicate
+     const existingProduct = await Product.findOne({ slug });
+
+     if (existingProduct) {
+          res.status(400);
+          throw new Error("Product already exists!");
      }
 
      const result = [];
@@ -25,7 +50,33 @@ export const addProduct = asyncHandler(async (req, res) => {
                secureUrl: response.secure_url
           });
      }
-     res.status(200).json({ message: "Here is the cloudinary link of photos you uploaded,", result });
+
+     const product = await Product.create({
+          title,
+          slug,
+          shortDesc,
+          overview,
+          idealFor,
+          applications: JSON.parse(applications),
+          benifits: JSON.parse(benifits),
+          types: JSON.parse(types),
+          images: {
+               main: {
+                    public_id: result[0].publicId,
+                    url: result[0].secureUrl
+               },
+               secondary: {
+                    public_id: result[1].publicId,
+                    url: result[1].secureUrl
+               }
+          }
+     });
+     
+     res.status(201).json({
+          success: true,
+          message: "Product created successfully",
+          product
+     });
 });
 
 //update a product
