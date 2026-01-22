@@ -5,15 +5,16 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Pages
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Products from "./pages/Products";
-import ProductDetails from "./pages/ProductDetails.jsx";
-import Services from "./pages/Services.jsx";
-import ServiceDetails from "./pages/ServiceDetails.jsx";
-import Contact from "./pages/Contact";
-import Faq from "./pages/Faq.jsx";
-import NotFound from "./pages/NotFound.jsx";
+import Home from "./pages/public/Home";
+import About from "./pages/public/About";
+import Products from "./pages/public/Products";
+import ProductDetails from "./pages/public/ProductDetails.jsx";
+import Services from "./pages/public/Services.jsx";
+import ServiceDetails from "./pages/public/ServiceDetails.jsx";
+import Contact from "./pages/public/Contact";
+import Faq from "./pages/public/Faq.jsx";
+import NotFound from "./pages/public/NotFound.jsx";
+import AddProduct from "./pages/admin/AddProduct.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,10 +29,11 @@ const router = createBrowserRouter([
       { path: "/services/:slug", element: <ServiceDetails /> },
       { path: "/contact", element: <Contact /> },
       { path: "/faqs", element: <Faq /> },
-      { path: "*", element: <NotFound /> }
+      { path: "/admin/add-product", element: <AddProduct /> },
+      { path: "*", element: <NotFound /> },
     ]
   }
-])
+]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

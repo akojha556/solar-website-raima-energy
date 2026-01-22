@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import { productsData } from "../data/productsData";
-import DetailsHero from "../components/common/details/DetailsHero";
-import DetailsCompanyInfo from "../components/common/details/DetailsCompanyInfo";
-import DetailsSolutionSection from "../components/common/details/DetailsSolutionSection";
-import DetailsApplications from "../components/common/details/DetailsApplications";
-import DetailsBenifitSection from "../components/common/details/DetailsBenifitSection";
+import { productsData } from "../../data/productsData";
+import DetailsHero from "../../components/common/details/DetailsHero";
+import DetailsCompanyInfo from "../../components/common/details/DetailsCompanyInfo";
+import DetailsSolutionSection from "../../components/common/details/DetailsSolutionSection";
+import DetailsApplications from "../../components/common/details/DetailsApplications";
+import DetailsBenifitSection from "../../components/common/details/DetailsBenifitSection";
 import NotFound from "./NotFound";
 
 const ProductDetails = () => {

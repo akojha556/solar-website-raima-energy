@@ -1,6 +1,6 @@
-import ProductGrid from "../components/productComponents/ProductGrid";
-import SectionHero from "../components/common/SectionHero";
-import DetailCTASection from "../components/common/details/DetailCTASection";
+import ProductGrid from "../../components/productComponents/ProductGrid";
+import SectionHero from "../../components/common/SectionHero";
+import DetailCTASection from "../../components/common/details/DetailCTASection";
 
 const Products = () => {
   return (

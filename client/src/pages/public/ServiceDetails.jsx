@@ -1,11 +1,11 @@
-import { servicesData } from "../data/servicesData";
+import { servicesData } from "../../data/servicesData";
 import { useParams } from "react-router-dom";
 import NotFound from "./NotFound";
-import DetailsHero from "../components/common/details/DetailsHero";
-import DetailsCompanyInfo from "../components/common/details/DetailsCompanyInfo";
-import DetailsSolutionSection from "../components/common/details/DetailsSolutionSection";
-import DetailsApplications from "../components/common/details/DetailsApplications";
-import DetailsBenifitSection from "../components/common/details/DetailsBenifitSection";
+import DetailsHero from "../../components/common/details/DetailsHero";
+import DetailsCompanyInfo from "../../components/common/details/DetailsCompanyInfo";
+import DetailsSolutionSection from "../../components/common/details/DetailsSolutionSection";
+import DetailsApplications from "../../components/common/details/DetailsApplications";
+import DetailsBenifitSection from "../../components/common/details/DetailsBenifitSection";
 
 const ServiceDetails = () => {
   const { slug } = useParams();
