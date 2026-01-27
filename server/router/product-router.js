@@ -5,7 +5,5 @@ import { productUpload } from "../middleware/multer.js";
 
 export const productRouter = express.Router();
 
-productRouter.get("/", protect, getProducts);
-productRouter.post("/add-new-product", protect, productUpload.array("file", 2), addProduct);
-productRouter.put("/update-product/:id", protect, updateProduct);
-productRouter.delete("/remove-product/:id", protect, removeProduct);
+productRouter.route("/").get(protect, getProducts).post(protect, productUpload.array("file", 2), addProduct);
+productRouter.route("/:id").put(protect, productUpload.array("file", 2), updateProduct).delete(protect, removeProduct);
