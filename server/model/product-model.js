@@ -23,7 +23,8 @@ const productSchema = mongoose.Schema(
           title: {
                type: String,
                required: [true, "Please enter a title"],
-               trim: true
+               trim: true,
+               unique: true
           },
 
           slug: {

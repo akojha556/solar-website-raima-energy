@@ -4,6 +4,7 @@ dotenv.config();
 import { connectDB } from "./config/db.js";
 import { adminRouter } from "./router/admin-router.js";
 import { productRouter } from "./router/product-router.js";
+import { serviceRouter } from "./router/service-router.js";
 import { errorHandler } from "./middleware/error-middleware.js";
 import { connectCloudinary } from "./config/cloudinary.js";
 
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/admin", adminRouter);
 app.use("/api/products", productRouter);
+app.use("/api/services", serviceRouter);
 
 //Error Handler
 app.use(errorHandler);

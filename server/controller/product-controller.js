@@ -16,7 +16,7 @@ export const addProduct = asyncHandler(async (req, res) => {
      const files = req.files;
 
      const { title, shortDesc, overview, applications, benifits, types, idealFor } = req.body;
-
+     
      // Validate fields
      if (
           !title ||
@@ -50,7 +50,8 @@ export const addProduct = asyncHandler(async (req, res) => {
 
      //Upload to cloudinary
      for (let i = 0; i < files.length; i++) {
-          const response = await uploadToCloudinary(files[i].path);
+          const response = await uploadToCloudinary(files[i].path, "uploads/products");
+     
           result.push({
                publicId: response.public_id,
                secureUrl: response.secure_url
@@ -136,7 +137,7 @@ export const updateProduct = asyncHandler(async (req, res) => {
 
           //Upload new images to cloudinary
           for (let i = 0; i < files.length; i++) {
-               const response = await uploadToCloudinary(files[i].path);
+               const response = await uploadToCloudinary(files[i].path, "uploads/products");
                result.push({
                     publicId: response.public_id,
                     secureUrl: response.secure_url
