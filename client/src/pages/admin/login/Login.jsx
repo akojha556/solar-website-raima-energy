@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { loginAdmin } from "../../../services/authService";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-     const [email, setEmail] = useState("");
+     const [username, setUsername] = useState("");
      const [password, setPassword] = useState("");
+
+     const navigate = useNavigate();
 
      const handleSubmit = async (e) => {
           e.preventDefault();
-          const res = await loginAdmin({ email, password });
-          console.log(res);
+          try {
+               await loginAdmin({ username, password });
+               navigate("/admin/dashboard");
+          } catch (error) {
+               alert("Login failled");
+          }
      };
 
      return (
@@ -26,8 +33,8 @@ const Login = () => {
                          <input
                               type="email"
                               placeholder="Email address"
-                              value={email}
-                              onChange={(e) => setEmail(e.target.value)}
+                              value={username}
+                              onChange={(e) => setUsername(e.target.value)}
                               className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900"
                          />
 

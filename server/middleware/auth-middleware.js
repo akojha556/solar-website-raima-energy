@@ -8,8 +8,6 @@ export const protect = asyncHandler(async (req, res, next) => {
      try {
           //Decode payloan
           const decode = jwt.verify(token, process.env.JWT_SECRET);
-          console.log("Decoded: " + decode);
-
 
           //Get the admin
           req.admin = await Admin.findById(decode.id).select("-password");

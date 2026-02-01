@@ -19,6 +19,7 @@ import Dashboard from "./pages/admin/dashboard/Dashboard.jsx";
 import ProductList from "./pages/admin/products/ProductList.jsx";
 import ServiceList from "./pages/admin/services/ServiceList.jsx";
 import Login from "./pages/admin/login/Login.jsx";
+import ProtectedRoute from "./routes/ProtectedRoutes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,26 +27,34 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <Home /> },
-      { path: "/about", element: <About /> },
-      { path: "/products", element: <Products /> },
-      { path: "/products/:slug", element: <ProductDetails /> },
-      { path: "/services", element: <Services /> },
-      { path: "/services/:slug", element: <ServiceDetails /> },
-      { path: "/contact", element: <Contact /> },
-      { path: "/faqs", element: <Faq /> },
+      { path: "about", element: <About /> },
+      { path: "products", element: <Products /> },
+      { path: "products/:slug", element: <ProductDetails /> },
+      { path: "services", element: <Services /> },
+      { path: "services/:slug", element: <ServiceDetails /> },
+      { path: "contact", element: <Contact /> },
+      { path: "faqs", element: <Faq /> },
       { path: "*", element: <NotFound /> }
     ]
-  },
+  }
+  ,
   {
-    path: "/admin",
-    element: <AdminLayout />,
+    element: <ProtectedRoute />,
     children: [
-      { index: true, element: <Dashboard /> },
-      { path: "/admin/dashboard", element: <Dashboard /> },
-      { path: "/admin/products", element: <ProductList /> },
-      { path: "/admin/services", element: <ServiceList /> }
-    ]
-  },
+      {
+        path: "/admin",
+        element: <AdminLayout />,
+        children: [
+          { index: true, element: <Dashboard /> },
+          { path: "dashboard", element: <Dashboard /> },
+          { path: "products", element: <ProductList /> },
+          { path: "services", element: <ServiceList /> },
+        ],
+      },
+    ],
+  }
+
+  ,
   {
     path: "/login",
     element: <Login />

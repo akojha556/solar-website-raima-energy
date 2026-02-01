@@ -7,9 +7,17 @@ import { productRouter } from "./router/product-router.js";
 import { serviceRouter } from "./router/service-router.js";
 import { errorHandler } from "./middleware/error-middleware.js";
 import { connectCloudinary } from "./config/cloudinary.js";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 
 const app = express();
+
+app.use(
+     cors({
+          origin: "http://localhost:5173", // frontend URL
+          credentials: true,               // allow cookies
+     })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,7 +33,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  res.json(req.cookies);
+     res.json(req.cookies);
 });
 
 

@@ -1,6 +1,18 @@
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import api from "../../../services/api";
 
 const Sidebar = () => {
+     const navigate = useNavigate();
+
+     const handleLogout = async () => {
+          try {
+               await api.post("/api/admin/admin-logout");
+               navigate("/login");
+          } catch (error) {
+               console.log(error);
+          }
+     }
      return (
           <aside className="w-64 bg-slate-900 text-white flex flex-col">
                {/* Logo */}
@@ -32,7 +44,7 @@ const Sidebar = () => {
                </nav>
 
                {/* Logout */}
-               <button className="flex items-center gap-3 p-4 text-red-400 hover:bg-slate-800">
+               <button onClick={handleLogout} className="flex items-center gap-3 p-4 text-red-400 hover:bg-slate-800">
                     <i className="fas fa-sign-out-alt"></i>
                     Logout
                </button>

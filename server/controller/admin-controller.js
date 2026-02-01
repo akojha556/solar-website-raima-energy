@@ -47,6 +47,19 @@ export const logoutAdmin = (req, res) => {
           .json({ message: "Logged out successfully" });
 };
 
+//Getme
+export const getMe = asyncHandler(async (req, res) => {
+     if (!req.admin) {
+          res.status(401);
+          throw new Error("Not authenticated!");
+     }
+
+     res.status(200).json({
+          id: req.admin._id,
+          username: req.admin.username
+     });
+});
+
 //Forget Password
 export const forgetPassword = asyncHandler(async (req, res) => {
      const { username } = req.body;
