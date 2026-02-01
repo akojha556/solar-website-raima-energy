@@ -19,16 +19,33 @@ export const loginAdmin = asyncHandler(async (req, res) => {
      const admin = await Admin.findOne({ username });
 
      if (admin && await (bcrypt.compare(password, admin.password))) {
-          res.status(200).json({
-               _id: admin.id,
-               username,
-               token: generateToken(admin._id)
+          res.status(200).cookie("token", generateToken(admin.id), {
+               httpOnly: true,
+               secure: process.env.NODE_ENV === "production",
+               sameSite: "strict",
+               maxAge: 1 * 60 * 60 * 1000
+          }).json({
+               message: "Login successful",
+               id: admin._id,
+               username
           });
      } else {
           res.status(400);
           throw new Error("Unauthorised! Invalid credentials!");
      }
 });
+
+//Logout Admin
+export const logoutAdmin = (req, res) => {
+     res
+          .clearCookie("token", {
+               httpOnly: true,
+               secure: process.env.NODE_ENV === "production",
+               sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax",
+          })
+          .status(200)
+          .json({ message: "Logged out successfully" });
+};
 
 //Forget Password
 export const forgetPassword = asyncHandler(async (req, res) => {

@@ -3,24 +3,21 @@ import Admin from "../model/admin-model.js";
 import asyncHandler from "express-async-handler";
 
 export const protect = asyncHandler(async (req, res, next) => {
-     let token;
+     const token = req.cookies.token;
 
-     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
-          try {
-               //Get token
-               token = req.headers.authorization.split(" ")[1];
+     try {
+          //Decode payloan
+          const decode = jwt.verify(token, process.env.JWT_SECRET);
+          console.log("Decoded: " + decode);
 
-               //Decode payloan
-               const decode = jwt.verify(token, process.env.JWT_SECRET);
 
-               //Get the admin
-               req.admin = await Admin.findById(decode.id).select("-password");
+          //Get the admin
+          req.admin = await Admin.findById(decode.id).select("-password");
 
-               next();
-          } catch (error) {
-               res.status(401);
-               throw new Error("Unauthorised! Please login.");
-          }
+          next();
+     } catch (error) {
+          res.status(401);
+          throw new Error("Unauthorised! Please login.");
      }
 
      if (!token) {

@@ -14,7 +14,11 @@ import ServiceDetails from "./pages/public/ServiceDetails.jsx";
 import Contact from "./pages/public/Contact";
 import Faq from "./pages/public/Faq.jsx";
 import NotFound from "./pages/public/NotFound.jsx";
-import AddProduct from "./pages/admin/AddProduct.jsx";
+import AdminLayout from "./pages/admin/layout/adminLayout.jsx";
+import Dashboard from "./pages/admin/dashboard/Dashboard.jsx";
+import ProductList from "./pages/admin/products/ProductList.jsx";
+import ServiceList from "./pages/admin/services/ServiceList.jsx";
+import Login from "./pages/admin/login/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,9 +33,22 @@ const router = createBrowserRouter([
       { path: "/services/:slug", element: <ServiceDetails /> },
       { path: "/contact", element: <Contact /> },
       { path: "/faqs", element: <Faq /> },
-      { path: "/admin/add-product", element: <AddProduct /> },
-      { path: "*", element: <NotFound /> },
+      { path: "*", element: <NotFound /> }
     ]
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      { index: true, element: <Dashboard /> },
+      { path: "/admin/dashboard", element: <Dashboard /> },
+      { path: "/admin/products", element: <ProductList /> },
+      { path: "/admin/services", element: <ServiceList /> }
+    ]
+  },
+  {
+    path: "/login",
+    element: <Login />
   }
 ]);
 

@@ -7,11 +7,13 @@ import { productRouter } from "./router/product-router.js";
 import { serviceRouter } from "./router/service-router.js";
 import { errorHandler } from "./middleware/error-middleware.js";
 import { connectCloudinary } from "./config/cloudinary.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 
 const PORT = process.env.PORT || 3000;
@@ -21,6 +23,11 @@ connectCloudinary();
 app.get("/", (req, res) => {
      res.status(200).json({ message: "API is running." });
 });
+
+app.get("/test", (req, res) => {
+  res.json(req.cookies);
+});
+
 
 app.use("/api/admin", adminRouter);
 app.use("/api/products", productRouter);
