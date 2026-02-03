@@ -6,7 +6,7 @@ export const getAllProducts = async () => {
 };
 
 export const addProduct = async (formData) => {
-     const response = await api.post("/api/products/", formData);
+     const response = await api.post("/api/products", formData);
      return response;
 };
 

@@ -15,15 +15,14 @@ export const getProducts = asyncHandler(async (req, res) => {
 export const addProduct = asyncHandler(async (req, res) => {
      const files = req.files;
 
-     const { title, shortDesc, overview, applications, benifits, types, idealFor } = req.body;
-     
+     const { title, shortDesc, overview, applications, benefits, types, idealFor } = req.body;
      // Validate fields
      if (
           !title ||
           !shortDesc ||
           !overview ||
           !applications ||
-          !benifits ||
+          !benefits ||
           !types ||
           !idealFor ||
           !files ||
@@ -51,7 +50,7 @@ export const addProduct = asyncHandler(async (req, res) => {
      //Upload to cloudinary
      for (let i = 0; i < files.length; i++) {
           const response = await uploadToCloudinary(files[i].path, "uploads/products");
-     
+
           result.push({
                publicId: response.public_id,
                secureUrl: response.secure_url
@@ -66,7 +65,7 @@ export const addProduct = asyncHandler(async (req, res) => {
           overview,
           idealFor,
           applications: JSON.parse(applications),
-          benifits: JSON.parse(benifits),
+          benefits: JSON.parse(benefits),
           types: JSON.parse(types),
           images: {
                main: {
@@ -91,7 +90,7 @@ export const addProduct = asyncHandler(async (req, res) => {
 export const updateProduct = asyncHandler(async (req, res) => {
      const { id } = req.params;
      const files = req.files;
-     const { title, shortDesc, overview, applications, benifits, types, idealFor } = req.body;
+     const { title, shortDesc, overview, applications, benefits, types, idealFor } = req.body;
 
      //Find product
      const product = await Product.findById(id);
@@ -124,7 +123,7 @@ export const updateProduct = asyncHandler(async (req, res) => {
      product.idealFor = idealFor || product.idealFor;
 
      if (applications) product.applications = JSON.parse(applications);
-     if (benifits) product.benifits = JSON.parse(benifits);
+     if (benefits) product.benefits = JSON.parse(benefits);
      if (types) product.types = JSON.parse(types);
 
      if (files && files.length > 0) {

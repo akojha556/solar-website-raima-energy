@@ -1,11 +1,16 @@
 import { useState } from "react";
 import Section from "../../../components/admin/Section";
 import { addProduct } from "../../../services/productService";
+import { useNavigate } from "react-router-dom";
 
+//Keeping outside so no more renders
 const emptyItem = { title: "", desc: "" };
 const MAX_SIZE = 5 * 1024 * 1024;
 
 const AddProduct = () => {
+     const navigate = useNavigate();
+     const [isSubmitting, setIsSubmitting] = useState(false);
+
      const [image1, setImage1] = useState(null);
      const [image2, setImage2] = useState(null);
 
@@ -64,10 +69,16 @@ const AddProduct = () => {
 
      //Handle form submit
      const handleSubmit = async (e) => {
-          try {
-               await addProduct(formData);
+          e.preventDefault();
 
-               alert("Product added successfully");
+          if (isSubmitting) return;
+
+          setIsSubmitting(true);
+
+          try {
+               const response = await addProduct(formData);
+
+               console.log(response);
                navigate("/admin/products");
           } catch (error) {
                console.error(error);
@@ -77,8 +88,8 @@ const AddProduct = () => {
 
      return (
           <div>
-               <h1 onSubmit={handleSubmit} className="text-2xl font-bold mb-6">Add Product</h1>
-               <form className="space-y-6">
+               <h1 className="text-2xl font-bold mb-6">Add Product</h1>
+               <form onSubmit={handleSubmit} className="space-y-6">
                     <input
                          className="input"
                          placeholder="Title"
@@ -203,8 +214,19 @@ const AddProduct = () => {
                          onChange={(e) => setIdealFor(e.target.value)}
                          required
                     />
-                    <button type="submit" className="bg-black hover:text-black hover:bg-white border transform duration-300 text-white px-6 py-2 rounded cursor-pointer">
-                         Add Product
+                    <button
+                         type="submit"
+                         disabled={isSubmitting}
+                         className={`px-6 py-2 rounded text-white flex items-center justify-center gap-2 ${isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-black hover:bg-gray-800"}`}
+                    >
+                         {isSubmitting ? (
+                              <>
+                                   <i className="fa-solid fa-spinner fa-spin"></i>
+                                   <span>Adding Product...</span>
+                              </>
+                         ) : (
+                              "Add Product"
+                         )}
                     </button>
                </form>
           </div>

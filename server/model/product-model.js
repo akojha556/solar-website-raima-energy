@@ -57,7 +57,7 @@ const productSchema = mongoose.Schema(
 
           applications: [commonBlockSchema],
 
-          benifits: [commonBlockSchema],
+          benefits: [commonBlockSchema],
 
           types: [commonBlockSchema],
 

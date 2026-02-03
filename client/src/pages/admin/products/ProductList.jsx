@@ -1,16 +1,25 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getAllProducts } from "../../../services/productService";
 
 const ProductList = () => {
-     // TEMP UI data (based on your real schema)
-     const products = [
-          {
-               id: 1,
-               title: "Residential Rooftop Solar Power Plant",
-               slug: "residential-rooftop-solar-power-plant",
-               image:
-                    "/uploads/products/residential-rooftop-solar-power-plant-main.png",
-          },
-     ];
+     const [products, setProducts] = useState([]);
+     const [loading, setLoading] = useState(true);
+
+     useEffect(() => {
+          const fetchProducts = async () => {
+               try {
+                    const res = await getAllProducts();
+                    setProducts(res.data);
+               } catch (error) {
+                    console.error("Failed to fetch products", error);
+               } finally {
+                    setLoading(false);
+               }
+          };
+
+          fetchProducts();
+     }, []);
 
      return (
           <div>
@@ -41,47 +50,62 @@ const ProductList = () => {
                          </thead>
 
                          <tbody>
-                              {products.map((product) => (
-                                   <tr
-                                        key={product.id}
-                                        className="border-t hover:bg-gray-50"
-                                   >
-                                        {/* Image */}
-                                        <td className="px-6 py-4">
-                                             <img
-                                                  src={product.image}
-                                                  alt={product.title}
-                                                  className="w-16 h-12 object-cover rounded"
-                                             />
-                                        </td>
-
-                                        {/* Title */}
-                                        <td className="px-6 py-4 font-medium text-gray-800">
-                                             {product.title}
-                                        </td>
-
-                                        {/* Slug */}
-                                        <td className="px-6 py-4 text-gray-600 text-sm">
-                                             {product.slug}
-                                        </td>
-
-                                        {/* Actions */}
-                                        <td className="px-6 py-4 text-right space-x-3">
-                                             <Link
-                                                  to={`/admin/products/edit/${product.id}`}
-                                                  className="text-blue-600 hover:underline"
-                                             >
-                                                  Edit
-                                             </Link>
-
-                                             <button className="text-red-600 hover:underline">
-                                                  Delete
-                                             </button>
+                              {/* Loading */}
+                              {loading && (
+                                   <tr>
+                                        <td
+                                             colSpan="4"
+                                             className="px-6 py-6 text-center text-gray-500"
+                                        >
+                                             Loading products...
                                         </td>
                                    </tr>
-                              ))}
+                              )}
 
-                              {products.length === 0 && (
+                              {/* Data */}
+                              {!loading &&
+                                   products.map((product) => (
+                                        <tr
+                                             key={product._id}
+                                             className="border-t hover:bg-gray-50"
+                                        >
+                                             {/* Image */}
+                                             <td className="px-6 py-4">
+                                                  <img
+                                                       src={product.images.main.url}
+                                                       alt={product.title}
+                                                       className="w-16 h-12 object-cover rounded"
+                                                  />
+                                             </td>
+
+                                             {/* Title */}
+                                             <td className="px-6 py-4 font-medium text-gray-800">
+                                                  {product.title}
+                                             </td>
+
+                                             {/* Slug */}
+                                             <td className="px-6 py-4 text-gray-600 text-sm">
+                                                  {product.slug}
+                                             </td>
+
+                                             {/* Actions */}
+                                             <td className="px-6 py-4 text-right space-x-3">
+                                                  <Link
+                                                       to={`/admin/products/edit/${product._id}`}
+                                                       className="text-blue-600 hover:underline"
+                                                  >
+                                                       Edit
+                                                  </Link>
+
+                                                  <button className="text-red-600 hover:underline">
+                                                       Delete
+                                                  </button>
+                                             </td>
+                                        </tr>
+                                   ))}
+
+                              {/* Empty state */}
+                              {!loading && products.length === 0 && (
                                    <tr>
                                         <td
                                              colSpan="4"
