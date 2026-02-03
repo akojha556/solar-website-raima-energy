@@ -4,7 +4,7 @@ import DetailsHero from "../../components/common/details/DetailsHero";
 import DetailsCompanyInfo from "../../components/common/details/DetailsCompanyInfo";
 import DetailsSolutionSection from "../../components/common/details/DetailsSolutionSection";
 import DetailsApplications from "../../components/common/details/DetailsApplications";
-import DetailsBenifitSection from "../../components/common/details/DetailsBenifitSection";
+import DetailsBenefitSection from "../../components/common/details/DetailsBenefitSection";
 import NotFound from "./NotFound";
 
 const ProductDetails = () => {
@@ -22,7 +22,7 @@ const ProductDetails = () => {
                <DetailsCompanyInfo />
                <DetailsSolutionSection data={product} options={product.types} />
                <DetailsApplications data={product} items={product.applications} />
-               <DetailsBenifitSection data={product} items={product.benefits} />
+               <DetailsBenefitSection data={product} items={product.benefits} />
           </div>
      );
 };

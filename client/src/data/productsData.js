@@ -3,8 +3,8 @@ export const productsData = [
           title: "Residential Rooftop Solar Power Plant",
           slug: "residential-rooftop-solar-power-plant",
           images: {
-               main: "/uploads/products/residential-rooftop-solar-power-plant-main.png",
-               secondary: "/uploads/products/residential-rooftop-solar-power-plant-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010799/residential-rooftop-solar-power-plant-main_miorei.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010784/residential-rooftop-solar-power-plant-secondary_ggpbfx.png",
           },
           shortDesc:
                "Efficient rooftop solar solutions designed to reduce electricity bills for homes.",
@@ -71,8 +71,8 @@ export const productsData = [
           title: "Commercial Solar Power Plant",
           slug: "commercial-solar-power-plant",
           images: {
-               main: "/uploads/products/commercial-solar-power-plant-main.png",
-               secondary: "/uploads/products/commercial-solar-power-plant-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010736/commercial-solar-power-plant-main_ushaub.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010718/commercial-solar-power-plant-secondary_mb88ia.png",
           },
           shortDesc:
                "High-capacity solar systems for commercial and industrial applications.",
@@ -135,8 +135,8 @@ export const productsData = [
           title: "Solar Pumps",
           slug: "solar-pumps",
           images: {
-               main: "/uploads/products/solar-pumps-main.png",
-               secondary: "/uploads/products/solar-pumps-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010877/solar-pumps-secondary_l7t05y.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010824/solar-pumps-main_emnrni.png",
           },
           shortDesc:
                "Reliable solar-powered water pumps for agriculture and rural needs.",
@@ -195,8 +195,8 @@ export const productsData = [
           title: "Solar Street Lights",
           slug: "solar-street-lights",
           images: {
-               main: "/uploads/products/solar-street-lights-main.png",
-               secondary: "/uploads/products/solar-street-lights-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010876/solar-street-lights-main_ekz54s.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010860/solar-street-lights-secondary_cedyrs.png",
           },
           shortDesc:
                "Energy-efficient solar street lighting solutions for public spaces.",
@@ -255,8 +255,8 @@ export const productsData = [
           title: "Solar Panel",
           slug: "solar-panel",
           images: {
-               main: "/uploads/products/solar-panel-main.png",
-               secondary: "/uploads/products/solar-panel-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010791/solar-panel-main_fugkb0.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010870/solar-panel-secondary_sryrgm.png",
           },
           shortDesc:
                "High-efficiency solar panels built for long-term performance.",
@@ -315,8 +315,8 @@ export const productsData = [
           title: "Solar Ongrid Inverter",
           slug: "solar-ongrid-inverter",
           images: {
-               main: "/uploads/products/solar-ongrid-inverter-main.png",
-               secondary: "/uploads/products/solar-ongrid-inverter-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010785/solar-ongrid-inverter-main_o1cbww.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010797/solar-ongrid-inverter-secondary_ham6xi.png",
           },
           shortDesc:
                "Smart on-grid inverters ensuring efficient power conversion.",
@@ -375,8 +375,8 @@ export const productsData = [
           title: "AC Distribution Box",
           slug: "ac-distribution-box",
           images: {
-               main: "/uploads/products/ac-distribution-box-main.png",
-               secondary: "/uploads/products/ac-distribution-box-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010705/ac-distribution-box-main_pys5hp.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010730/ac-distribution-box-secondary_n6ut1w.png",
           },
           shortDesc:
                "Reliable AC distribution boxes for solar system protection.",
@@ -427,8 +427,8 @@ export const productsData = [
           title: "DC Distribution Box",
           slug: "dc-distribution-box",
           images: {
-               main: "/uploads/products/dc-distribution-box-main.png",
-               secondary: "/uploads/products/dc-distribution-box-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010724/dc-distribution-box-main_btl6yj.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010776/dc-distribution-box-secondary_wrsc1y.png",
           },
           shortDesc:
                "DC protection units for safe solar power management.",
@@ -479,8 +479,8 @@ export const productsData = [
           title: "Chemical Earthing",
           slug: "chemical-earthing",
           images: {
-               main: "/uploads/products/chemical-earthing-main.png",
-               secondary: "/uploads/products/chemical-earthing-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010694/chemical-earthing-main_ougamr.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010716/chemical-earthing-secondary_j6g3th.png",
           },
           shortDesc:
                "Advanced earthing solutions for electrical safety.",
@@ -531,8 +531,8 @@ export const productsData = [
           title: "Lightning Arrestors",
           slug: "lightning-arrestors",
           images: {
-               main: "/uploads/products/lightning-arrestors-main.png",
-               secondary: "/uploads/products/lightning-arrestors-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010762/lightning-arrestors-main_xluhvm.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010766/lightning-arrestors-secondary_ch7pt8.png",
           },
           shortDesc:
                "Lightning protection systems for solar plants.",
@@ -583,8 +583,8 @@ export const productsData = [
           title: "AC & DC Cable",
           slug: "ac-dc-cable",
           images: {
-               main: "/uploads/products/ac-dc-cable-main.png",
-               secondary: "/uploads/products/ac-dc-cable-secondary.png",
+               main: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010709/ac-dc-cable-main_pg6tpu.png",
+               secondary: "https://res.cloudinary.com/df41r5ysm/image/upload/v1770010692/ac-dc-cable-secondary_np2y2c.png",
           },
           shortDesc:
                "Solar-grade AC and DC cables for safe power transmission.",

@@ -20,6 +20,7 @@ import ProductList from "./pages/admin/products/ProductList.jsx";
 import ServiceList from "./pages/admin/services/ServiceList.jsx";
 import Login from "./pages/admin/login/Login.jsx";
 import ProtectedRoute from "./routes/ProtectedRoutes.jsx";
+import AddProduct from "./pages/admin/products/AddProduct.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
           { path: "dashboard", element: <Dashboard /> },
           { path: "products", element: <ProductList /> },
           { path: "services", element: <ServiceList /> },
+          { path: "products/add-product", element: <AddProduct /> }
         ],
       },
     ],

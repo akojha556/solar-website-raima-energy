@@ -77,7 +77,7 @@ export const forgetPassword = asyncHandler(async (req, res) => {
      admin.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
      await admin.save({ validateBeforeSave: false });
 
-     const resetUrl = `http://localhost:3000/api/admin/reset-password/${resetToken}`;
+     const resetUrl = `${process.env.BACKEND_URL}/api/admin/reset-password/${resetToken}`;
 
      //Send token using nodemailer
      await sendEmail(

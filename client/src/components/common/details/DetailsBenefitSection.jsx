@@ -1,4 +1,4 @@
-const DetailsBenifitSection = ({ data, items }) => {
+const DetailsBenefitSection = ({ data, items }) => {
      return (
           <section className="pb-18 mt-7">
                <div className="max-w-7xl mx-auto px-5">
@@ -33,6 +33,10 @@ const DetailsBenifitSection = ({ data, items }) => {
                                         </li>
                                    ))}
                               </ul>
+                              <p className="mt-6 text-sm text-gray-700 bg-gray-50 border-l-4 border-green-600 px-4 py-3 rounded">
+                                   <span className="font-semibold text-gray-900">Ideal for:</span>{" "}
+                                   {data.idealFor}
+                              </p>
                          </div>
 
                          {/* RIGHT : IMAGE */}
@@ -50,4 +54,4 @@ const DetailsBenifitSection = ({ data, items }) => {
      )
 }
 
-export default DetailsBenifitSection
+export default DetailsBenefitSection;

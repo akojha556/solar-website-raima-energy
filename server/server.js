@@ -14,15 +14,14 @@ const app = express();
 
 app.use(
      cors({
-          origin: "http://localhost:5173", // frontend URL
-          credentials: true,               // allow cookies
+          origin: process.env.FRONT_END_URL,
+          credentials: true,
      })
 );
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
 
 const PORT = process.env.PORT || 3000;
 

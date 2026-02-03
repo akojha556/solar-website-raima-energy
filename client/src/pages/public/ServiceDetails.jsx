@@ -5,7 +5,7 @@ import DetailsHero from "../../components/common/details/DetailsHero";
 import DetailsCompanyInfo from "../../components/common/details/DetailsCompanyInfo";
 import DetailsSolutionSection from "../../components/common/details/DetailsSolutionSection";
 import DetailsApplications from "../../components/common/details/DetailsApplications";
-import DetailsBenifitSection from "../../components/common/details/DetailsBenifitSection";
+import DetailsBenefitSection from "../../components/common/details/DetailsBenefitSection";
 
 const ServiceDetails = () => {
   const { slug } = useParams();
@@ -21,7 +21,7 @@ const ServiceDetails = () => {
       <DetailsCompanyInfo />
       <DetailsSolutionSection data={service} options={service.useCases} />
       <DetailsApplications data={service} items={service.options} />
-      <DetailsBenifitSection data={service} items={service.benefits} />
+      <DetailsBenefitSection data={service} items={service.benefits} />
     </div>
   )
 }

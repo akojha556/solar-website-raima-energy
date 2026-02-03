@@ -56,6 +56,8 @@ export const servicesData = [
                     desc: "Designed for maximum energy generation and efficiency.",
                },
           ],
+          idealFor:
+               "Homes, Apartments, Commercial Buildings, Industrial Facilities",
      },
 
      {
@@ -107,6 +109,8 @@ export const servicesData = [
                     desc: "Identifies issues before major failures occur.",
                },
           ],
+          idealFor:
+               "Existing Solar Users, Dust-Prone Regions, Commercial Rooftops",
      },
 
      {
@@ -154,6 +158,8 @@ export const servicesData = [
                     desc: "Ensures stable energy generation year-round.",
                },
           ],
+          idealFor:
+               "Long-Term Solar Owners, Commercial Plants, Industrial Solar Systems",
      },
 
      {
@@ -205,6 +211,8 @@ export const servicesData = [
                     desc: "Enhances overall energy performance.",
                },
           ],
+          idealFor:
+               "High Electricity Consumers, Pre-Solar Planning, Commercial & Industrial Users",
      },
 
      {
@@ -252,6 +260,8 @@ export const servicesData = [
                     desc: "Assistance with approvals and documentation.",
                },
           ],
+          idealFor:
+               "First-Time Solar Buyers, Corporate Clients, Large-Scale Projects",
      },
 
      {
@@ -299,5 +309,7 @@ export const servicesData = [
                     desc: "Maximizes returns from existing solar investments.",
                },
           ],
+          idealFor:
+               "Existing Solar Installations, Aging Systems, Growing Power Needs",
      },
 ];
