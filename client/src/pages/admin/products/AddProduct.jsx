@@ -78,11 +78,13 @@ const AddProduct = () => {
           try {
                const response = await addProduct(formData);
 
-               console.log(response);
-               navigate("/admin/products");
+               console.log(response.data.product);
           } catch (error) {
                console.error(error);
                alert("Failed to add product");
+          } finally {
+               setIsSubmitting(false);
+               navigate("/admin/products");
           }
      }
 
@@ -116,6 +118,7 @@ const AddProduct = () => {
                               <input
                                    type="file"
                                    accept="image/*"
+                                   required
                                    className="hidden"
                                    onChange={(e) => {
                                         const file = e.target.files[0];
@@ -150,6 +153,7 @@ const AddProduct = () => {
                                    type="file"
                                    accept="image/*"
                                    className="hidden"
+                                   required
                                    onChange={(e) => {
                                         const file = e.target.files[0];
                                         if (!file) return;

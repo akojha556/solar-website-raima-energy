@@ -1,10 +1,32 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAllProducts } from "../../../services/productService";
+import { getAllProducts, deleteProduct } from "../../../services/productService";
+import DeleteConfirmModal from "../../../components/admin/DeleteConfirmModal";
 
 const ProductList = () => {
      const [products, setProducts] = useState([]);
      const [loading, setLoading] = useState(true);
+
+     const [showModal, setShowModal] = useState(false);
+     const [deleteId, setDeleteId] = useState(null);
+     const [isDeleting, setIsDeleting] = useState(false);
+
+     const handleDelete = async (id) => {
+          try {
+               setIsDeleting(true);
+               const response = await deleteProduct(id);
+               setShowModal(false);
+               setDeleteId(null);
+               setProducts((prev) => {
+                    return prev.filter((product) => product._id !== id);
+               });
+          } catch (error) {
+               console.error(error);
+               setShowModal(false);
+          } finally {
+               setIsDeleting(false);
+          }
+     };
 
      useEffect(() => {
           const fetchProducts = async () => {
@@ -91,15 +113,27 @@ const ProductList = () => {
                                              {/* Actions */}
                                              <td className="px-6 py-4 text-right space-x-3">
                                                   <Link
-                                                       to={`/admin/products/edit/${product._id}`}
-                                                       className="text-blue-600 hover:underline"
+                                                       to={`/admin/products/edit-product/${product._id}`}
+                                                       className="text-blue-600 hover:underline cursor-pointer"
                                                   >
                                                        Edit
                                                   </Link>
 
-                                                  <button className="text-red-600 hover:underline">
+                                                  <button
+                                                       onClick={() => {
+                                                            setShowModal(true);
+                                                            setDeleteId(product._id);
+                                                       }} className="text-red-600 hover:underline cursor-pointer"
+                                                  >
                                                        Delete
                                                   </button>
+                                                  {/* Modal */}
+                                                  {showModal &&
+                                                       <DeleteConfirmModal onCancel={() => {
+                                                            setShowModal(false);
+                                                            setDeleteId(null);
+                                                       }} handleDelete={() => handleDelete(deleteId)}
+                                                            loading={isDeleting} />}
                                              </td>
                                         </tr>
                                    ))}
