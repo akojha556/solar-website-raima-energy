@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Section from "../../../components/admin/Section";
+import AddDetailsSection from "../../../components/admin/AddDetailsSection";
 import { addProduct } from "../../../services/productService";
 import { useNavigate } from "react-router-dom";
 
@@ -184,7 +184,7 @@ const AddProduct = () => {
                          required
                     />
 
-                    <Section
+                    <AddDetailsSection
                          title="Applications"
                          items={applications}
                          setter={setApplications}
@@ -193,7 +193,7 @@ const AddProduct = () => {
                          handleChange={handleChange}
                     />
 
-                    <Section
+                    <AddDetailsSection
                          title="Benefits"
                          items={benefits}
                          setter={setBenefits}
@@ -202,7 +202,7 @@ const AddProduct = () => {
                          handleChange={handleChange}
                     />
 
-                    <Section
+                    <AddDetailsSection
                          title="Types"
                          items={types}
                          setter={setTypes}

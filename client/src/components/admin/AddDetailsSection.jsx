@@ -1,4 +1,4 @@
-const Section = ({ title, items, setter, addItem, removeItem, handleChange }) => {
+const AddDetailsSection = ({ title, items, setter, addItem, removeItem, handleChange }) => {
      return (
           <div className="rounded mb-3 space-y-2">
                <h2 className="text-xl font-semibold mb-2">{title}</h2>
@@ -43,4 +43,4 @@ const Section = ({ title, items, setter, addItem, removeItem, handleChange }) =>
      )
 }
 
-export default Section;
+export default AddDetailsSection;
