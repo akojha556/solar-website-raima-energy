@@ -4,11 +4,36 @@ import slugify from "slugify";
 import { uploadToCloudinary } from "../utils/uploadToCloudinary.js";
 import { removeLocalFiles } from "../utils/removeLocalFiles.js";
 import cloudinary from "../config/cloudinary.js";
+import mongoose from "mongoose";
 
 //Get all products
 export const getProducts = asyncHandler(async (req, res) => {
      const products = await Product.find();
      res.status(200).json(products);
+});
+
+//Get individual product
+export const getProduct = asyncHandler(async (req, res) => {
+     const { id } = req.params;
+
+     //Check id is valid mongodb id or not
+     if (!mongoose.Types.ObjectId.isValid(id)) {
+          res.status(400);
+          throw new Error("This id is invalid!");
+     }
+
+     const product = await Product.findById(id);
+
+     if (!product) {
+          res.status(400);
+          throw new Error("This product is not available or has been removed!");
+     };
+
+     res.status(200).json({
+          success: true,
+          message: `The product with id:${product._id} is`,
+          product
+     });
 });
 
 //add new products
