@@ -231,11 +231,12 @@ const EditProduct = () => {
                     <button
                          type="submit"
                          className={`px-6 py-2 rounded bg-black text-white flex items-center justify-between gap-2 ${isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-black hover:bg-gray-800 cursor-pointer"}`}
+                         disabled={isSubmitting}
                     >
                          {isSubmitting ? (
-                              <div>
-                                   <i className="fa-solid fa-spinner fa-spin"></i>
-                                   <span>Updating Product...</span>
+                              <div className="flex items-center justify-center gap-3 text-slate-600">
+                                   <i className="fa-solid fa-spinner fa-spin text-lg"></i>
+                                   <span className="text-sm font-medium">Updating product...</span>
                               </div>
                          ) : (
                               "Confirm"

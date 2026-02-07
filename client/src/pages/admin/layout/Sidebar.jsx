@@ -16,8 +16,8 @@ const Sidebar = () => {
      return (
           <aside className="w-64 bg-slate-900 text-white flex flex-col">
                {/* Logo */}
-               <div className="h-16 flex px-6 items-center text-xl font-bold border-b border-slate-700">
-                    ☀️ Solar Admin
+               <div className="h-20 flex px-6 items-center text-xl font-bold border-b border-slate-700">
+                    <img src="https://res.cloudinary.com/dgokm518s/image/upload/v1770494016/fevicon_fb3yom.png" alt="Raima-energy" />
                </div>
 
                {/* Menu */}
@@ -44,9 +44,9 @@ const Sidebar = () => {
                </nav>
 
                {/* Logout */}
-               <button onClick={handleLogout} className="flex items-center gap-3 p-4 text-red-400 hover:bg-slate-800">
-                    <i className="fas fa-sign-out-alt"></i>
-                    Logout
+               <button onClick={handleLogout} className="flex items-center gap-3 p-4 text-red-400 hover:bg-slate-800 cursor-pointer transition duration-300 group justify-center">
+                    <p className="group-hover:scale-110 duration-300 transition">Logout</p>
+                    <i className="fas fa-sign-out-alt group-hover:translate-x-2 duration-300 transition"></i>
                </button>
           </aside>
      );

@@ -13,17 +13,21 @@ const DeleteConfirmModal = ({ onCancel, handleDelete, loading }) => {
                     <div className="flex justify-between gap-3 mt-6">
                          <button onClick={onCancel}
                               className={`px-4 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 ${loading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+                              disabled={loading}
                          >
                               Go Back
                          </button>
 
                          <button onClick={handleDelete}
-                              className={`px-4 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 ${loading ? "bg-red-200 cursor-not-allowed " : "bg-red-600 hover:bg-red-700 cursor-pointer"}`}
+                              className={`flex items-center gap-3 justify-center px-4 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 ${loading ? "bg-red-200 cursor-not-allowed " : "bg-red-600 hover:bg-red-700 cursor-pointer"}`}
+                              disabled={loading}
                          >
                               {loading && (
-                                   <i className="fa-solid fa-spinner fa-spin"></i>
+                                   <i className="fa-solid fa-spinner fa-spin text-sm"></i>
                               )}
-                              {loading ? "Deleting..." : "Yes, Delete"}
+                              <span>
+                                   {loading ? "Deleting..." : "Yes, Delete"}
+                              </span>
                          </button>
                     </div>
                </div>

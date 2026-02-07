@@ -53,7 +53,7 @@ const ProductList = () => {
 
                     <Link
                          to="/admin/products/add-product"
-                         className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                         className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-300 hover:scale-105"
                     >
                          + Add Product
                     </Link>
@@ -64,6 +64,7 @@ const ProductList = () => {
                     <table className="w-full text-left">
                          <thead className="bg-gray-100 text-gray-600 text-sm">
                               <tr>
+                                   <th className="px-6 py-3">S.No.</th>
                                    <th className="px-6 py-3">Image</th>
                                    <th className="px-6 py-3">Title</th>
                                    <th className="px-6 py-3">Slug</th>
@@ -86,11 +87,12 @@ const ProductList = () => {
 
                               {/* Data */}
                               {!loading &&
-                                   products.map((product) => (
+                                   products.map((product, i) => (
                                         <tr
                                              key={product._id}
                                              className="border-t hover:bg-gray-50"
                                         >
+                                             <td className="px-6 py-4">{i + 1}.</td>
                                              {/* Image */}
                                              <td className="px-6 py-4">
                                                   <img
@@ -114,7 +116,7 @@ const ProductList = () => {
                                              <td className="px-6 py-4 text-right space-x-3">
                                                   <Link
                                                        to={`/admin/products/edit-product/${product._id}`}
-                                                       className="text-blue-600 hover:underline cursor-pointer"
+                                                       className="text-blue-600 hover:underline cursor-pointer duration-300"
                                                   >
                                                        Edit
                                                   </Link>
