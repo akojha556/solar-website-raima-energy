@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import AddDetailsSection from "../../../components/admin/AddDetailsSection";
 import { addProduct } from "../../../services/productService";
 import { useNavigate } from "react-router-dom";
@@ -18,6 +18,9 @@ const AddProduct = () => {
      const [preview2, setPreview2] = useState(null);
 
      const [imageError, setImageError] = useState(false);
+
+     const [error, setError] = useState(false);
+     const errorRef = useRef(null);
 
      const [title, setTitle] = useState("");
      const [shortDesc, setShortDesc] = useState("");
@@ -65,11 +68,21 @@ const AddProduct = () => {
      formData.append("benefits", JSON.stringify(benefits));
      formData.append("types", JSON.stringify(types));
 
-
-
      //Handle form submit
      const handleSubmit = async (e) => {
           e.preventDefault();
+
+          if (image1 === null || image2 === null) {
+               setError(true);
+               // If error already exists, scroll manually
+               errorRef.current?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+               });
+               return;
+          }
+
+          setError(false);
 
           if (isSubmitting) return;
 
@@ -86,7 +99,17 @@ const AddProduct = () => {
                setIsSubmitting(false);
                navigate("/admin/products");
           }
-     }
+     };
+
+     useEffect(() => {
+          if (error) {
+               errorRef.current?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+               });
+          }
+     }, [error]);
+
 
      return (
           <div>
@@ -107,6 +130,8 @@ const AddProduct = () => {
                          onChange={(e) => setShortDesc(e.target.value)}
                          required
                     />
+                    {/* Helper text if image not uploaded */}
+                    {error && <p ref={errorRef} className="text-red-600 text-xs">Please upload image.</p>}
                     {/* Image upload area */}
                     <div className="flex gap-6">
                          <label className="w-44 h-44 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer flex items-center justify-center text-gray-500 hover:border-black transition overflow-hidden">
@@ -118,11 +143,12 @@ const AddProduct = () => {
                               <input
                                    type="file"
                                    accept="image/*"
-                                   required
                                    className="hidden"
                                    onChange={(e) => {
                                         const file = e.target.files[0];
                                         if (!file) return;
+
+                                        setError(false);
 
                                         if (file.size > MAX_SIZE) {
                                              setImageError(true);
@@ -153,10 +179,11 @@ const AddProduct = () => {
                                    type="file"
                                    accept="image/*"
                                    className="hidden"
-                                   required
                                    onChange={(e) => {
                                         const file = e.target.files[0];
                                         if (!file) return;
+
+                                        setError(false);
 
                                         if (file.size > MAX_SIZE) {
                                              setImageError(true);
