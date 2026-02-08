@@ -77,7 +77,7 @@ const ProductList = () => {
                               {loading && (
                                    <tr>
                                         <td
-                                             colSpan="4"
+                                             colSpan="5"
                                              className="px-6 py-6 text-center text-gray-500"
                                         >
                                              Loading products...
@@ -144,7 +144,7 @@ const ProductList = () => {
                               {!loading && products.length === 0 && (
                                    <tr>
                                         <td
-                                             colSpan="4"
+                                             colSpan="5"
                                              className="px-6 py-6 text-center text-gray-500"
                                         >
                                              No products found

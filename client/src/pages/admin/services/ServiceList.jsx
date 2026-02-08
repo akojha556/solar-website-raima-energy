@@ -1,15 +1,23 @@
 import { Link } from "react-router-dom";
+import { getServices } from "../../../services/serviceService";
+import { useState, useEffect } from "react";
 
 const ServiceList = () => {
-     // TEMP UI data (based on your real schema)
-     const services = [
-          {
-               id: 1,
-               title: "Solar Installation",
-               slug: "solar-installation",
-               image: "/uploads/services/solar-installation-main.png",
-          },
-     ];
+     const [services, setServices] = useState([]);
+
+     useEffect(() => {
+          const fetchProducts = async () => {
+               try {
+                    const res = await getServices();
+                    setServices(res.data);
+               } catch (error) {
+                    console.error("Failed to fetch products", error);
+               }
+          };
+
+          fetchProducts();
+     }, []);
+
 
      return (
           <div>
@@ -20,7 +28,7 @@ const ServiceList = () => {
                     </h2>
 
                     <Link
-                         to="/admin/services/add"
+                         to="/admin/services/add-service"
                          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
                     >
                          + Add Service
@@ -42,13 +50,13 @@ const ServiceList = () => {
                          <tbody>
                               {services.map((service) => (
                                    <tr
-                                        key={service.id}
+                                        key={service._id}
                                         className="border-t hover:bg-gray-50"
                                    >
                                         {/* Image */}
                                         <td className="px-6 py-4">
                                              <img
-                                                  src={service.image}
+                                                  src={service.images.main.url}
                                                   alt={service.title}
                                                   className="w-16 h-12 object-cover rounded"
                                              />

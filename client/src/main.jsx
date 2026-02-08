@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// Pages
+//Public pages
 import Home from "./pages/public/Home";
 import About from "./pages/public/About";
 import Products from "./pages/public/Products";
@@ -14,6 +14,8 @@ import ServiceDetails from "./pages/public/ServiceDetails.jsx";
 import Contact from "./pages/public/Contact";
 import Faq from "./pages/public/Faq.jsx";
 import NotFound from "./pages/public/NotFound.jsx";
+
+//Admin pages
 import AdminLayout from "./pages/admin/layout/adminLayout.jsx";
 import Dashboard from "./pages/admin/dashboard/Dashboard.jsx";
 import ProductList from "./pages/admin/products/ProductList.jsx";
@@ -22,6 +24,7 @@ import Login from "./pages/admin/login/Login.jsx";
 import ProtectedRoute from "./routes/ProtectedRoutes.jsx";
 import AddProduct from "./pages/admin/products/AddProduct.jsx";
 import EditProduct from "./pages/admin/products/EditProduct.jsx";
+import AddService from "./pages/admin/services/AddService.jsx";
 
 const router = createBrowserRouter([
   {
@@ -50,9 +53,10 @@ const router = createBrowserRouter([
           { index: true, element: <Dashboard /> },
           { path: "dashboard", element: <Dashboard /> },
           { path: "products", element: <ProductList /> },
-          { path: "services", element: <ServiceList /> },
           { path: "products/add-product", element: <AddProduct /> },
-          { path: "products/edit-product/:id", element: <EditProduct /> }
+          { path: "products/edit-product/:id", element: <EditProduct /> },
+          { path: "services", element: <ServiceList /> },
+          { path: "services/add-service", element: <AddService /> }
         ],
       },
     ],

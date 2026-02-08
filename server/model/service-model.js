@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { stringify } from "querystring";
 
 const blockSchema = mongoose.Schema({
      title: {
@@ -39,6 +40,10 @@ const serviceSchema = mongoose.Schema({
           required: true
      },
      overview: {
+          type: String,
+          required: true
+     },
+     idealFor: {
           type: String,
           required: true
      },

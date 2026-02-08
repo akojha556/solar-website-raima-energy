@@ -12,10 +12,27 @@ export const getServices = asyncHandler(async (req, res) => {
      res.status(200).json(services);
 });
 
+//Get individual service
+export const getService = asyncHandler(async (req, res) => {
+     const { id } = req.params;
+     const service = await Service.findById(id);
+
+     if (!service) {
+          res.status(400);
+          throw new Error("This service is already removed or not available with us.");
+     };
+
+     res.status(200).json({
+          status: success,
+          message: `The service with id:${service._id} is`,
+          service
+     });
+});
+
 //Create a service
 export const createService = asyncHandler(async (req, res) => {
      const files = req.files;
-     const { title, shortDesc, overview, options, useCases, benefits } = req.body;
+     const { title, shortDesc, overview, options, useCases, benefits, idealFor } = req.body;
 
      //Validate field
      if (
@@ -25,6 +42,7 @@ export const createService = asyncHandler(async (req, res) => {
           !options ||
           !useCases ||
           !benefits ||
+          !idealFor ||
           !files ||
           files.length === 0
      ) {
@@ -64,6 +82,7 @@ export const createService = asyncHandler(async (req, res) => {
           slug,
           shortDesc,
           overview,
+          idealFor,
           options: JSON.parse(options),
           useCases: JSON.parse(useCases),
           benefits: JSON.parse(benefits),
@@ -90,7 +109,7 @@ export const createService = asyncHandler(async (req, res) => {
 export const updateService = asyncHandler(async (req, res) => {
      const { id } = req.params;
      const files = req.files;
-     const { title, shortDesc, overview, options, useCases, benefits } = req.body;
+     const { title, shortDesc, overview, options, useCases, benefits, idealFor } = req.body;
 
      //Find service
      const service = await Service.findById(id);
@@ -122,6 +141,7 @@ export const updateService = asyncHandler(async (req, res) => {
      //Update other text fields
      service.shortDesc = shortDesc || service.shortDesc;
      service.overview = overview || service.overview;
+     service.idealFor = idealFor || service.idealFor;
      if (options) service.options = JSON.parse(options);
      if (useCases) service.useCases = JSON.parse(useCases);
      if (benefits) service.benefits = JSON.parse(benefits);
