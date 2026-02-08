@@ -16,7 +16,7 @@ import Faq from "./pages/public/Faq.jsx";
 import NotFound from "./pages/public/NotFound.jsx";
 
 //Admin pages
-import AdminLayout from "./pages/admin/layout/adminLayout.jsx";
+import AdminLayout from "./pages/admin/layout/AdminLayout.jsx";
 import Dashboard from "./pages/admin/dashboard/Dashboard.jsx";
 import ProductList from "./pages/admin/products/ProductList.jsx";
 import ServiceList from "./pages/admin/services/ServiceList.jsx";
