@@ -22,7 +22,7 @@ export const loginAdmin = asyncHandler(async (req, res) => {
           res.status(200).cookie("token", generateToken(admin.id), {
                httpOnly: true,
                secure: process.env.NODE_ENV === "production",
-               sameSite: "strict",
+               sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
                maxAge: 1 * 60 * 60 * 1000
           }).json({
                message: "Login successful",
