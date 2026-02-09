@@ -80,7 +80,7 @@ const ProductList = () => {
                                              colSpan="5"
                                              className="px-6 py-6 text-center text-gray-500"
                                         >
-                                             Loading products...
+                                             Loading all products...
                                         </td>
                                    </tr>
                               )}

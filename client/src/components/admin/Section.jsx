@@ -1,11 +1,17 @@
-const AddDetailsSection = ({ title, items, setter, addItem, removeItem, handleChange }) => {
+const Section = ({ title, items, setter, addItem, removeItem, handleChange }) => {
      return (
           <div className="rounded mb-3 space-y-2">
                <h2 className="text-xl font-semibold mb-2">{title}</h2>
 
                {items.map((item, i) => {
                     return (
-                         <div key={i} className="border p-4 rounded mb-3 space-y-2">
+                         <div
+                              key={i}
+                              className="border border-gray-300 dark:border-gray-700 rounded-xl p-5 space-y-4 bg-white dark:bg-gray-900 shadow-sm"
+                         >
+
+
+
                               <input
                                    className="input"
                                    placeholder="Title"
@@ -43,4 +49,4 @@ const AddDetailsSection = ({ title, items, setter, addItem, removeItem, handleCh
      )
 }
 
-export default AddDetailsSection;
+export default Section;

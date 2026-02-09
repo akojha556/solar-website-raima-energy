@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct, updateProduct } from "../../../services/productService";
-import EditDetailsSection from "../../../components/admin/EditDetailsSection";
+import Section from "../../../components/admin/Section";
 import { useNavigate } from "react-router-dom";
 
 const emptyItem = { title: "", desc: "" };
@@ -38,14 +38,14 @@ const EditProduct = () => {
      };
 
      //Remove item
-     const removeItem = (index, setter) => {
+     const removeItem = (setter, index) => {
           setter((prev) => {
                return prev.filter((_, i) => i !== index);
           });
      };
 
      //Handle Array input change
-     const handleChange = (value, field, index, setter) => {
+     const handleChange = (setter, index, field, value) => {
           setter((prev) => {
                return prev.map((item, i) => {
                     return i === index ? { ...item, [field]: value } : item;
@@ -129,7 +129,7 @@ const EditProduct = () => {
                     {/* Image upload area */}
                     <div className="flex gap-6">
                          {/* IMAGE 1 */}
-                         <label className="w-44 h-44 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer flex items-center justify-center text-gray-500 hover:border-black transition overflow-hidden">
+                         <label className="image-label">
                               {preview1 ? (
                                    <img src={preview1} alt="Preview 1" className="w-full h-full object-cover" />
                               ) : (<span className="text-sm text-center px-2">
@@ -155,7 +155,7 @@ const EditProduct = () => {
                               />
                          </label>
                          {/* IMAGE 2 */}
-                         <label className="w-44 h-44 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer flex items-center justify-center text-gray-500 hover:border-black transition overflow-hidden">
+                         <label className="image-label">
                               {preview2 ? (
                                    <img src={preview2} alt="Preview 1" className="w-full h-full object-cover" />
                               ) : (<span className="text-sm text-center px-2">
@@ -194,7 +194,7 @@ const EditProduct = () => {
                          onChange={(e) => setOverview(e.target.value)}
                     />
 
-                    <EditDetailsSection
+                    <Section
                          title="Application"
                          items={applications}
                          addItem={addItem}
@@ -203,7 +203,7 @@ const EditProduct = () => {
                          setter={setApplications}
                     />
 
-                    <EditDetailsSection
+                    <Section
                          title="Benifits"
                          items={benefits}
                          addItem={addItem}
@@ -212,7 +212,7 @@ const EditProduct = () => {
                          setter={setBenefits}
                     />
 
-                    <EditDetailsSection
+                    <Section
                          title="Types"
                          items={types}
                          addItem={addItem}

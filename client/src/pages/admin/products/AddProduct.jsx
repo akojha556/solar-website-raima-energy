@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import AddDetailsSection from "../../../components/admin/AddDetailsSection";
+import Section from "../../../components/admin/Section";
 import { addProduct } from "../../../services/productService";
 import { useNavigate } from "react-router-dom";
 
@@ -134,7 +134,7 @@ const AddProduct = () => {
                     {error && <p ref={errorRef} className="text-red-600 text-xs">Please upload image.</p>}
                     {/* Image upload area */}
                     <div className="flex gap-6">
-                         <label className="w-44 h-44 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer flex items-center justify-center text-gray-500 hover:border-black transition overflow-hidden">
+                         <label className="image-label">
                               {preview1 ? (
                                    <img src={preview1} alt="Preview 1" className="w-full h-full object-cover" />
                               ) : (<span className="text-sm text-center px-2">
@@ -162,7 +162,7 @@ const AddProduct = () => {
                               />
                          </label>
                          {/* IMAGE 2 */}
-                         <label className="w-44 h-44 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer flex items-center justify-center text-gray-500 hover:border-black transition overflow-hidden">
+                         <label className="image-label">
                               {preview2 ? (
                                    <img
                                         src={preview2}
@@ -211,7 +211,7 @@ const AddProduct = () => {
                          required
                     />
 
-                    <AddDetailsSection
+                    <Section
                          title="Applications"
                          items={applications}
                          setter={setApplications}
@@ -220,7 +220,7 @@ const AddProduct = () => {
                          handleChange={handleChange}
                     />
 
-                    <AddDetailsSection
+                    <Section
                          title="Benefits"
                          items={benefits}
                          setter={setBenefits}
@@ -229,7 +229,7 @@ const AddProduct = () => {
                          handleChange={handleChange}
                     />
 
-                    <AddDetailsSection
+                    <Section
                          title="Types"
                          items={types}
                          setter={setTypes}

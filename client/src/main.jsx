@@ -25,6 +25,8 @@ import ProtectedRoute from "./routes/ProtectedRoutes.jsx";
 import AddProduct from "./pages/admin/products/AddProduct.jsx";
 import EditProduct from "./pages/admin/products/EditProduct.jsx";
 import AddService from "./pages/admin/services/AddService.jsx";
+import EditService from "./pages/admin/services/EditService.jsx";
+import Enquiries from "./pages/admin/enquires/Enquiries.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,7 +58,9 @@ const router = createBrowserRouter([
           { path: "products/add-product", element: <AddProduct /> },
           { path: "products/edit-product/:id", element: <EditProduct /> },
           { path: "services", element: <ServiceList /> },
-          { path: "services/add-service", element: <AddService /> }
+          { path: "services/add-service", element: <AddService /> },
+          { path: "services/edit-service/:id", element: <EditService /> },
+          { path: "enquiries", element: <Enquiries /> }
         ],
       },
     ],

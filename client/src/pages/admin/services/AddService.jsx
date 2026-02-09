@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import AddDetailsSection from "../../../components/admin/AddDetailsSection";
+import Section from "../../../components/admin/Section";
 import { useNavigate } from "react-router-dom";
 import { addService } from "../../../services/serviceService";
 
@@ -126,7 +126,7 @@ const AddService = () => {
                     {error && <p ref={errorRef} className="text-red-600 text-xs">Please upload image.</p>}
                     <div className="flex gap-6">
                          {/* image1 */}
-                         <label className="w-44 h-44 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer flex items-center justify-center text-gray-500 hover:border-black transition overflow-hidden">
+                         <label className="image-label">
                               {preview1 ? (
                                    <img src={preview1} alt="Preview 1" className="w-full h-full object-cover" />
                               ) : (<span className="text-sm text-center px-2">
@@ -152,7 +152,7 @@ const AddService = () => {
                               />
                          </label>
                          {/* image2 */}
-                         <label className="w-44 h-44 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer flex items-center justify-center text-gray-500 hover:border-black transition overflow-hidden">
+                         <label className="image-label">
                               {preview2 ? (
                                    <img src={preview2} alt="Preview 2" className="w-full h-full object-cover" />
                               ) : (<span className="text-sm text-center px-2">
@@ -192,7 +192,7 @@ const AddService = () => {
                          required
                     />
 
-                    <AddDetailsSection
+                    <Section
                          title="Service Options"
                          items={options}
                          addItem={addItem}
@@ -201,7 +201,7 @@ const AddService = () => {
                          handleChange={handleChange}
                     />
 
-                    <AddDetailsSection
+                    <Section
                          title="Service Use Cases"
                          items={useCases}
                          addItem={addItem}
@@ -210,7 +210,7 @@ const AddService = () => {
                          handleChange={handleChange}
                     />
 
-                    <AddDetailsSection
+                    <Section
                          title="Service Benefits"
                          items={benefits}
                          addItem={addItem}

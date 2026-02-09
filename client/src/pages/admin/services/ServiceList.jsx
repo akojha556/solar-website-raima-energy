@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 const ServiceList = () => {
      const [services, setServices] = useState([]);
+     const [loading, setLoading] = useState(true);
 
      useEffect(() => {
           const fetchProducts = async () => {
@@ -12,6 +13,8 @@ const ServiceList = () => {
                     setServices(res.data);
                } catch (error) {
                     console.error("Failed to fetch products", error);
+               } finally {
+                    setLoading(false);
                }
           };
 
@@ -40,6 +43,7 @@ const ServiceList = () => {
                     <table className="w-full text-left">
                          <thead className="bg-gray-100 text-gray-600 text-sm">
                               <tr>
+                                   <th className="px-6 py-3">S.No.</th>
                                    <th className="px-6 py-3">Image</th>
                                    <th className="px-6 py-3">Title</th>
                                    <th className="px-6 py-3">Slug</th>
@@ -48,47 +52,60 @@ const ServiceList = () => {
                          </thead>
 
                          <tbody>
-                              {services.map((service) => (
-                                   <tr
-                                        key={service._id}
-                                        className="border-t hover:bg-gray-50"
-                                   >
-                                        {/* Image */}
-                                        <td className="px-6 py-4">
-                                             <img
-                                                  src={service.images.main.url}
-                                                  alt={service.title}
-                                                  className="w-16 h-12 object-cover rounded"
-                                             />
-                                        </td>
-
-                                        {/* Title */}
-                                        <td className="px-6 py-4 font-medium text-gray-800">
-                                             {service.title}
-                                        </td>
-
-                                        {/* Slug */}
-                                        <td className="px-6 py-4 text-gray-600 text-sm">
-                                             {service.slug}
-                                        </td>
-
-                                        {/* Actions */}
-                                        <td className="px-6 py-4 text-right space-x-3">
-                                             <Link
-                                                  to={`/admin/services/edit/${service.id}`}
-                                                  className="text-blue-600 hover:underline"
-                                             >
-                                                  Edit
-                                             </Link>
-
-                                             <button className="text-red-600 hover:underline">
-                                                  Delete
-                                             </button>
+                              {loading && (
+                                   <tr>
+                                        <td
+                                             colSpan="5"
+                                             className="px-6 py-6 text-center text-gray-500"
+                                        >
+                                             Loading all services...
                                         </td>
                                    </tr>
-                              ))}
+                              )}
 
-                              {services.length === 0 && (
+                              {!loading &&
+                                   services.map((service, i) => (
+                                        <tr
+                                             key={service._id}
+                                             className="border-t hover:bg-gray-50"
+                                        >
+                                             <td className="p-6 py-4">{i + 1}.</td>
+                                             {/* Image */}
+                                             <td className="px-6 py-4">
+                                                  <img
+                                                       src={service.images.main.url}
+                                                       alt={service.title}
+                                                       className="w-16 h-12 object-cover rounded"
+                                                  />
+                                             </td>
+
+                                             {/* Title */}
+                                             <td className="px-6 py-4 font-medium text-gray-800">
+                                                  {service.title}
+                                             </td>
+
+                                             {/* Slug */}
+                                             <td className="px-6 py-4 text-gray-600 text-sm">
+                                                  {service.slug}
+                                             </td>
+
+                                             {/* Actions */}
+                                             <td className="px-6 py-4 text-right space-x-3">
+                                                  <Link
+                                                       to={`/admin/services/edit-service/${service._id}`}
+                                                       className="text-blue-600 hover:underline"
+                                                  >
+                                                       Edit
+                                                  </Link>
+
+                                                  <button className="text-red-600 hover:underline">
+                                                       Delete
+                                                  </button>
+                                             </td>
+                                        </tr>
+                                   ))}
+
+                              {!loading && services.length === 0 && (
                                    <tr>
                                         <td
                                              colSpan="4"
