@@ -7,25 +7,28 @@ const Section = ({ title, items, setter, addItem, removeItem, handleChange }) =>
                     return (
                          <div
                               key={i}
-                              className="border border-gray-300 dark:border-gray-700 rounded-xl p-5 space-y-4 bg-white dark:bg-gray-900 shadow-sm"
+                              className="border border-gray-300 rounded-xl p-5 space-y-4 bg-white shadow-sm"
                          >
-
-
-
-                              <input
-                                   className="input"
-                                   placeholder="Title"
-                                   value={item.title}
-                                   onChange={(e) => { handleChange(setter, i, "title", e.target.value) }}
-                                   required
-                              />
-                              <textarea
-                                   className="textarea h-20"
-                                   placeholder="Description"
-                                   value={item.desc}
-                                   onChange={(e) => { handleChange(setter, i, "desc", e.target.value) }}
-                                   required
-                              />
+                              <label className="label">
+                                   Title
+                                   <input
+                                        className="input"
+                                        placeholder="Enter a title."
+                                        value={item.title}
+                                        onChange={(e) => { handleChange(setter, i, "title", e.target.value) }}
+                                        required
+                                   />
+                              </label>
+                              <label className="label">
+                                   Description
+                                   <textarea
+                                        className="textarea h-20"
+                                        placeholder="Enter a description."
+                                        value={item.desc}
+                                        onChange={(e) => { handleChange(setter, i, "desc", e.target.value) }}
+                                        required
+                                   />
+                              </label>
                               {items.length > 1 &&
                                    <button
                                         type="button"

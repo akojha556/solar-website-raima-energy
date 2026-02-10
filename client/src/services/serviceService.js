@@ -19,7 +19,7 @@ export const addService = async (formData) => {
 };
 
 // Update a service
-export const updateService = async (formData) => {
+export const updateService = async (id, formData) => {
      const response = await api.put(`/api/services/${id}`, formData);
      return response;
 };

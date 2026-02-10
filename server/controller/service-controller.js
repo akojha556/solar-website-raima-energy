@@ -23,7 +23,7 @@ export const getService = asyncHandler(async (req, res) => {
      };
 
      res.status(200).json({
-          status: success,
+          status: true,
           message: `The service with id:${service._id} is`,
           service
      });
