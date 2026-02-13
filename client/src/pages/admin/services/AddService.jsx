@@ -15,7 +15,6 @@ const AddService = () => {
 
      const [preview1, setPreview1] = useState(null);
      const [preview2, setPreview2] = useState(null);
-     // title, shortDesc, overview, options, useCases, benefits, idealFor 
 
      const [imageError, setImageError] = useState(false);
 
@@ -237,7 +236,7 @@ const AddService = () => {
                                    <span>Adding Service...</span>
                               </>
                          ) : (
-                              "Add Product"
+                              "Add Service"
                          )}
                     </button>
                </form>

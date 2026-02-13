@@ -131,11 +131,14 @@ const ProductList = () => {
                                                   </button>
                                                   {/* Modal */}
                                                   {showModal &&
-                                                       <DeleteConfirmModal onCancel={() => {
-                                                            setShowModal(false);
-                                                            setDeleteId(null);
-                                                       }} handleDelete={() => handleDelete(deleteId)}
-                                                            loading={isDeleting} />}
+                                                       <DeleteConfirmModal
+                                                            onCancel={() => {
+                                                                 setShowModal(false);
+                                                                 setDeleteId(null);
+                                                            }}
+                                                            handleDelete={() => handleDelete(deleteId)}
+                                                            loading={isDeleting}
+                                                       />}
                                              </td>
                                         </tr>
                                    ))}

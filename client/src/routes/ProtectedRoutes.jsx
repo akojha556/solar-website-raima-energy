@@ -9,13 +9,10 @@ const ProtectedRoute = () => {
      useEffect(() => {
           const checkAuth = async () => {
                try {
-                    const response = await api.get("/api/admin/me");
-                    console.log(response);
-
+                    await api.get("/api/admin/me");
                     setIsAuthenticated(true);
                } catch (error) {
                     setIsAuthenticated(false);
-                    console.log(error);
 
                } finally {
                     setLoading(false);

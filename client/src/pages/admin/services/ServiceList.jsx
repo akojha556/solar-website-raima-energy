@@ -1,10 +1,32 @@
 import { Link } from "react-router-dom";
 import { getServices } from "../../../services/serviceService";
 import { useState, useEffect } from "react";
+import DeleteConfirmModal from "../../../components/admin/DeleteConfirmModal";
+import { deleteService } from "../../../services/serviceService";
 
 const ServiceList = () => {
      const [services, setServices] = useState([]);
      const [loading, setLoading] = useState(true);
+
+     const [showModal, setShowModal] = useState(false);
+     const [deleteId, setDeleteId] = useState(null);
+     const [isDeleting, setIsDeleting] = useState(false);
+
+     const handleDelete = async (id) => {
+          try {
+               setIsDeleting(true);
+               const response = await deleteService(id);
+               setShowModal(false);
+               setDeleteId(null);
+               setServices((prev) => {
+                    return prev.filter((service) => service._id !== id);
+               });
+          } catch (error) {
+               setShowModal(false);
+          } finally {
+               setIsDeleting(false);
+          }
+     }
 
      useEffect(() => {
           const fetchProducts = async () => {
@@ -98,9 +120,25 @@ const ServiceList = () => {
                                                        Edit
                                                   </Link>
 
-                                                  <button className="text-red-600 hover:underline">
+                                                  <button
+                                                       onClick={() => {
+                                                            setShowModal(true);
+                                                            setDeleteId(service._id);
+                                                       }}
+                                                       className="text-red-600 hover:underline cursor-pointer"
+                                                  >
                                                        Delete
                                                   </button>
+                                                  {/* Modal */}
+                                                  {showModal &&
+                                                       <DeleteConfirmModal
+                                                            onCancel={() => {
+                                                                 setShowModal(false);
+                                                                 setDeleteId(null);
+                                                            }}
+                                                            handleDelete={() => handleDelete(deleteId)}
+                                                            loading={isDeleting}
+                                                       />}
                                              </td>
                                         </tr>
                                    ))}
@@ -108,7 +146,7 @@ const ServiceList = () => {
                               {!loading && services.length === 0 && (
                                    <tr>
                                         <td
-                                             colSpan="4"
+                                             colSpan="5"
                                              className="px-6 py-6 text-center text-gray-500"
                                         >
                                              No services found
