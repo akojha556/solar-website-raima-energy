@@ -27,10 +27,10 @@ const ProtectedRoute = () => {
 
      if (loading)
           return (
-               <div className="flex items-center justify-center h-screen bg-gray-100">
+               <div className="flex items-center justify-center h-screen bg-gray-100 ">
                     <div className="bg-white shadow-md rounded-xl px-8 py-6 flex items-center gap-4">
-                         <div className="w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
-                         <span className="text-gray-700 font-medium">
+                         <i className="fa-solid fa-bars-progress text-xl text-blue-500 animate-bounce"></i>
+                         <span className="text-blue-500 font-medium">
                               Checking authentication...
                          </span>
                     </div>
