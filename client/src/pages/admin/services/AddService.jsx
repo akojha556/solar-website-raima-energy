@@ -105,77 +105,86 @@ const AddService = () => {
           <div>
                <h1 className="text-2xl font-bold mb-6">Add Service</h1>
                <form onSubmit={handleSubmit} className="space-y-6">
-                    <input
-                         placeholder="Title"
-                         className="input"
-                         value={title}
-                         onChange={(e) => setTitle(e.target.value)}
-                         required
-                    />
+                    <label className="label">
+                         <p className="font-bold">Title</p>
+                         <input
+                              placeholder="Title"
+                              className="input"
+                              value={title}
+                              onChange={(e) => setTitle(e.target.value)}
+                              required
+                         />
+                    </label>
 
-                    <textarea
-                         placeholder="Short Description"
-                         className="textarea h-20"
-                         value={shortDesc}
-                         onChange={(e) => setShortDesc(e.target.value)}
-                         required
-                    />
+                    <label className="label">
+                         <p className="font-bold">Short Description</p>
+                         <textarea
+                              placeholder="Short Description"
+                              className="textarea h-20"
+                              value={shortDesc}
+                              onChange={(e) => setShortDesc(e.target.value)}
+                              required
+                         />
+                    </label>
 
-                    {/* Helper text if image not uploaded */}
-                    {error && <p ref={errorRef} className="text-red-600 text-xs">Please upload image.</p>}
-                    <div className="flex gap-6">
-                         {/* image1 */}
-                         <label className="image-label">
-                              {preview1 ? (
-                                   <img src={preview1} alt="Preview 1" className="w-full h-full object-cover" />
-                              ) : (<span className="text-sm text-center px-2">
-                                   Upload Image 1
-                              </span>)}
-                              <input
-                                   type="file"
-                                   accept="image/*"
-                                   className="hidden"
-                                   onChange={(e) => {
-                                        const file = e.target.files[0];
-                                        if (!file) return;
+                    <div className="label">
+                         <p className="font-bold">Upload images.</p>
+                         {/* Helper text if image not uploaded */}
+                         {error && <p ref={errorRef} className="text-red-600 text-xs">Please upload image.</p>}
+                         <div className="flex gap-6">
+                              {/* image1 */}
+                              <label className="image-label">
+                                   {preview1 ? (
+                                        <img src={preview1} alt="Preview 1" className="w-full h-full object-cover" />
+                                   ) : (<span className="text-sm text-center px-2">
+                                        Upload Image 1
+                                   </span>)}
+                                   <input
+                                        type="file"
+                                        accept="image/*"
+                                        className="hidden"
+                                        onChange={(e) => {
+                                             const file = e.target.files[0];
+                                             if (!file) return;
 
-                                        if (file.size > MAX_SIZE) {
-                                             setImageError(true);
-                                             return;
-                                        }
+                                             if (file.size > MAX_SIZE) {
+                                                  setImageError(true);
+                                                  return;
+                                             }
 
-                                        setImageError(false);
-                                        setImage1(file);
-                                        setPreview1(URL.createObjectURL(file));
-                                   }}
-                              />
-                         </label>
-                         {/* image2 */}
-                         <label className="image-label">
-                              {preview2 ? (
-                                   <img src={preview2} alt="Preview 2" className="w-full h-full object-cover" />
-                              ) : (<span className="text-sm text-center px-2">
-                                   Upload Image 2
-                              </span>)}
-                              <input
-                                   type="file"
-                                   accept="image/*"
-                                   className="hidden"
-                                   onChange={(e) => {
-                                        const file = e.target.files[0];
-                                        if (!file) return;
+                                             setImageError(false);
+                                             setImage1(file);
+                                             setPreview1(URL.createObjectURL(file));
+                                        }}
+                                   />
+                              </label>
+                              {/* image2 */}
+                              <label className="image-label">
+                                   {preview2 ? (
+                                        <img src={preview2} alt="Preview 2" className="w-full h-full object-cover" />
+                                   ) : (<span className="text-sm text-center px-2">
+                                        Upload Image 2
+                                   </span>)}
+                                   <input
+                                        type="file"
+                                        accept="image/*"
+                                        className="hidden"
+                                        onChange={(e) => {
+                                             const file = e.target.files[0];
+                                             if (!file) return;
 
-                                        if (file.size > MAX_SIZE) {
-                                             setImageError(true);
-                                             return;
-                                        }
+                                             if (file.size > MAX_SIZE) {
+                                                  setImageError(true);
+                                                  return;
+                                             }
 
-                                        setImageError(false);
-                                        setImage2(file);
-                                        setPreview2(URL.createObjectURL(file));
-                                   }}
-                              />
-                         </label>
+                                             setImageError(false);
+                                             setImage2(file);
+                                             setPreview2(URL.createObjectURL(file));
+                                        }}
+                                   />
+                              </label>
+                         </div>
                     </div>
 
                     {/* Helper text */}
@@ -183,13 +192,17 @@ const AddService = () => {
                          Image size should be less than 5MB
                     </p>
 
-                    <textarea
-                         placeholder="Overview"
-                         className="textarea h-30"
-                         value={overview}
-                         onChange={(e) => setOverview(e.target.value)}
-                         required
-                    />
+                    <label className="label">
+                         <p className="font-bold">Overview</p>
+
+                         <textarea
+                              placeholder="Overview"
+                              className="textarea h-30"
+                              value={overview}
+                              onChange={(e) => setOverview(e.target.value)}
+                              required
+                         />
+                    </label>
 
                     <Section
                          title="Service Options"
@@ -218,13 +231,17 @@ const AddService = () => {
                          handleChange={handleChange}
                     />
 
-                    <textarea
-                         placeholder="Ideal For"
-                         className="textarea h-20"
-                         value={idealFor}
-                         onChange={(e) => setIdealFor(e.target.value)}
-                         required
-                    />
+                    <label className="label">
+                         <p className="font-bold">Ideal For</p>
+
+                         <textarea
+                              placeholder="Ideal For"
+                              className="textarea h-20"
+                              value={idealFor}
+                              onChange={(e) => setIdealFor(e.target.value)}
+                              required
+                         />
+                    </label>
                     <button
                          type="submit"
                          disabled={isSubmitting}

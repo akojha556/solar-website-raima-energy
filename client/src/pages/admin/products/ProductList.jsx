@@ -21,7 +21,6 @@ const ProductList = () => {
                     return prev.filter((product) => product._id !== id);
                });
           } catch (error) {
-               console.error(error);
                setShowModal(false);
           } finally {
                setIsDeleting(false);
