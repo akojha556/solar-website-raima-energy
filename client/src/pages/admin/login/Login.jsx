@@ -18,7 +18,7 @@ const Login = () => {
                await loginAdmin({ username, password });
                navigate("/admin/dashboard");
           } catch (error) {
-               alert("Login failled");
+               console.log(error);               
           } finally {
                setIsLoading(false);
           }
@@ -56,7 +56,7 @@ const Login = () => {
 
                          <div className="relative w-full">
                               <input
-                                   type={showPassword ? "password" : "text"}
+                                   type={showPassword ? "text" : "password"}
                                    placeholder="Password"
                                    value={password}
                                    onChange={(e) => setPassword(e.target.value)}
@@ -69,7 +69,7 @@ const Login = () => {
                                    onClick={() => setShowPassword(!showPassword)}
                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
                               >
-                                   <i className={`fa-solid ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
+                                   <i className={`fa-solid ${showPassword ? "fa-eye" : "fa-eye-slash"}`}></i>
                               </button>
                          </div>
 
