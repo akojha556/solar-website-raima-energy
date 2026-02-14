@@ -6,6 +6,12 @@ export const getAllProducts = async () => {
      return response;
 };
 
+//Get total product count
+export const getProductCount = async () => {
+     const response = await api.get("/api/products/count");
+     return response;
+}
+
 //Get individual product
 export const getProduct = async (id) => {
      const response = await api.get(`/api/products/${id}`);

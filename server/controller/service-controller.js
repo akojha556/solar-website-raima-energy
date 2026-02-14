@@ -12,6 +12,12 @@ export const getServices = asyncHandler(async (req, res) => {
      res.status(200).json(services);
 });
 
+//Get service count
+export const getServiceCount = asyncHandler(async (req, res) => {
+     const count = await Service.countDocuments();
+     res.status(200).json(count);
+});
+
 //Get individual service
 export const getService = asyncHandler(async (req, res) => {
      const { id } = req.params;

@@ -6,6 +6,12 @@ export const getServices = async () => {
      return response;
 };
 
+//Get service count
+export const getServiceCount = async () => {
+     const response = await api.get("/api/services/count");
+     return response;
+}
+
 //Get individual service
 export const getService = async (id) => {
      const response = await api.get(`/api/services/${id}`);

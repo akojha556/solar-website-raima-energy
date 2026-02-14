@@ -12,6 +12,12 @@ export const getProducts = asyncHandler(async (req, res) => {
      res.status(200).json(products);
 });
 
+//Get product conunt
+export const getProductCount = asyncHandler(async(req, res) => {
+     const count = await Product.countDocuments();
+     res.status(200).json(count);
+});
+
 //Get individual product
 export const getProduct = asyncHandler(async (req, res) => {
      const { id } = req.params;
