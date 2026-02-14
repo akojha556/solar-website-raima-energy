@@ -32,7 +32,7 @@ const Dashboard = () => {
      return (
           <div>
                {loading ?
-                    <div>Loading...</div> :
+                    <div className="px-6 py-6 text-gray-500">Loading...</div> :
                     <div>
                          {/* Page Title */}
                          <h2 className="text-2xl font-semibold text-gray-700 mb-6">

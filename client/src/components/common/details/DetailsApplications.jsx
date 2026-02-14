@@ -9,7 +9,7 @@ const DetailsApplications = ({ data, items }) => {
                          {/* LEFT : PRODUCT IMAGE */}
                          <div className="w-full h-full">
                               <img
-                                   src={data.images.main}
+                                   src={data.images.main.url}
                                    alt={data.title}
                                    className="w-full h-95 lg:h-160 object-cover rounded-2xl shadow-md"
                               />

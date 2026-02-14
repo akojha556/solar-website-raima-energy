@@ -42,7 +42,7 @@ const DetailsBenefitSection = ({ data, items }) => {
                          {/* RIGHT : IMAGE */}
                          <div className="w-full">
                               <img
-                                   src={data.images.secondary}
+                                   src={data.images.secondary.url}
                                    alt={data.title}
                                    className="w-full h-95 lg:h-140 object-cover rounded-2xl shadow-md"
                               />

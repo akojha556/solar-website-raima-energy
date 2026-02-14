@@ -1,15 +1,34 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { productsData } from "../../data/productsData";
 import DetailsHero from "../../components/common/details/DetailsHero";
 import DetailsCompanyInfo from "../../components/common/details/DetailsCompanyInfo";
 import DetailsSolutionSection from "../../components/common/details/DetailsSolutionSection";
 import DetailsApplications from "../../components/common/details/DetailsApplications";
 import DetailsBenefitSection from "../../components/common/details/DetailsBenefitSection";
 import NotFound from "./NotFound";
+import { getAllProducts } from "../../services/productService";
 
 const ProductDetails = () => {
+     const [productData, setProductData] = useState([]);
+     const [loading, setLoading] = useState(true);
+
      const { slug } = useParams();
-     const product = productsData.find(p => p.slug === slug);
+     const product = productData.find(p => p.slug === slug);
+
+     useEffect(() => {
+          const loadProducts = async () => {
+               try {
+                    const response = await getAllProducts();
+                    setProductData(response.data);
+               } catch (error) {
+                    alert(error.message);
+               } finally {
+                    setLoading(false);
+               }
+          }
+
+          loadProducts();
+     }, []);
 
      //If no products route
      if (!product) {
