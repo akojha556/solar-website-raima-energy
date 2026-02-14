@@ -108,7 +108,7 @@ const AddService = () => {
                     <label className="label">
                          <p className="font-bold">Title</p>
                          <input
-                              placeholder="Title"
+                              placeholder="Enter the name of the service..."
                               className="input"
                               value={title}
                               onChange={(e) => setTitle(e.target.value)}
@@ -119,7 +119,7 @@ const AddService = () => {
                     <label className="label">
                          <p className="font-bold">Short Description</p>
                          <textarea
-                              placeholder="Short Description"
+                              placeholder="Provide a quick 1-sentence summary..."
                               className="textarea h-20"
                               value={shortDesc}
                               onChange={(e) => setShortDesc(e.target.value)}
@@ -194,9 +194,8 @@ const AddService = () => {
 
                     <label className="label">
                          <p className="font-bold">Overview</p>
-
                          <textarea
-                              placeholder="Overview"
+                              placeholder="Enter a detailed breakdown and technical specs..."
                               className="textarea h-30"
                               value={overview}
                               onChange={(e) => setOverview(e.target.value)}
@@ -233,9 +232,8 @@ const AddService = () => {
 
                     <label className="label">
                          <p className="font-bold">Ideal For</p>
-
                          <textarea
-                              placeholder="Ideal For"
+                              placeholder="Describe the perfect customer or site for this..."
                               className="textarea h-20"
                               value={idealFor}
                               onChange={(e) => setIdealFor(e.target.value)}

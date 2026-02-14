@@ -128,7 +128,7 @@ const EditService = () => {
                                    <p className="font-bold">Title</p>
                                    <input
                                         className="input"
-                                        placeholder="Enter a title"
+                                        placeholder="Enter the name of the service..."
                                         onChange={(e) => setTitle(e.target.value)}
                                         value={title}
                                    />
@@ -138,7 +138,7 @@ const EditService = () => {
                                    <p className="font-bold">Short Description</p>
                                    <textarea
                                         className="textarea h-20"
-                                        placeholder="Write a short description"
+                                        placeholder="Provide a quick 1-sentence summary..."
                                         onChange={(e) => setShortDesc(e.target.value)}
                                         value={shortDesc}
                                    />
@@ -209,7 +209,7 @@ const EditService = () => {
                                    <p className="font-bold">Overview</p>
                                    <textarea
                                         className="textarea h-20"
-                                        placeholder="Write an overview"
+                                        placeholder="Enter a detailed breakdown and technical specs..."
                                         onChange={(e) => setOverview(e.target.value)}
                                         value={overview}
                                    />
@@ -246,7 +246,7 @@ const EditService = () => {
                                    <p className="font-bold">Ideal For</p>
                                    <textarea
                                         className="textarea h-20"
-                                        placeholder="e.g. High-energy consumers or areas with frequent outages"
+                                        placeholder="Describe the perfect customer or site for this..."
                                         onChange={(e) => setIdealFor(e.target.value)}
                                         value={idealFor}
                                    />

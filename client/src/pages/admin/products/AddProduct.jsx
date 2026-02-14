@@ -115,87 +115,97 @@ const AddProduct = () => {
           <div>
                <h1 className="text-2xl font-bold mb-6">Add Product</h1>
                <form onSubmit={handleSubmit} className="space-y-6">
-                    <input
-                         className="input"
-                         placeholder="Title"
-                         value={title}
-                         onChange={(e) => setTitle(e.target.value)}
-                         required
-                    />
+                    <label className="label">
+                         <p className="font-bold">Title</p>
+                         <input
+                              className="input"
+                              placeholder="e.g., Mono-Perc Solar System"
+                              value={title}
+                              onChange={(e) => setTitle(e.target.value)}
+                              required
+                         />
+                    </label>
 
-                    <textarea
-                         className="textarea h-20"
-                         placeholder="Short Description"
-                         value={shortDesc}
-                         onChange={(e) => setShortDesc(e.target.value)}
-                         required
-                    />
-                    {/* Helper text if image not uploaded */}
-                    {error && <p ref={errorRef} className="text-red-600 text-xs">Please upload image.</p>}
-                    {/* Image upload area */}
-                    <div className="flex gap-6">
-                         <label className="image-label">
-                              {preview1 ? (
-                                   <img src={preview1} alt="Preview 1" className="w-full h-full object-cover" />
-                              ) : (<span className="text-sm text-center px-2">
-                                   Upload Image 1
-                              </span>)}
-                              <input
-                                   type="file"
-                                   accept="image/*"
-                                   className="hidden"
-                                   onChange={(e) => {
-                                        const file = e.target.files[0];
-                                        if (!file) return;
+                    <label className="label">
+                         <p className="font-bold">Short Description</p>
+                         <textarea
+                              className="textarea h-20"
+                              placeholder="e.g., Energy Independence"
+                              value={shortDesc}
+                              onChange={(e) => setShortDesc(e.target.value)}
+                              required
+                         />
+                    </label>
 
-                                        setError(false);
+                    <div className="label">
+                         <p className="font-bold">Upload images.</p>
+                         {/* Helper text if image not uploaded */}
+                         {error && <p ref={errorRef} className="text-red-600 text-xs">Please upload image.</p>}
+                         {/* Image upload area */}
+                         <div className="flex gap-6">
+                              <label className="image-label">
+                                   {preview1 ? (
+                                        <img src={preview1} alt="Preview 1" className="w-full h-full object-cover" />
+                                   ) : (<span className="text-sm text-center px-2">
+                                        Upload Image 1
+                                   </span>)}
+                                   <input
+                                        type="file"
+                                        accept="image/*"
+                                        className="hidden"
+                                        onChange={(e) => {
+                                             const file = e.target.files[0];
+                                             if (!file) return;
 
-                                        if (file.size > MAX_SIZE) {
-                                             setImageError(true);
-                                             return;
-                                        }
+                                             setError(false);
 
-                                        setImageError(false);
-                                        setImage1(file);
-                                        setPreview1(URL.createObjectURL(file));
-                                   }}
-                              />
-                         </label>
-                         {/* IMAGE 2 */}
-                         <label className="image-label">
-                              {preview2 ? (
-                                   <img
-                                        src={preview2}
-                                        alt="Preview 2"
-                                        className="w-full h-full object-cover"
+                                             if (file.size > MAX_SIZE) {
+                                                  setImageError(true);
+                                                  return;
+                                             }
+
+                                             setImageError(false);
+                                             setImage1(file);
+                                             setPreview1(URL.createObjectURL(file));
+                                        }}
                                    />
-                              ) : (
-                                   <span className="text-sm text-center px-2">
-                                        Upload Image 2
-                                   </span>
-                              )}
+                              </label>
+                              {/* IMAGE 2 */}
+                              <label className="image-label">
+                                   {preview2 ? (
+                                        <img
+                                             src={preview2}
+                                             alt="Preview 2"
+                                             className="w-full h-full object-cover"
+                                        />
+                                   ) : (
+                                        <span className="text-sm text-center px-2">
+                                             Upload Image 2
+                                        </span>
+                                   )}
 
-                              <input
-                                   type="file"
-                                   accept="image/*"
-                                   className="hidden"
-                                   onChange={(e) => {
-                                        const file = e.target.files[0];
-                                        if (!file) return;
+                                   <input
+                                        type="file"
+                                        accept="image/*"
+                                        className="hidden"
+                                        onChange={(e) => {
+                                             const file = e.target.files[0];
+                                             if (!file) return;
 
-                                        setError(false);
+                                             setError(false);
 
-                                        if (file.size > MAX_SIZE) {
-                                             setImageError(true);
-                                             return;
-                                        }
+                                             if (file.size > MAX_SIZE) {
+                                                  setImageError(true);
+                                                  return;
+                                             }
 
-                                        setImageError(false);
-                                        setImage2(file);
-                                        setPreview2(URL.createObjectURL(file));
-                                   }}
-                              />
-                         </label>
+                                             setImageError(false);
+                                             setImage2(file);
+                                             setPreview2(URL.createObjectURL(file));
+                                        }}
+                                   />
+                              </label>
+                         </div>
                     </div>
 
                     {/* Helper text */}
@@ -203,13 +213,16 @@ const AddProduct = () => {
                          Image size should be less than 5MB
                     </p>
 
-                    <textarea
-                         className="textarea h-28"
-                         placeholder="Overview"
-                         value={overview}
-                         onChange={(e) => setOverview(e.target.value)}
-                         required
-                    />
+                    <label className="label">
+                         <p className="font-bold">Overview</p>
+                         <textarea
+                              className="textarea h-28"
+                              placeholder="e.g., Technical Specifications"
+                              value={overview}
+                              onChange={(e) => setOverview(e.target.value)}
+                              required
+                         />
+                    </label>
 
                     <Section
                          title="Applications"
@@ -238,13 +251,17 @@ const AddProduct = () => {
                          handleChange={handleChange}
                     />
 
-                    <textarea
-                         className="textarea h-20"
-                         placeholder="Ideal For"
-                         value={idealFor}
-                         onChange={(e) => setIdealFor(e.target.value)}
-                         required
-                    />
+                    <label className="label">
+                         <p className="font-bold">Ideal For</p>
+                         <textarea
+                              className="textarea h-20"
+                              placeholder="e.g., Small Families / 2-3 BHK"
+                              value={idealFor}
+                              onChange={(e) => setIdealFor(e.target.value)}
+                              required
+                         />
+                    </label>
+
                     <button
                          type="submit"
                          disabled={isSubmitting}
