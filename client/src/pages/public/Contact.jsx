@@ -6,7 +6,7 @@ const Contact = () => {
 
   return (
     <div className="bg-[#f3fff5]">
-      <PageHero heading="Contact Us Raima Energy" />
+      <PageHero heading="Contact Us" />
       <ContactSection />
       <ContactMap />
     </div>
