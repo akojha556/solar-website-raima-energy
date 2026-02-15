@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import InfoCard from "../common/InfoCard";
 import { cardInView } from "../../../animations/motionVariants";
 import { servicesData } from "../../../data/servicesData";
@@ -20,7 +21,7 @@ const ServiceGrid = () => {
                                    img={service.images.main}
                                    slug={service.slug}
                                    type="services"
-                                    />
+                              />
                          </motion.div>
                     )
                })}
