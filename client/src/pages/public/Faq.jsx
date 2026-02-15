@@ -1,6 +1,6 @@
-import CTASection from "../../components/common/cta/CTASection";
-import PageHero from "../../components/common/PageHero";
-import FaqAccordion from "../../components/faq/FaqAccordion";
+import CTASection from "../../components/public/common/cta/CTASection";
+import PageHero from "../../components/public/common/PageHero";
+import FaqAccordion from "../../components/public/faq/FaqAccordion";
 import { rooftopSolarFAQs, solarServiceFAQs } from "../../data/faqData";
 
 const Faq = () => {

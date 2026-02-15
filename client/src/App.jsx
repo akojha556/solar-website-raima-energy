@@ -1,9 +1,8 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
-import ScrollToTop from "./components/layout/ScrollToTop";
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-import ScrollToHash from "./components/layout/ScrollToHash";
+import ScrollToTop from "./components/public/layout/ScrollToTop";
+import Navbar from "./components/public/layout/Navbar";
+import Footer from "./components/public/layout/Footer";
+import ScrollToHash from "./components/public/layout/ScrollToHash";
 
 const App = () => {
   return (

@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import story from "../../assets/story.jpg";
 import mission from "../../assets/mission.jpg";
 import chooseAbout from "../../assets/chooseAbout.jpg";
-import FeaturesSection from "../../components/common/FeaturesSection";
+import FeaturesSection from "../../components/public/common/FeaturesSection";
 import { fadeRight, fadeDown, fadeUp } from "../../animations/motionVariants";
-import PageHero from "../../components/common/PageHero";
-import CTASection from "../../components/common/cta/CTASection";
+import PageHero from "../../components/public/common/PageHero";
+import CTASection from "../../components/public/common/cta/CTASection";
 
 const About = () => {
   const missionPoints = [

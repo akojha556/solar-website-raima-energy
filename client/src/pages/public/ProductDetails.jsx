@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import DetailsHero from "../../components/common/details/DetailsHero";
-import DetailsCompanyInfo from "../../components/common/details/DetailsCompanyInfo";
-import DetailsSolutionSection from "../../components/common/details/DetailsSolutionSection";
-import DetailsApplications from "../../components/common/details/DetailsApplications";
-import DetailsBenefitSection from "../../components/common/details/DetailsBenefitSection";
+import DetailsHero from "../../components/public/common/details/DetailsHero";
+import DetailsCompanyInfo from "../../components/public/common/details/DetailsCompanyInfo";
+import DetailsSolutionSection from "../../components/public/common/details/DetailsSolutionSection";
+import DetailsApplications from "../../components/public/common/details/DetailsApplications";
+import DetailsBenefitSection from "../../components/public/common/details/DetailsBenefitSection";
 import NotFound from "./NotFound";
 import { getAllProducts } from "../../services/productService";
 

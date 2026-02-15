@@ -1,12 +1,12 @@
-import PageHero from "../../components/common/PageHero";
-import ContactMap from "../../components/contactComponents/ContactMap";
-import ContactSection from "../../components/contactComponents/ContactSection";
+import PageHero from "../../components/public/common/PageHero";
+import ContactMap from "../../components/public/contactComponents/ContactMap";
+import ContactSection from "../../components/public/contactComponents/ContactSection"
 
 const Contact = () => {
 
   return (
     <div className="bg-[#f3fff5]">
-      <PageHero heading="Contact Us" />
+      <PageHero heading="Contact Us Raima Energy" />
       <ContactSection />
       <ContactMap />
     </div>

@@ -1,6 +1,6 @@
-import SectionHero from "../../components/common/SectionHero";
-import ServiceGrid from "../../components/serviceComponent/ServiceGrid";
-import DetailCTASection from "../../components/common/details/DetailCTASection";
+import SectionHero from "../../components/public/common/SectionHero";
+import ServiceGrid from "../../components/public/serviceComponent/ServiceGrid";
+import DetailCTASection from "../../components/public/common/details/DetailCTASection";
 
 const Services = () => {
      return (

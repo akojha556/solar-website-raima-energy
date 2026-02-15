@@ -1,11 +1,11 @@
-import HomeAboutSection from "../../components/homeComponents/HomeAboutSection";
-import HomeHeroSlider from "../../components/homeComponents/HomeHeroSlider";
-import HomeProductsSection from "../../components/homeComponents/HomeProductSection";
-import HomeServicesSection from "../../components/homeComponents/HomeServiceSection";
-import TestimonialSection from "../../components/homeComponents/TestimonialSection";
-import HomeFAQSection from "../../components/homeComponents/HomeFAQSection";
-import HomeCTA from "../../components/homeComponents/HomeCTA";
-import WhyChooseUs from "../../components/homeComponents/WhyChooseUs";
+import HomeAboutSection from "../../components/public/homeComponents/HomeAboutSection";
+import HomeHeroSlider from "../../components/public/homeComponents/HomeHeroSlider";
+import HomeProductsSection from "../../components/public/homeComponents/HomeProductSection";
+import HomeServicesSection from "../../components/public/homeComponents/HomeServiceSection";
+import TestimonialSection from "../../components/public/homeComponents/TestimonialSection";
+import HomeFAQSection from "../../components/public/homeComponents/HomeFAQSection";
+import HomeCTA from "../../components/public/homeComponents/HomeCTA";
+import WhyChooseUs from "../../components/public/homeComponents/WhyChooseUs";
 
 const Home = () => {
 
