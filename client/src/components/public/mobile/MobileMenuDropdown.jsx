@@ -13,6 +13,10 @@ const MobileMenuDropdown = () => {
      useEffect(() => {
           const html = document.documentElement;
           if (isOpen) {
+               window.scrollTo({
+                    top: 0,
+                    behavior: "auto",
+               });
                html.style.overflow = "hidden";
                document.body.style.touchAction = "none";
           } else {
@@ -20,8 +24,6 @@ const MobileMenuDropdown = () => {
                document.body.style.touchAction = "";
           }
      }, [isOpen]);
-
-
 
      return (
           <div>
