@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DetailsHero from "../../components/public/common/details/DetailsHero";
 import DetailsCompanyInfo from "../../components/public/common/details/DetailsCompanyInfo";
@@ -6,36 +5,27 @@ import DetailsSolutionSection from "../../components/public/common/details/Detai
 import DetailsApplications from "../../components/public/common/details/DetailsApplications";
 import DetailsBenefitSection from "../../components/public/common/details/DetailsBenefitSection";
 import NotFound from "./NotFound";
-import { getAllProducts } from "../../services/productService";
+import { useAppData } from "../../context/AppDataContext";
+import FetchError from "../../components/public/common/ui/FetchError";
 
 const ProductDetails = () => {
-     const [productData, setProductData] = useState([]);
-     const [loading, setLoading] = useState(true);
+     const { productData, loading, error } = useAppData();
 
      const { slug } = useParams();
      const product = Array.isArray(productData)
           ? productData.find(p => p.slug === slug)
           : null;
 
-     useEffect(() => {
-          const loadProducts = async () => {
-               try {
-                    const response = await getAllProducts();
-                    setProductData(response.data);
-               } catch (error) {
-                    alert(error.message);
-               } finally {
-                    setLoading(false);
-               }
-          }
-
-          loadProducts();
-     }, []);
-
      //If no products route
-     if (!loading && !product) {
+     if (!loading && !product && !error) {
           return <NotFound />;
      }
+
+     if (error) {
+          return (
+               <FetchError message={"Unable to load the requested product."} />
+          );
+     };
 
      return (
           <div>

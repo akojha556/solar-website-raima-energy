@@ -1,27 +1,17 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import { cardInView } from "../../../animations/motionVariants";
 import InfoCard from "../common/InfoCard";
-import { getAllProducts } from "../../../services/productService";
+import { useAppData } from "../../../context/AppDataContext";
+import FetchError from "../common/ui/FetchError";
 
 const ProductGrid = ({ id }) => {
-     const [productsData, setProductData] = useState([]);
-     const [loading, setLoading] = useState(true);
+     const { productData, loading, error } = useAppData();
 
-     useEffect(() => {
-          const loadProducts = async () => {
-               try {
-                    const response = await getAllProducts();
-                    setProductData(response.data);
-               } catch (error) {
-                    alert(error.message);
-               } finally {
-                    setLoading(false);
-               }
-          }
-
-          loadProducts();
-     }, []);
+     if (error) {
+          return (
+               <FetchError message={"Unable to load products."} />
+          );
+     };
 
      return (
           <section id={id}>
@@ -34,7 +24,7 @@ const ProductGrid = ({ id }) => {
                               />
                          ))}
                     </div> : <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-6 max-w-7xl mx-auto bg-[#f3fff5]">
-                         {productsData.map((product) => (
+                         {productData.map((product) => (
                               <motion.div
                                    key={product.slug}
                                    variants={cardInView}

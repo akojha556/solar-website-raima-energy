@@ -10,7 +10,7 @@ export const getServices = async () => {
 export const getServiceCount = async () => {
      const response = await api.get("/api/services/count");
      return response;
-}
+};
 
 //Get individual service
 export const getService = async (id) => {

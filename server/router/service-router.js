@@ -6,5 +6,5 @@ import { serviceUpload } from "../middleware/multer.js";
 export const serviceRouter = express.Router();
 
 serviceRouter.get("/count", protect, getServiceCount);
-serviceRouter.route("/").get(protect, getServices).post(protect, serviceUpload.array("file", 2), createService);
-serviceRouter.route("/:id").get(protect, getService).put(protect, serviceUpload.array("file", 2), updateService).delete(protect, deleteService);
+serviceRouter.route("/").get(getServices).post(protect, serviceUpload.array("file", 2), createService);
+serviceRouter.route("/:id").get(getService).put(protect, serviceUpload.array("file", 2), updateService).delete(protect, deleteService);

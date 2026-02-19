@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { fadeUp, fadeLeft, fadeRight } from "../../../animations/motionVariants";
-import { productsData } from "../../../data/productsData";
 import { Link } from "react-router-dom";
 import ProductServiceCTAButtons from "../common/cta/ProductServiceCTAButtons";
+import { useAppData } from "../../../context/AppDataContext";
 
 export default function HomeProductsSection() {
+     const { productData, loading, error } = useAppData();
 
      return (
           <section className="py-16 bg-[#f3fff5]">
@@ -45,35 +46,46 @@ export default function HomeProductsSection() {
                     </motion.div>
 
                     {/* RIGHT PRODUCT GRID */}
-                    <motion.div
-                         layout="position"
-                         variants={fadeLeft}
-                         initial="hidden"
-                         whileInView="visible"
-                         viewport={{ once: true }}
-                         className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                         {productsData.slice(0, 6).map((product) => {
-                              return (
-                                   <Link to={`/products/${product.slug}`}
-                                        aria-label={`View details of ${product.title}`}
-                                        key={product.slug}
-                                        className="block group bg-white px-2 py-6 shadow-sm border border-green-100 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
-                                   >
-                                        <div className="overflow-hidden">
-                                             <img
-                                                  src={product.images.main.url}
-                                                  alt={product.title}
-                                                  className="w-full h-40 object-cover group-hover:scale-110 transition-all duration-300"
-                                             />
-                                        </div>
+                    {loading ?
+                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                              {Array(6).fill(0).map((_, i) => {
+                                   return <div
+                                        key={i}
+                                        className="h-60 bg-gray-200 animate-pulse rounded-lg"
+                                   />
+                              })}
+                         </div> :
+                         <motion.div
+                              layout="position"
+                              variants={fadeLeft}
+                              initial="hidden"
+                              whileInView="visible"
+                              viewport={{ once: true }}
+                              className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"
+                         >
+                              {productData.slice(0, 6).map((product) => {
+                                   return (
+                                        <Link to={`/products/${product.slug}`}
+                                             aria-label={`View details of ${product.title}`}
+                                             key={product.slug}
+                                             className="block group bg-white px-2 py-6 shadow-sm border border-green-100 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
+                                        >
+                                             <div className="overflow-hidden">
+                                                  <img
+                                                       src={product.images.main.url}
+                                                       alt={product.title}
+                                                       className="w-full h-40 object-cover group-hover:scale-110 transition-all duration-300"
+                                                  />
+                                             </div>
 
-                                        <h4 className="text-center mt-2 sm:mt-3 text-green-700 font-semibold text-sm sm:text-base leading-tight">
-                                             {product.title}
-                                        </h4>
-                                   </Link>
-                              );
-                         })}
-                    </motion.div>
+                                             <h4 className="text-center mt-2 sm:mt-3 text-green-700 font-semibold text-sm sm:text-base leading-tight">
+                                                  {product.title}
+                                             </h4>
+                                        </Link>
+                                   );
+                              })}
+                         </motion.div>
+                    }
                </div>
           </section>
      );

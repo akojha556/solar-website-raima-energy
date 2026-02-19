@@ -1,6 +1,6 @@
 import api from "./api";
 
-//Get all products
+// Get all products
 export const getAllProducts = async () => {
      const response = await api.get("/api/products");
      return response;
@@ -10,7 +10,7 @@ export const getAllProducts = async () => {
 export const getProductCount = async () => {
      const response = await api.get("/api/products/count");
      return response;
-}
+};
 
 //Get individual product
 export const getProduct = async (id) => {

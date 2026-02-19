@@ -38,7 +38,6 @@ app.get("/test", (req, res) => {
      res.json(req.cookies);
 });
 
-
 app.use("/api/admin", adminRouter);
 app.use("/api/products", productRouter);
 app.use("/api/services", serviceRouter);
