@@ -44,7 +44,14 @@ export default function HomeHeroSlider() {
                          return (<SwiperSlide key={index}>
                               <div className="w-full h-full relative">
                                    {/* Background Image */}
-                                   <img src={image} alt={`solar${index + 1}`} width="1920" height="3080" className="w-full h-full object-cover" />
+                                   <img
+                                        src={image}
+                                        alt={`hero-${index + 1}`}
+                                        loading={index === 0 ? "eager" : "lazy"}
+                                        fetchPriority={index === 0 ? "high" : "auto"}
+                                        width="1920"
+                                        height="3080"
+                                        className="w-full h-full object-cover" />
                                    {/* OVERLAY */}
                                    <div className="absolute inset-0 bg-linear-to-b from-black/35 to-black/15"></div>
 
