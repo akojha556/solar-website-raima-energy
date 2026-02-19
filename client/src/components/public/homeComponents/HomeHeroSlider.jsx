@@ -5,12 +5,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-//importing images
-import hero1 from "../../../assets/heroSlider/hero1.png";
-import hero2 from "../../../assets/heroSlider/hero2.png";
-import hero3 from "../../../assets/heroSlider/hero3.png";
-import hero4 from "../../../assets/heroSlider/hero4.png";
-import hero5 from "../../../assets/heroSlider/hero5.png";
+
+//Images from cloudinary
+const hero1 = "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771523130/hero1_xlenqd.png";
+const hero2 = "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771523102/hero2_fgliyv.png";
+const hero3 = "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771523122/hero3_jd6icy.png";
+const hero4 = "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771523144/hero4_khvh2w.png";
+const hero5 = "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771523143/hero5_pdsxco.png";
 
 const images = [hero1, hero2, hero3, hero4, hero5];
 
