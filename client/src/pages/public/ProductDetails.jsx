@@ -6,7 +6,7 @@ import DetailsApplications from "../../components/public/common/details/DetailsA
 import DetailsBenefitSection from "../../components/public/common/details/DetailsBenefitSection";
 import NotFound from "./NotFound";
 import { useAppData } from "../../context/AppDataContext";
-import FetchError from "../../components/public/common/ui/FetchError";
+import FetchError from "../../components/public/ui/FetchError";
 
 const ProductDetails = () => {
      const { productData, loading, error } = useAppData();

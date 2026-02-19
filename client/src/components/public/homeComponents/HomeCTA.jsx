@@ -37,9 +37,9 @@ export default function HomeCTA() {
                          viewport={{ once: true }}
                          className="flex-1 flex justify-center md:justify-end">
                          <img
-                              src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80"
+                              src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771527209/homecta_h6h0ju.png"
                               alt="Solar Panels"
-                              className="w-full max-w-md rounded-lg shadow-lg"
+                              className="w-full max-w-md rounded-lg shadow-lg object-contain"
                          />
                     </motion.div>
                </div>

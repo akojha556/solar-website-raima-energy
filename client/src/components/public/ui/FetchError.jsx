@@ -1,4 +1,4 @@
-import { useAppData } from "../../../../context/AppDataContext"
+import { useAppData } from "../../../context/AppDataContext";
 
 const FetchError = ({ message }) => {
     const { fetchData } = useAppData();
@@ -16,6 +16,6 @@ const FetchError = ({ message }) => {
             </button>
         </div>
     )
-}
+};
 
-export default FetchError
+export default FetchError;

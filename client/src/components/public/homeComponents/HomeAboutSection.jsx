@@ -31,11 +31,7 @@ export default function HomeAboutSection() {
                               </h3>
 
                               <p className="text-green-700 text-sm sm:text-base leading-relaxed text-center lg:text-left">
-                                   Raima Energy is your trusted partner for residential and commercial solar
-                                   solutions across Guwahati, Assam, and the entire Northeast region.
-                                   As a leading wholesaler and EPC provider, we offer a complete range of
-                                   premium solar products from reliable brands like PAHAL, IB SOLAR, EVVO,
-                                   and VSOLE.
+                                   Raima Energy is a trusted solar solutions provider for residential and commercial projects across Guwahati, Assam, and the Northeast. As a leading wholesaler and EPC company, we specialize in high-quality solar products exclusively from Waaree, delivering reliable, efficient, and long-lasting solar energy solutions.
                                    <br /><br />
                                    From energy audits and system design to installation and long-term service,
                                    our experienced team provides end-to-end solar project support.

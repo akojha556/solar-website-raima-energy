@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { cardInView } from "../../../animations/motionVariants";
 import InfoCard from "../common/InfoCard";
 import { useAppData } from "../../../context/AppDataContext";
-import FetchError from "../common/ui/FetchError";
+import FetchError from "../ui/FetchError";
 
 const ProductGrid = ({ id }) => {
      const { productData, loading, error } = useAppData();

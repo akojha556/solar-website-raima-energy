@@ -5,7 +5,7 @@ import ProductServiceCTAButtons from "../common/cta/ProductServiceCTAButtons";
 import { useAppData } from "../../../context/AppDataContext";
 
 export default function HomeProductsSection() {
-     const { productData, loading, error } = useAppData();
+     const { productData, loading } = useAppData();
 
      return (
           <section className="py-16 bg-[#f3fff5]">
