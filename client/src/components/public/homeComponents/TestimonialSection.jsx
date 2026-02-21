@@ -1,7 +1,4 @@
 import { motion } from "framer-motion";
-import user1 from "../../../assets/user/user2.png";
-import user2 from "../../../assets/user/user2.png";
-import user3 from "../../../assets/user/user3.png";
 import { fadeUp } from "../../../animations/motionVariants";
 
 const testimonials = [
@@ -10,7 +7,7 @@ const testimonials = [
           location: "Guwahati, Assam",
           rating: 5,
           project: "Residential Rooftop Solar - 5kW",
-          image: user1,
+          image: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771665665/user1_r6594e.png",
           feedback:
                "Raima Energy managed our rooftop solar installation professionally. The system performance has been excellent and the team guided us clearly at every stage.",
      },
@@ -19,7 +16,7 @@ const testimonials = [
           location: "Silchar, Assam",
           rating: 5,
           project: "Residential Solar Power Plant - 3kW",
-          image: user2,
+          image: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771665666/user2_fo9fkp.png",
           feedback:
                "Very transparent process and quality components. Installation was completed on time and we are already seeing reduced electricity bills.",
      },
@@ -28,7 +25,7 @@ const testimonials = [
           location: "Shillong, Meghalaya",
           rating: 5,
           project: "Commercial Solar Installation - 20kW",
-          image: user3,
+          image: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771665668/user3_swmhdw.png",
           feedback:
                "Professional execution and excellent after-sales support. The entire solar project was delivered smoothly without any issues.",
      },

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import choose from "../../../assets/choose.jpg";
 import FeaturesSection from "../common/FeaturesSection";
 import { fadeRight } from "../../../animations/motionVariants";
 
@@ -24,7 +23,7 @@ export default function WhyChooseUs() {
                               Delivering reliable and efficient solar solutions built for long-term performance.
                          </p>
                          <div>
-                              <img src={choose} alt="choose-us" className="h-60 w-140 md:h-120 md:w-200 object-cover" />
+                              <img src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771664777/choose_twwio0.jpg" alt="choose-us" className="h-60 w-140 md:h-120 md:w-200 object-cover" />
                          </div>
                     </motion.div>
                     {/* RIGHT SECTION */}

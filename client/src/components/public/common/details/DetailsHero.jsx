@@ -1,4 +1,3 @@
-import detailsSectionHero from "../../../../assets/detailsSectionHero.png";
 import ConsultationForm from "../../forms/ConsultationForm";
 
 const DetailsHero = ({ data }) => {
@@ -8,7 +7,7 @@ const DetailsHero = ({ data }) => {
                {/* HERO IMAGE */}
                <div className="relative h-[40vh] lg:h-[60vh] w-full">
                     <img
-                         src={detailsSectionHero}
+                         src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771665519/detailsSectionHero_vdck6i.png"
                          alt="Solar Energy"
                          className="w-full h-full object-cover"
                     />

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import aboutImg from "../../../assets/page-hero-bg.png";
 import { fadeUp, fadeLeft, fadeRight } from "../../../animations/motionVariants";
 import AboutHighlights from "../common/AboutHighlights";
 import { Button } from "../ui/Button";
@@ -65,7 +64,7 @@ export default function HomeAboutSection() {
                          viewport={{ once: true }}
                          className="w-full h-full flex justify-center">
                          <img
-                              src={aboutImg}
+                              src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771664404/page-hero-bg_ic7nsn.png"
                               alt="About Raima Energy"
                               className="shadow-lg w-full h-120 object-cover"
                          />

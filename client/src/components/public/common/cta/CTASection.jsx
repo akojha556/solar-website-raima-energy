@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import { fadeUp } from "../../../../animations/motionVariants";
 import CTAButtons from "./CTAButtons";
-import cta from "../../../../assets/cta.jpg";
 
 const CTASection = () => {
      return (
           <section className="py-14">
                <div className="max-w-7xl mx-auto">
                     <div className="relative md:min-h-110 lg:min-h-135 min-h-98">
-                         <img src={cta} alt="chontact-us" className="absolute inset-0 w-full h-full object-cover" />
+                         <img src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771665211/cta_ih4xna.jpg" alt="chontact-us" className="absolute inset-0 w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50"></div>
                          <div className="absolute inset-0 flex justify-between items-center bg-blue-600/80 z-50 m-4 p-4 md:p-6 md:m-0 md:left-0 md:top-0 md:bottom-0 md:right-1/2 lg:right-3/5">
                               <div className="flex flex-col">

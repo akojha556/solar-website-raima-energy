@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { fadeUp } from "../../../animations/motionVariants";
-import pageHeroBg from "../../../assets/page-hero-bg.png";
 
 const SectionHero = ({ title, subtitle }) => {
      return (
@@ -8,7 +7,7 @@ const SectionHero = ({ title, subtitle }) => {
 
                {/* Background image */}
                <img
-                    src={pageHeroBg}
+                    src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771664404/page-hero-bg_ic7nsn.png"
                     alt="Solar Products"
                     className="absolute inset-0 w-full h-full object-cover"
                />

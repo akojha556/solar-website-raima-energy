@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import story from "../../assets/story.jpg";
-import mission from "../../assets/mission.jpg";
-import chooseAbout from "../../assets/chooseAbout.jpg";
 import FeaturesSection from "../../components/public/common/FeaturesSection";
 import { fadeRight, fadeDown, fadeUp } from "../../animations/motionVariants";
 import PageHero from "../../components/public/common/PageHero";
@@ -68,7 +65,7 @@ const About = () => {
           </motion.div>
           {/* RIGHT SECTION */}
           <div className="lg:flex-3">
-            <img src={story} alt="our-story" className="object-cover h-full  w-full" />
+            <img src="https://res.cloudinary.com/dgokm518s/image/upload/v1771665214/story_voqd2v.jpg" alt="our-story" className="object-cover h-full  w-full" />
           </div>
         </div>
       </section>
@@ -79,7 +76,7 @@ const About = () => {
           <div className="flex flex-col align-middle items-center relative">
             {/* LEFT */}
             <div className="flex flex-col gap-4 relative min-h-100 w-full">
-              <img src={mission} alt="our-mission" className="absolute inset-0 object-cover h-full w-full" />
+              <img src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771665212/mission_xkacip.jpg" alt="our-mission" className="absolute inset-0 object-cover h-full w-full" />
               <div className="absolute inset-0 bg-black/50"></div>
               <div className="z-10 flex flex-col gap-4 items-center align-middle p-4 max-w-6xl mx-auto">
                 <motion.h2
@@ -124,7 +121,7 @@ const About = () => {
           <div className="relative">
             {/* LEFT- image */}
             <div className="relative h-65 md:h-90 lg:h-180 lg:w-[60%]">
-              <img src={chooseAbout} alt="why-choose-us" className="w-full h-full object-cover" />
+              <img src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771665210/chooseAbout_e51s3g.jpg" alt="why-choose-us" className="w-full h-full object-cover" />
             </div>
             {/* RIGHT -choose us*/}
             <div className="absolute z-10 bg-white mx-4 top-1/2 translate-y-18 md:translate-y-0 lg:mx-0 lg:w-[70%] lg:top-1/2 lg:-translate-y-1/2 lg:right-0 px-6 lg:px-12 py-10 flex flex-col gap-8">
