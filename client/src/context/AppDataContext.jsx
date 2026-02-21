@@ -20,10 +20,16 @@ export const AppDataProvider = ({ children }) => {
                 getServices()
             ]);
 
+            if(!Array.isArray(productRes.data) || !Array.isArray(serviceRes.data)){
+                throw new Error("Invalid data format!");
+            };
+
             setProductData(productRes.data);
             setServiceData(serviceRes.data);
         } catch (error) {
             alert(error.message);
+            setProductData([]);
+            setServiceData([]);
             setError(true);
         } finally {
             setLoading(false);
