@@ -1,7 +1,32 @@
+import { useState } from "react";
+import { addLead } from "../../../services/leadService";
+
 const ConsultationForm = () => {
-     const handleSubmit = (e) => {
+     const [name, setName] = useState("");
+     const [email, setEmail] = useState("");
+     const [phoneNumber, setPhoneNumber] = useState("");
+     const [city, setCity] = useState("");
+
+     const [loading, setLoading] = useState(false);
+
+     //Handle form submit
+     const handleSubmit = async (e) => {
           e.preventDefault();
-          console.log("Form Submitted");
+          setLoading(true);
+          const data = {
+               name,
+               email,
+               phoneNumber,
+               city
+          }
+          try {
+               const response = await addLead(data);
+               console.log(response.data);
+          } catch (error) {
+               console.error(error.message);
+          } finally {
+               setLoading(false);
+          }
      }
 
      return (
@@ -19,8 +44,24 @@ const ConsultationForm = () => {
                          <input
                               id="name"
                               type="text"
+                              value={name}
+                              onChange={(e) => setName(e.target.value)}
                               placeholder="Enter your full name"
                               required
+                              className="w-full px-4 py-2.5 border border-gray-300 rounded bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500/30"
+                         />
+                    </div>
+
+                    <div>
+                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                              Email ID
+                         </label>
+                         <input
+                              id="email"
+                              type="email"
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              placeholder="Enter your mail address (Optional)"
                               className="w-full px-4 py-2.5 border border-gray-300 rounded bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500/30"
                          />
                     </div>
@@ -30,8 +71,13 @@ const ConsultationForm = () => {
                               Phone Number <span className="text-red-500">*</span>
                          </label>
                          <input
-                              id="phone"
+                              id="phoneNumber"
                               type="tel"
+                              value={phoneNumber}
+                              onChange={(e) => {
+                                   const onlyNumbers = e.target.value.replace(/\D/g, "");
+                                   setPhoneNumber(onlyNumbers);
+                              }}
                               placeholder="10-digit mobile number"
                               required
                               className="w-full px-4 py-2.5 border border-gray-300 rounded bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500/30"
@@ -45,6 +91,8 @@ const ConsultationForm = () => {
                          <input
                               id="city"
                               type="text"
+                              value={city}
+                              onChange={(e) => setCity(e.target.value)}
                               placeholder="Your city"
                               required
                               className="w-full px-4 py-2.5 border border-gray-300 rounded bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500/30"
@@ -53,9 +101,17 @@ const ConsultationForm = () => {
 
                     <button
                          type="submit"
-                         className="w-full bg-green-600 text-white py-2.5 rounded font-medium hover:bg-green-700 transition"
+                         disabled={loading}
+                         className={`w-full px-6 py-2 rounded text-white flex items-center justify-center gap-2 ${loading ? "bg-green-500 cursor-not-allowed" : "bg-green-700 hover:bg-green-800"}`}
                     >
-                         Submit
+                         {loading ? (
+                              <>
+                                   <i className="fa-solid fa-spinner fa-spin"></i>
+                                   <span>Form Submitting...</span>
+                              </>
+                         ) : (
+                              "Submit"
+                         )}
                     </button>
                </form>
           </div>

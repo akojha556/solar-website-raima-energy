@@ -5,6 +5,7 @@ import { connectDB } from "./config/db.js";
 import { adminRouter } from "./router/admin-router.js";
 import { productRouter } from "./router/product-router.js";
 import { serviceRouter } from "./router/service-router.js";
+import { leadRouter } from "./router/lead-router.js";
 import { errorHandler } from "./middleware/error-middleware.js";
 import { connectCloudinary } from "./config/cloudinary.js";
 import cors from "cors";
@@ -41,6 +42,7 @@ app.get("/test", (req, res) => {
 app.use("/api/admin", adminRouter);
 app.use("/api/products", productRouter);
 app.use("/api/services", serviceRouter);
+app.use("/api/leads", leadRouter);
 
 //Error Handler
 app.use(errorHandler);

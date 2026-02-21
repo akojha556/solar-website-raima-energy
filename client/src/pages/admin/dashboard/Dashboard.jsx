@@ -2,22 +2,26 @@ import { useState, useEffect } from "react";
 import StatCard from "../../../components/admin/StatCard";
 import { getProductCount } from "../../../services/productService";
 import { getServiceCount } from "../../../services/serviceService";
+import { getLeadCount } from "../../../services/leadService";
 
 const Dashboard = () => {
      const [productCount, setProductCount] = useState(0);
      const [serviceCount, setServiceCount] = useState(0);
+     const [leadCount, setLeadCount] = useState(0);
      const [loading, setLoading] = useState(true);
 
      useEffect(() => {
           const getCount = async () => {
                try {
-                    const [product, service] = await Promise.all([
+                    const [product, service, lead] = await Promise.all([
                          getProductCount(),
                          getServiceCount(),
+                         getLeadCount()
                     ]);
 
                     setProductCount(product.data);
                     setServiceCount(service.data);
+                    setLeadCount(lead.data);
                } catch (error) {
                     console.log(error.message);
                } finally {
@@ -57,7 +61,7 @@ const Dashboard = () => {
 
                               <StatCard
                                    title="Total Enquiries"
-                                   value={0}
+                                   value={leadCount}
                                    icon="fas fa-envelope"
                                    color="bg-purple-600"
                               />

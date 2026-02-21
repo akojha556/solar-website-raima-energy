@@ -12,7 +12,7 @@ export const getProducts = asyncHandler(async (req, res) => {
      res.status(200).json(products);
 });
 
-//Get product conunt
+//Get product count
 export const getProductCount = asyncHandler(async (req, res) => {
      const count = await Product.countDocuments();
      res.status(200).json(count);
