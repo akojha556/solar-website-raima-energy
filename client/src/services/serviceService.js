@@ -2,7 +2,7 @@ import api from "./api";
 
 // Get all services
 export const getServices = async () => {
-     const response = await api.get("/api/services");
+     const response = await api.get("/api/services", { timeout: 10000 });
      return response;
 };
 
@@ -14,7 +14,7 @@ export const getServiceCount = async () => {
 
 //Get individual service
 export const getService = async (id) => {
-     const response = await api.get(`/api/services/${id}`);
+     const response = await api.get(`/api/services/${id}`, { timeout: 10000 });
      return response;
 };
 

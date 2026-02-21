@@ -16,7 +16,7 @@ const Footer = () => {
                          whileInView="visible"
                          viewport={{ once: true, amount: 0.5 }}
                          className="absolute -top-25 left-1/2 transform -translate-x-1/2 z-10">
-                         <Link to="/"><img src="/logojpg.jpg" alt="RaimaEnergy Logo" className="w-auto h-26 md:h-28" /></Link>
+                         <Link to="/"><img src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1770495135/logojpg_nbqgqs.jpg" alt="RaimaEnergy Logo" className="w-auto h-26 md:h-28" /></Link>
                     </motion.div>
 
                     {/* GRID */}

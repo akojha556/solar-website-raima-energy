@@ -3,9 +3,10 @@ import { fadeUp, fadeLeft, fadeRight } from "../../../animations/motionVariants"
 import { Link } from "react-router-dom";
 import ProductServiceCTAButtons from "../common/cta/ProductServiceCTAButtons";
 import { useAppData } from "../../../context/AppDataContext";
+import FetchError from "../ui/FetchError";
 
 export default function HomeProductsSection() {
-     const { productData, loading } = useAppData();
+     const { productData, loading, error } = useAppData();
 
      return (
           <section className="py-16 bg-[#f3fff5]">
@@ -46,7 +47,7 @@ export default function HomeProductsSection() {
                     </motion.div>
 
                     {/* RIGHT PRODUCT GRID */}
-                    {loading ?
+                    {error ? <div className="h-full flex justify-center items-center"><FetchError message={"Unable to load products."} /></div> : (loading ?
                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                               {Array(6).fill(0).map((_, i) => {
                                    return <div
@@ -85,7 +86,7 @@ export default function HomeProductsSection() {
                                    );
                               })}
                          </motion.div>
-                    }
+                    )}
                </div>
           </section>
      );

@@ -1,45 +1,56 @@
 import { motion } from "framer-motion";
 import { fadeUp, fadeLeft, fadeRight } from "../../../animations/motionVariants";
-import { servicesData } from "../../../data/servicesData";
 import { Link } from "react-router-dom";
 import ProductServiceCTAButtons from "../common/cta/ProductServiceCTAButtons";
+import { useAppData } from "../../../context/AppDataContext";
+import FetchError from "../ui/FetchError";
 
 export default function HomeServicesSection() {
+     const { serviceData, loading, error } = useAppData();
 
      return (
           <section className="py-20 bg-white">
                <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 items-start">
                     {/* LEFT PRODUCT GRI */}
-                    <motion.div
-                         layout="position"
-                         variants={fadeRight}
-                         initial="hidden"
-                         whileInView="visible"
-                         viewport={{ once: true }}
-                         className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 order-2 lg:order-1"
-                    >
-                         {servicesData.slice(0, 6).map((service) => {
-                              return (
-                                   <Link to={`/services/${service.slug}`}
-                                        aria-label={`View details of ${service.title}`}
-                                        key={service.slug}
-                                        className="block group bg-white px-2 py-6 shadow-sm border border-green-100 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
-                                   >
-                                        <div className="overflow-hidden">
-                                             <img
-                                                  src={service.images.main}
-                                                  alt={service.title}
-                                                  className="w-full h-40 object-cover group-hover:scale-110 transition-all duration-300"
-                                             />
-                                        </div>
+                    {error ? <div className="h-full flex justify-center items-center"><FetchError message={"Unable to load services."} /></div> : (loading ?
+                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                              {Array(6).fill(0).map((_, i) => {
+                                   return <div
+                                        key={i}
+                                        className="h-60 bg-gray-200 animate-pulse rounded-lg"
+                                   />
+                              })}
+                         </div> : <motion.div
+                              layout="position"
+                              variants={fadeRight}
+                              initial="hidden"
+                              whileInView="visible"
+                              viewport={{ once: true }}
+                              className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 order-2 lg:order-1"
+                         >
+                              {serviceData.slice(0, 6).map((service) => {
+                                   return (
+                                        <Link to={`/services/${service.slug}`}
+                                             aria-label={`View details of ${service.title}`}
+                                             key={service.slug}
+                                             className="block group bg-white px-2 py-6 shadow-sm border border-green-100 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
+                                        >
+                                             <div className="overflow-hidden">
+                                                  <img
+                                                       src={service.images.main.url}
+                                                       alt={service.title}
+                                                       className="w-full h-40 object-cover group-hover:scale-110 transition-all duration-300"
+                                                  />
+                                             </div>
 
-                                        <h4 className="text-center mt-2 sm:mt-3 text-green-700 font-semibold text-sm sm:text-base leading-tight">
-                                             {service.title}
-                                        </h4>
-                                   </Link>
-                              );
-                         })}
-                    </motion.div>
+                                             <h4 className="text-center mt-2 sm:mt-3 text-green-700 font-semibold text-sm sm:text-base leading-tight">
+                                                  {service.title}
+                                             </h4>
+                                        </Link>
+                                   );
+                              })}
+                         </motion.div>
+                    )}
 
                     {/* RIGHT TEXT SECTION */}
                     <motion.div

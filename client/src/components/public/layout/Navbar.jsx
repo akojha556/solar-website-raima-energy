@@ -12,7 +12,7 @@ const Navbar = () => {
 
         {/* LOGO */}
         <Link to="/" >
-          <img src="/fevicon.png" alt="RaimaEnergy Logo" className="lg:h-30 w-auto h-25 sm:h-26" />
+          <img src="https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1770494016/fevicon_fb3yom.png" alt="RaimaEnergy Logo" className="lg:h-30 w-auto h-25 sm:h-26" />
         </Link>
 
         {/* DESKTOP MENU */}

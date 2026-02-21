@@ -3,8 +3,14 @@ export const servicesData = [
           title: "Solar Installation",
           slug: "solar-installation",
           images: {
-               main: "/uploads/services/solar-installation-main.png",
-               secondary: "/uploads/services/solar-installation-secondary.png",
+               main: {
+                    public_id: "solar-installation-main_jqbzsl",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654842/solar-installation-main_jqbzsl.png"
+               },
+               secondary: {
+                    public_id: "solar-installation-secondary_x1rwcq",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654846/solar-installation-secondary_x1rwcq.png"
+               },
           },
           shortDesc:
                "End-to-end solar system installation by certified professionals ensuring safety and efficiency.",
@@ -64,8 +70,14 @@ export const servicesData = [
           title: "Solar Maintenance",
           slug: "solar-maintenance",
           images: {
-               main: "/uploads/services/solar-maintenance-main.png",
-               secondary: "/uploads/services/solar-maintenance-secondary.png",
+               main: {
+                    public_id: "solar-maintenance-main_yqibe4",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654846/solar-maintenance-main_yqibe4.png"
+               },
+               secondary: {
+                    public_id: "solar-maintenance-secondary_flfrfm",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654843/solar-maintenance-secondary_flfrfm.png"
+               },
           },
           shortDesc:
                "Regular inspection, cleaning, and performance checks to keep your solar system running optimally.",
@@ -117,8 +129,14 @@ export const servicesData = [
           title: "AMC Services",
           slug: "amc-services",
           images: {
-               main: "/uploads/services/amc-services-main.png",
-               secondary: "/uploads/services/amc-services-secondary.png",
+               main: {
+                    public_id: "amc-services-main_xahnyo",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654839/amc-services-main_xahnyo.png"
+               },
+               secondary: {
+                    public_id: "amc-services-secondary_ig8d8a",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654839/amc-services-secondary_ig8d8a.png"
+               },
           },
           shortDesc:
                "Comprehensive annual maintenance contracts for long-term system reliability and peace of mind.",
@@ -166,8 +184,14 @@ export const servicesData = [
           title: "Energy Audit",
           slug: "energy-audit",
           images: {
-               main: "/uploads/services/energy-audit-main.png",
-               secondary: "/uploads/services/energy-audit-secondary.png",
+               main: {
+                    public_id: "energy-audit-main_htgb2r",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654840/energy-audit-main_htgb2r.png"
+               },
+               secondary: {
+                    public_id: "energy-audit-secondary_tbi3c8",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654839/energy-audit-secondary_tbi3c8.png"
+               },
           },
           shortDesc:
                "Detailed energy assessments to optimize consumption and maximize solar efficiency.",
@@ -219,8 +243,14 @@ export const servicesData = [
           title: "Solar Consultancy",
           slug: "solar-consultancy",
           images: {
-               main: "/uploads/services/solar-consultancy-main.png",
-               secondary: "/uploads/services/solar-consultancy-secondary.png",
+               main: {
+                    public_id: "solar-consultancy-main_nfaxgs",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654840/solar-consultancy-main_nfaxgs.png"
+               },
+               secondary: {
+                    public_id: "solar-consultancy-secondary_vcyjzg",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654839/solar-consultancy-secondary_vcyjzg.png"
+               },
           },
           shortDesc:
                "Expert guidance on solar planning, feasibility studies, and system design.",
@@ -268,8 +298,14 @@ export const servicesData = [
           title: "Solar System Upgradation",
           slug: "solar-system-upgradation",
           images: {
-               main: "/uploads/services/solar-system-upgradation-main.png",
-               secondary: "/uploads/services/solar-system-upgradation-secondary.png",
+               main: {
+                    public_id: "solar-system-upgradation-main_ttsnne",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654844/solar-system-upgradation-main_ttsnne.png"
+               },
+               secondary: {
+                    public_id: "solar-system-upgradation-secondary_mzrfjt",
+                    url: "https://res.cloudinary.com/dgokm518s/image/upload/f_auto,q_auto/v1771654844/solar-system-upgradation-secondary_mzrfjt.png"
+               },
           },
           shortDesc:
                "Upgrade existing solar systems with advanced components for better performance and capacity.",
