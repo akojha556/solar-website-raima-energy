@@ -2,7 +2,7 @@ import api from "./api";
 
 // Get all products
 export const getAllProducts = async () => {
-     const response = await api.get("/api/products", { timeout: 10000 });
+     const response = await api.get("/api/products");
      return response;
 };
 
@@ -14,7 +14,7 @@ export const getProductCount = async () => {
 
 //Get individual product
 export const getProduct = async (id) => {
-     const response = await api.get(`/api/products/${id}`, { timeout: 10000 });
+     const response = await api.get(`/api/products/${id}`);
      return response;
 };
 
