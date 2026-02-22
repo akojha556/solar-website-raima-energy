@@ -6,6 +6,7 @@ const ConsultationForm = () => {
      const [email, setEmail] = useState("");
      const [phoneNumber, setPhoneNumber] = useState("");
      const [city, setCity] = useState("");
+     const [success, setSuccess] = useState(false);
 
      const [loading, setLoading] = useState(false);
 
@@ -20,17 +21,20 @@ const ConsultationForm = () => {
                city
           }
           try {
-               const response = await addLead(data);
-               console.log(response.data);
+               setSuccess(false);
+               await addLead(data);
           } catch (error) {
-               console.error(error.message);
+               alert(error.message);
           } finally {
                setLoading(false);
+               setSuccess(true);
           }
      }
 
      return (
-          <div className="bg-blue-100 p-6 rounded-lg shadow-xl">
+          <div className="bg-blue-100 px-6 pb-6 pt-4 rounded-lg shadow-xl">
+               {/* Success message */}
+               {success ? <p className="text-sm text-green-700 text-center mb-4">Your form submission was successful.</p> : ""}
                <h3 className="text-xl font-semibold text-gray-700 text-center">
                     Get A Quote
                </h3>
@@ -73,6 +77,7 @@ const ConsultationForm = () => {
                          <input
                               id="phoneNumber"
                               type="tel"
+                              minlength="10"
                               value={phoneNumber}
                               onChange={(e) => {
                                    const onlyNumbers = e.target.value.replace(/\D/g, "");

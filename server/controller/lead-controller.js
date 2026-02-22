@@ -85,7 +85,7 @@ export const editLead = asyncHandler(async (req, res) => {
 export const removeLead = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
-    const lead = await findById(id);
+    const lead = await Lead.findById(id);
 
     if (!lead) {
         res.status(400);

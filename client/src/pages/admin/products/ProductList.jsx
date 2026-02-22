@@ -14,13 +14,14 @@ const ProductList = () => {
      const handleDelete = async (id) => {
           try {
                setIsDeleting(true);
-               const response = await deleteProduct(id);
+               await deleteProduct(id);
                setShowModal(false);
                setDeleteId(null);
                setProducts((prev) => {
                     return prev.filter((product) => product._id !== id);
                });
           } catch (error) {
+               alert(error.message);
                setShowModal(false);
           } finally {
                setIsDeleting(false);

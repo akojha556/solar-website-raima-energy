@@ -23,7 +23,7 @@ const DetailsHero = ({ data }) => {
                </div>
 
                {/* FLOATING FORM */}
-               <div className="absolute z-20 left-1/2 w-[92%] max-w-sm -translate-x-1/2 top-[70%] lg:top-[40%] lg:left-2/3 lg:-translate-x-1/4">
+               <div className="absolute z-20 left-1/2 w-[92%] max-w-sm -translate-x-1/2 top-[55%] lg:top-[35%] lg:left-2/3 lg:-translate-x-1/4">
                     <ConsultationForm />
                </div>
           </section>

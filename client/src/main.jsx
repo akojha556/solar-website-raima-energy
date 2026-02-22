@@ -16,17 +16,25 @@ import Faq from "./pages/public/Faq.jsx";
 import NotFound from "./pages/public/NotFound.jsx";
 
 //Admin pages
-import AdminLayout from "./pages/admin/layout/AdminLayout.jsx";
-import Dashboard from "./pages/admin/dashboard/Dashboard.jsx";
-import ProductList from "./pages/admin/products/ProductList.jsx";
-import ServiceList from "./pages/admin/services/ServiceList.jsx";
 import Login from "./pages/admin/login/Login.jsx";
 import ProtectedRoute from "./routes/ProtectedRoutes.jsx";
+
+import AdminLayout from "./pages/admin/layout/AdminLayout.jsx";
+import Dashboard from "./pages/admin/dashboard/Dashboard.jsx";
+
+//Product Admin
+import ProductList from "./pages/admin/products/ProductList.jsx";
 import AddProduct from "./pages/admin/products/AddProduct.jsx";
 import EditProduct from "./pages/admin/products/EditProduct.jsx";
+
+//Service Admin
+import ServiceList from "./pages/admin/services/ServiceList.jsx";
 import AddService from "./pages/admin/services/AddService.jsx";
 import EditService from "./pages/admin/services/EditService.jsx";
+
+//Lead Admin
 import Enquiries from "./pages/admin/enquires/Enquiries.jsx";
+import AddLead from "./pages/admin/enquires/AddLead.jsx";
 
 const router = createBrowserRouter([
   {
@@ -60,7 +68,8 @@ const router = createBrowserRouter([
           { path: "services", element: <ServiceList /> },
           { path: "services/add-service", element: <AddService /> },
           { path: "services/edit-service/:id", element: <EditService /> },
-          { path: "enquiries", element: <Enquiries /> }
+          { path: "enquiries", element: <Enquiries /> },
+          { path: "enquiries/add-lead", element: <AddLead /> }
         ],
       },
     ],
