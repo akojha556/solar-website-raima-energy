@@ -80,7 +80,8 @@ const ProductList = () => {
                                              colSpan="5"
                                              className="px-6 py-6 text-center text-gray-500"
                                         >
-                                             Loading all products...
+                                             <i className="fa-solid fa-spinner animate-spin text-lg mr-2"></i>
+                                             <span>Loading products...</span>
                                         </td>
                                    </tr>
                               )}

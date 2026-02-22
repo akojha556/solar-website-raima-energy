@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { addLead } from "../../../services/leadService";
+import { useNavigate } from "react-router-dom";
 
 const AddLead = () => {
+    const navigate = useNavigate();
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -30,6 +33,7 @@ const AddLead = () => {
             alert(error.message);
         } finally {
             setIsSubmitting(false);
+            navigate("/admin/enquiries");
         };
     };
 
@@ -65,7 +69,7 @@ const AddLead = () => {
                     <input
                         className="input"
                         type="tel"
-                        minlength="10"
+                        minLength="10"
                         placeholder="Add a contact number."
                         value={phoneNumber}
                         onChange={(e) => {

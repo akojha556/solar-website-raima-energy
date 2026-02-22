@@ -36,7 +36,10 @@ const Dashboard = () => {
      return (
           <div>
                {loading ?
-                    <div className="px-6 py-6 text-gray-500">Loading...</div> :
+                    <div className="flex items-center justify-center gap-2 py-6 text-gray-600">
+                         <i className="fa-solid fa-spinner animate-spin text-lg"></i>
+                         <span>Loading dashboard...</span>
+                    </div> :
                     <div>
                          {/* Page Title */}
                          <h2 className="text-2xl font-semibold text-gray-700 mb-6">

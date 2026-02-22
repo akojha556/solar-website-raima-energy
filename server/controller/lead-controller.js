@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
 import Lead from "../model/lead-model.js";
+import mongoose from "mongoose";
 
 //Get all lead
 export const getLeads = asyncHandler(async (req, res) => {

@@ -9,6 +9,7 @@ const Enquiries = () => {
      const [showModal, setShowModal] = useState(false);
      const [deleteId, setDeleteId] = useState(null);
      const [isDeleting, setIsDeleting] = useState(false);
+     const [loading, setLoading] = useState(true);
 
      //Delete lead
      const handleDelete = async (id) => {
@@ -33,12 +34,15 @@ const Enquiries = () => {
      useEffect(() => {
           const fetchLeads = async () => {
                try {
+                    setLoading(true);
                     const response = await getLeads();
                     console.log(response.data);
                     setLeads(response.data);
                } catch (error) {
-                    alert(error.message);
                     setLeads([]);
+                    alert(error.message);
+               } finally {
+                    setLoading(false);
                }
           };
 
@@ -73,43 +77,68 @@ const Enquiries = () => {
                               </tr>
                          </thead>
                          <tbody>
-                              {leads.map((lead, index) => (
-                                   <tr key={lead._id} className="border-t hover:bg-gray-50">
-                                        <td className="px-6 py-4">{index + 1}</td>
-                                        <td className="px-6 py-4">{lead.name}</td>
-                                        <td className="px-6 py-4">{lead.email}</td>
-                                        <td className="px-6 py-4">{lead.phoneNumber}</td>
-                                        <td className="px-6 py-4">{lead.city}</td>
-                                        {/* Actions */}
-                                        <td className="px-6 py-4 text-right space-x-3">
-                                             <Link
-                                                  to={`/admin/leads/edit-lead/${lead._id}`}
-                                                  className="text-blue-600 hover:underline cursor-pointer duration-300"
-                                             >
-                                                  Edit
-                                             </Link>
-
-                                             <button
-                                                  onClick={() => {
-                                                       setShowModal(true);
-                                                       setDeleteId(lead._id);
-                                                  }} className="text-red-600 hover:underline cursor-pointer"
-                                             >
-                                                  Delete
-                                             </button>
-                                             {/* Modal */}
-                                             {showModal &&
-                                                  <DeleteConfirmModal
-                                                       onCancel={() => {
-                                                            setShowModal(false);
-                                                            setDeleteId(null);
-                                                       }}
-                                                       handleDelete={() => handleDelete(deleteId)}
-                                                       loading={isDeleting}
-                                                  />}
+                              {/* Loading */}
+                              {loading && (
+                                   <tr>
+                                        <td
+                                             colSpan="6"
+                                             className="px-6 py-6 text-center text-gray-500"
+                                        >
+                                             <i className="fa-solid fa-spinner animate-spin text-lg mr-2"></i>
+                                             <span>Loading all leads...</span>
                                         </td>
                                    </tr>
-                              ))}
+                              )}
+                              {!loading &&
+                                   leads.map((lead, index) => (
+                                        <tr key={lead._id} className="border-t hover:bg-gray-50">
+                                             <td className="px-6 py-4">{index + 1}</td>
+                                             <td className="px-6 py-4">{lead.name}</td>
+                                             <td className="px-6 py-4">{lead.email}</td>
+                                             <td className="px-6 py-4">{lead.phoneNumber}</td>
+                                             <td className="px-6 py-4">{lead.city}</td>
+                                             {/* Actions */}
+                                             <td className="px-6 py-4 text-right space-x-3">
+                                                  <Link
+                                                       to={`/admin/enquiries/edit-lead/${lead._id}`}
+                                                       className="text-blue-600 hover:underline cursor-pointer duration-300"
+                                                  >
+                                                       Edit
+                                                  </Link>
+
+                                                  <button
+                                                       onClick={() => {
+                                                            setShowModal(true);
+                                                            setDeleteId(lead._id);
+                                                       }} className="text-red-600 hover:underline cursor-pointer"
+                                                  >
+                                                       Delete
+                                                  </button>
+                                                  {/* Modal */}
+                                                  {showModal &&
+                                                       <DeleteConfirmModal
+                                                            onCancel={() => {
+                                                                 setShowModal(false);
+                                                                 setDeleteId(null);
+                                                            }}
+                                                            handleDelete={() => handleDelete(deleteId)}
+                                                            loading={isDeleting}
+                                                       />}
+                                             </td>
+                                        </tr>
+                                   ))}
+                              {/* Empty state */}
+                              {!loading &&
+                                   leads.length === 0 && (
+                                        <tr>
+                                             <td
+                                                  colSpan="5"
+                                                  className="px-6 py-6 text-center text-gray-500"
+                                             >
+                                                  No leads found
+                                             </td>
+                                        </tr>
+                                   )}
                          </tbody>
                     </table>
                </div>

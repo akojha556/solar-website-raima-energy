@@ -35,6 +35,7 @@ import EditService from "./pages/admin/services/EditService.jsx";
 //Lead Admin
 import Enquiries from "./pages/admin/enquires/Enquiries.jsx";
 import AddLead from "./pages/admin/enquires/AddLead.jsx";
+import EditLead from "./pages/admin/enquires/EditLead.jsx";
 
 const router = createBrowserRouter([
   {
@@ -69,7 +70,8 @@ const router = createBrowserRouter([
           { path: "services/add-service", element: <AddService /> },
           { path: "services/edit-service/:id", element: <EditService /> },
           { path: "enquiries", element: <Enquiries /> },
-          { path: "enquiries/add-lead", element: <AddLead /> }
+          { path: "enquiries/add-lead", element: <AddLead /> },
+          { path: "enquiries/edit-lead/:id", element: <EditLead /> }
         ],
       },
     ],

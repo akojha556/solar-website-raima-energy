@@ -119,7 +119,10 @@ const EditProduct = () => {
      return (
           <div>
                {loading &&
-                    <div className="px-6 py-6 text-gray-500">Loading...</div>
+                    <div className="flex items-center justify-center gap-2 py-6 text-gray-600">
+                         <i className="fa-solid fa-spinner animate-spin text-lg"></i>
+                         <span>Loading data...</span>
+                    </div>
                }
                {!loading &&
                     <div>

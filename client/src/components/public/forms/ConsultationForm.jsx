@@ -9,6 +9,7 @@ const ConsultationForm = () => {
      const [success, setSuccess] = useState(false);
 
      const [loading, setLoading] = useState(false);
+     const [error, setError] = useState("");
 
      //Handle form submit
      const handleSubmit = async (e) => {
@@ -21,20 +22,20 @@ const ConsultationForm = () => {
                city
           }
           try {
-               setSuccess(false);
+               setError("");
                await addLead(data);
+               setSuccess(true);
           } catch (error) {
+               setSuccess(false);
                alert(error.message);
+               setError(error.response.data.message);
           } finally {
                setLoading(false);
-               setSuccess(true);
           }
      }
 
      return (
           <div className="bg-blue-100 px-6 pb-6 pt-4 rounded-lg shadow-xl">
-               {/* Success message */}
-               {success ? <p className="text-sm text-green-700 text-center mb-4">Your form submission was successful.</p> : ""}
                <h3 className="text-xl font-semibold text-gray-700 text-center">
                     Get A Quote
                </h3>
@@ -77,7 +78,7 @@ const ConsultationForm = () => {
                          <input
                               id="phoneNumber"
                               type="tel"
-                              minlength="10"
+                              minLength="10"
                               value={phoneNumber}
                               onChange={(e) => {
                                    const onlyNumbers = e.target.value.replace(/\D/g, "");
@@ -118,6 +119,13 @@ const ConsultationForm = () => {
                               "Submit"
                          )}
                     </button>
+                    {/* Success message */}
+                    {success ? <p className="text-sm text-green-700 text-center mb-4">Your form submission was successful.</p> : ""}
+                    {error && (
+                         <p className="text-red-500 text-sm text-center">
+                              {error}
+                         </p>
+                    )}
                </form>
           </div>
      )
