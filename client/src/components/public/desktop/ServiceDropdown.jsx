@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { servicesData } from "../../../data/servicesData";
+import { useAppData } from "../../../context/AppDataContext";
 
 const ServiceDropdown = () => {
-     const [serviceOpen, setServiceOpen] = useState(false)
+     const { serviceData, loading, error, fetchData } = useAppData();
+
+     const [serviceOpen, setServiceOpen] = useState(false);
      const serviceRef = useRef(null);
 
      useEffect(() => {
@@ -30,27 +32,43 @@ const ServiceDropdown = () => {
                     </button>
                     {/* dropdown menu */}
                     <ul className={`absolute left-0 top-full z-50 mt-1 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible transform md:group-hover:opacity-100 md:group-hover:-translate-y-1 md:group-hover:visible transition-all duration-300 ease-out ${serviceOpen ? "opacity-100 -translate-y-1 visible" : "translate-y-2"}`}>
-                         {servicesData.map((service) => (
-                              <li key={service.slug}>
-                                   <Link to={`/services/${service.slug}`}
-                                        className="block px-4 py-2 text-xs lg:text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
+                         {error ?
+                              <li className="flex flex-col items-center gap-2 px-4 py-3 text-xs lg:text-sm">
+                                   <span className="text-red-500 flex items-center gap-2">
+                                        <i className="fa-solid fa-triangle-exclamation"></i>
+                                        Failed to load
+                                   </span>
+                                   <button
+                                        onClick={() => fetchData()}
+                                        className="text-blue-500 hover:underline text-xs cursor-pointer"
                                    >
-                                        {service.title}
-                                   </Link>
-                              </li>
-                         ))}
-                         {/* Divider */}
-                         <li className="border-t my-1"></li>
+                                        Retry
+                                   </button>
+                              </li> :
+                              (loading ?
+                                   <li className="flex items-center justify-center px-4 py-2 text-xs lg:text-sm gap-2">
+                                        <span>Loading...</span>
+                                        <i className="fa-solid fa-hourglass animate-spin"></i>
+                                   </li> :
+                                   serviceData.slice(0, 6).map((service) => (
+                                        <li key={service.slug}>
+                                             <Link to={`/services/${service.slug}`}
+                                                  className="block px-4 py-2 text-xs lg:text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
+                                             >
+                                                  {service.title}
+                                             </Link>
+                                        </li>
+                                   )))}
 
                          {/* View All */}
                          <li>
                               <Link
                                    onClick={() => setServiceOpen(false)}
                                    to="/services"
-                                   className="group/menu flex items-center px-4 py-2 text-xs lg:text-sm font-semibold text-green-600 hover:bg-green-50 transition-all rounded-md"
+                                   className="group/menu flex items-center px-4 py-2 text-xs font-semibold text-green-600 transition-all rounded-md"
                               >
-                                   View All Services
-                                   <i className="fa-solid fa-arrow-right ml-1 mt-1 inline-block transition-transform duration-200 group-hover/menu:translate-x-2 text-xs"></i>
+                                   View All
+                                   <i className="fa-solid fa-arrow-right ml-1 inline-block transition-transform duration-200 group-hover/menu:translate-x-2 text-xs"></i>
                               </Link>
                          </li>
                     </ul>

@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { productsData } from "../../../data/productsData";
+import { useAppData } from "../../../context/AppDataContext";
 
 const ProductDropdown = () => {
+     const { productData, loading, error, fetchData } = useAppData();
+
      const [productOpen, setProductOpen] = useState(false);
      const productRef = useRef(null);
 
@@ -33,30 +35,44 @@ const ProductDropdown = () => {
                     <ul
                          className={`absolute left-0 top-full z-50 mt-2 w-64 bg-white text-gray-800 shadow-lg rounded-md opacity-0 invisible transform md:group-hover:opacity-100 md:group-hover:-translate-y-2 md:group-hover:visible transition-all duration-300 ease-out ${productOpen ? "opacity-100 -translate-y-2 visible" : "translate-y-2"}`}
                     >
-                         {productsData.map((item) => (
-                              <li key={item.slug}>
-                                   <Link onClick={() => setProductOpen(false)}
-                                        to={`/products/${item.slug}`}
-                                        className="block px-4 py-2 text-xs lg:text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
+                         {error ?
+                              <li className="flex flex-col items-center gap-2 px-4 py-3 text-xs lg:text-sm">
+                                   <span className="text-red-500 flex items-center gap-2">
+                                        <i className="fa-solid fa-triangle-exclamation"></i>
+                                        Failed to load
+                                   </span>
+                                   <button
+                                        onClick={() => fetchData()}
+                                        className="text-blue-500 hover:underline text-xs cursor-pointer"
                                    >
-                                        {item.title}
-                                   </Link>
-                              </li>
-
-                         ))}
-
-                         {/* Divider */}
-                         <li className="border-t my-1"></li>
+                                        Retry
+                                   </button>
+                              </li> :
+                              (loading ?
+                                   <li className="flex items-center justify-center px-4 py-2 text-xs lg:text-sm gap-2">
+                                        <span>Loading...</span>
+                                        <i className="fa-solid fa-hourglass animate-spin"></i>
+                                   </li> :
+                                   productData.slice(0, 6).map((item) => (
+                                        <li key={item.slug}>
+                                             <Link onClick={() => setProductOpen(false)}
+                                                  to={`/products/${item.slug}`}
+                                                  className="block px-4 py-2 text-xs lg:text-sm transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:pl-5"
+                                             >
+                                                  {item.title}
+                                             </Link>
+                                        </li>
+                                   )))}
 
                          {/* View All */}
                          <li>
                               <Link
                                    onClick={() => setProductOpen(false)}
                                    to="/products"
-                                   className="group/menu flex items-center px-4 py-2 text-xs lg:text-sm font-semibold text-green-600 hover:bg-green-50 transition-all rounded-md"
+                                   className="group/menu flex items-center px-4 py-2 text-xs font-semibold text-green-600 transition-all rounded-md"
                               >
-                                   View All Products
-                                   <i className="fa-solid fa-arrow-right ml-1 mt-1 inline-block transition-transform duration-200 group-hover/menu:translate-x-2 text-xs"></i>
+                                   View All
+                                   <i className="fa-solid fa-arrow-right ml-1 inline-block transition-transform duration-200 group-hover/menu:translate-x-2 text-xs"></i>
                               </Link>
                          </li>
 
