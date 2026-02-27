@@ -69,7 +69,7 @@ export const forgetPassword = asyncHandler(async (req, res) => {
      if (!admin) {
           res.status(400);
           throw new Error("Wrong username!");
-     }
+     };
 
      //Create token save in db
      const resetToken = crypto.randomBytes(32).toString("hex");
@@ -77,7 +77,7 @@ export const forgetPassword = asyncHandler(async (req, res) => {
      admin.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
      await admin.save({ validateBeforeSave: false });
 
-     const resetUrl = `${process.env.BACKEND_URL}/api/admin/reset-password/${resetToken}`;
+     const resetUrl = `${process.env.FRONT_END_URL}/reset-password/${resetToken}`;
 
      //Send token using nodemailer
      await sendEmail(

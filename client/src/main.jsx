@@ -17,6 +17,7 @@ import NotFound from "./pages/public/NotFound.jsx";
 
 //Admin pages
 import Login from "./pages/admin/login/Login.jsx";
+import { ForgotPassword } from "./pages/admin/login/ForgotPassword.jsx";
 import ProtectedRoute from "./routes/ProtectedRoutes.jsx";
 
 import AdminLayout from "./pages/admin/layout/AdminLayout.jsx";
@@ -36,6 +37,7 @@ import EditService from "./pages/admin/services/EditService.jsx";
 import Enquiries from "./pages/admin/enquires/Enquiries.jsx";
 import AddLead from "./pages/admin/enquires/AddLead.jsx";
 import EditLead from "./pages/admin/enquires/EditLead.jsx";
+import { ResetPassword } from "./pages/admin/login/ResetPassword.jsx";
 
 const router = createBrowserRouter([
   {
@@ -52,8 +54,7 @@ const router = createBrowserRouter([
       { path: "faqs", element: <Faq /> },
       { path: "*", element: <NotFound /> }
     ]
-  }
-  ,
+  },
   {
     element: <ProtectedRoute />,
     children: [
@@ -75,12 +76,18 @@ const router = createBrowserRouter([
         ],
       },
     ],
-  }
-
-  ,
+  },
   {
     path: "/login",
     element: <Login />
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />
+  },
+  {
+    path: "/reset-password/:token",
+    element: <ResetPassword />
   }
 ]);
 

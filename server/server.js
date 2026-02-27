@@ -31,8 +31,8 @@ const PORT = process.env.PORT || 3000;
 
 await connectDB();
 connectCloudinary();
-app.get("/", (req, res) => {
-     res.status(200).json({ message: "API is running." });
+app.get("/ping", (req, res) => {
+     res.status(200).send("pong");
 });
 
 app.get("/test", (req, res) => {
