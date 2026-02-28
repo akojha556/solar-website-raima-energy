@@ -54,7 +54,7 @@ const ContactSection = () => {
                                    <div className="flex items-start gap-4">
                                         <i className="fa-solid fa-clock text-green-600 text-lg"></i>
                                         <p className="text-gray-700">
-                                             Mon - Sat : 9:00 AM - 6:00 PM
+                                             Mon - Sat : 10:00 AM - 6:00 PM
                                         </p>
                                    </div>
 

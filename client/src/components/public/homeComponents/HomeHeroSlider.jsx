@@ -18,7 +18,7 @@ const images = [hero1, hero2, hero3, hero4, hero5];
 export default function HomeHeroSlider() {
 
      return (
-          <div className="relative w-full h-[95vh] md:h-[90vh]">
+          <div className="relative w-full h-150 md:h-170">
                {/* CUSTOM BUTTONS */}
                <button className="custom-prev absolute left-5 top-1/2 z-50 text-5xl -translate-y-1/2 cursor-pointer opacity-50 hover:opacity-30 hidden md:block">
                     <i className="fa-solid fa-chevron-left"></i>
