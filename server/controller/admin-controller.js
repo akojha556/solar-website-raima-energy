@@ -13,7 +13,7 @@ export const loginAdmin = asyncHandler(async (req, res) => {
      if (!username || !password) {
           res.status(400);
           throw new Error("Field should not be empty!");
-     }
+     };
 
      //Validation check
      const admin = await Admin.findOne({ username });
@@ -52,7 +52,7 @@ export const getMe = asyncHandler(async (req, res) => {
      if (!req.admin) {
           res.status(401);
           throw new Error("Not authenticated!");
-     }
+     };
 
      res.status(200).json({
           id: req.admin._id,
@@ -87,6 +87,34 @@ export const forgetPassword = asyncHandler(async (req, res) => {
      );
 
      res.status(200).json({ message: "Check your email and click on the reset link within 10mins to forget your password." });
+});
+
+//Verify reset token
+export const verifyResetToken = asyncHandler(async (req, res) => {
+     const { token } = req.params;
+
+     //Hash the token and findout is it available in DB or not
+     const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+
+     const admin = await Admin.findOne({ resetPasswordToken: hashedToken });
+
+     if (!admin) {
+          res.status(400);
+          throw new Error("Unauthorised!");
+     };
+
+     //Check expiry timing also
+     const expireLinkTime = Date.now();
+
+     if (admin.resetPasswordExpire < expireLinkTime) {
+          res.status(400);
+          throw new Error("This link is expired! kindly try again after sometimes.");
+     };
+
+     res.status(200).json({
+          success: true,
+          messsage: "Token is valid."
+     });
 });
 
 //Reset Password

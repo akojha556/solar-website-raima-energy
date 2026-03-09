@@ -4,16 +4,21 @@ import { forgetPassword } from "../../../services/authService";
 
 export const ForgotPassword = () => {
   const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await forgetPassword({ username });
-      console.log(response.data);
+      console.log(response);
+      alert(response.message);
     } catch (error) {
       const errorMessage = error.response.data.message;
       alert(errorMessage);
       console.log(errorMessage);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,7 +58,17 @@ export const ForgotPassword = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </label>
-          <button type="submit" className="w-full px-4 py-2 bg-blue-600 rounded text-white font-semibold cursor-pointer hover:opacity-85 transition-all">Reset password</button>
+
+          <button
+            type="submit"
+            className={`w-full py-2.5 rounded-lg text-white text-sm font-medium transition duration-300 ${loading ? "bg-blue-300 cursor-not-allowed " : "bg-blue-600 hover:bg-blue-500 cursor-pointer"}`}
+          >
+            {loading && (
+              <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+            )}
+            {loading ? "Resetting your password.." : "Reset Password"}
+          </button>
+
         </form>
       </div>
     </div>

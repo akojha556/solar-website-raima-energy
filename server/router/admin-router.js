@@ -1,5 +1,5 @@
 import express from "express";
-import { loginAdmin, logoutAdmin, getMe, forgetPassword, resetPassword } from "../controller/admin-controller.js";
+import { loginAdmin, logoutAdmin, getMe, forgetPassword, verifyResetToken, resetPassword } from "../controller/admin-controller.js";
 import { limiter } from "../middleware/rateLimiter.js";
 import { protect } from "../middleware/auth-middleware.js";
 
@@ -9,4 +9,5 @@ adminRouter.post("/admin-login", loginAdmin);
 adminRouter.post("/admin-logout", logoutAdmin);
 adminRouter.get("/me", protect, getMe);
 adminRouter.post("/forget-password", limiter, forgetPassword);
+adminRouter.post("/verify-token/:token", limiter, verifyResetToken);
 adminRouter.post("/reset-password/:token", limiter, resetPassword);

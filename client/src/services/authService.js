@@ -12,6 +12,12 @@ export const forgetPassword = async (email) => {
      return response.data;
 };
 
+//Verify reset token
+export const verifyResetToken = async (token) => {
+     const response = await api.post(`/api/admin/verify-token/${token}`);
+     return response.data;
+};
+
 //Reset password
 export const resetPassword = async (token, password) => {
      const response = await api.post(`/api/admin/reset-password/${token}`, password);

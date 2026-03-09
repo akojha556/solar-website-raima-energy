@@ -12,8 +12,8 @@ const ProtectedRoute = () => {
                     await api.get("/api/admin/me");
                     setIsAuthenticated(true);
                } catch (error) {
+                    alert(error.response.data.message);
                     setIsAuthenticated(false);
-
                } finally {
                     setLoading(false);
                }
