@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { verifyResetToken, resetPassword } from "../../../services/authService";
 import { useParams, useNavigate } from "react-router-dom";
+import { StatusModal } from "../../../components/admin/StatusModal";
 
 export const ResetPassword = () => {
     const navigate = useNavigate();
@@ -10,7 +11,9 @@ export const ResetPassword = () => {
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [loader, setLoader] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,20 +28,24 @@ export const ResetPassword = () => {
             return;
         }
 
+        setLoading(true);
+
         try {
             const response = await resetPassword(token, { password: newPassword });
             console.log(response);
-            navigate("/login");
         } catch (error) {
             const errorMessage = error.response.data.message;
             alert(errorMessage);
             console.log("Error : " + errorMessage);
-            navigate("/forget-password");
+        } finally {
+            setShowModal(true);
+            setLoading(false);
         }
     };
 
     useEffect(() => {
         const verifyToken = async () => {
+            setShowModal(false);
             try {
                 setLoader(true);
                 setError(false);
@@ -49,7 +56,7 @@ export const ResetPassword = () => {
                 alert(errorMessage);
                 console.log("Error : " + errorMessage);
                 setError(true);
-                navigate("/forgot-password");
+                navigate("/login");
             } finally {
                 setLoader(false);
             }
@@ -131,14 +138,19 @@ export const ResetPassword = () => {
                                 <i className={`fa-solid ${showConfirmPassword ? "fa-eye" : "fa-eye-slash"}`}></i>
                             </button>
                         </div>
-
                         <button
                             type="submit"
-                            className="w-full px-4 py-2 bg-blue-600 rounded text-white font-semibold cursor-pointer hover:opacity-85 transition-all"
+                            className={`w-full py-2.5 rounded-lg text-white text-sm font-medium transition duration-300 ${loading ? "bg-blue-300 cursor-not-allowed " : "bg-blue-600 hover:bg-blue-500 cursor-pointer"}`}
                         >
-                            Reset password
+                            {loading && (
+                                <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+                            )}
+                            {loading ? "Resetting password.." : "Reset password"}
                         </button>
                     </form>
+                    {showModal &&
+                        <StatusModal title="Password Reset Successful" message="Your password has been updated successfully. You can now log in using your new password." setShowModal={setShowModal} />
+                    }
                 </div>
             </div>
         );

@@ -31,7 +31,7 @@ export const loginAdmin = asyncHandler(async (req, res) => {
           });
      } else {
           res.status(400);
-          throw new Error("Unauthorised! Invalid credentials!");
+          throw new Error("Invalid credentials!");
      }
 });
 

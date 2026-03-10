@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { forgetPassword } from "../../../services/authService";
+import { StatusModal } from "../../../components/admin/StatusModal";
 
 export const ForgotPassword = () => {
   const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setShowModal(false);
     try {
       const response = await forgetPassword({ username });
       console.log(response);
@@ -19,6 +22,7 @@ export const ForgotPassword = () => {
       console.log(errorMessage);
     } finally {
       setLoading(false);
+      setShowModal(true);
     }
   };
 
@@ -66,10 +70,13 @@ export const ForgotPassword = () => {
             {loading && (
               <i className="fa-solid fa-spinner fa-spin mr-2"></i>
             )}
-            {loading ? "Resetting your password.." : "Reset Password"}
+            {loading ? "Sending link.." : "Send reset link"}
           </button>
 
         </form>
+        {showModal &&
+          <StatusModal title="Email sent" message="We have sent you a reset link, kindly check your email." setShowModal={setShowModal} />
+        }
       </div>
     </div>
   );
