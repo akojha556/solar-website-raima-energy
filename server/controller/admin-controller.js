@@ -67,10 +67,8 @@ export const forgetPassword = asyncHandler(async (req, res) => {
      const admin = await Admin.findOne({ username });
 
      if (!admin) {
-          res.status(200).json({
-               success: true,
-               message: "If an account with this email exists, a reset link has been sent."
-          });
+          res.status(400);
+          throw new Error("This user doesn't exists!");
      };
 
      //Create token save in db
