@@ -52,7 +52,7 @@ export const ResetPassword = () => {
                 const response = await verifyResetToken(token);
                 console.log("Response : " + response);
             } catch (error) {
-                const errorMessage = error.response.data.message;
+                const errorMessage = error.response?.data?.message || "Something went wrong.";
                 alert(errorMessage);
                 console.log("Error : " + errorMessage);
                 setError(true);

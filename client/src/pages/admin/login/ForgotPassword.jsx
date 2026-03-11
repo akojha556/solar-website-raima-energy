@@ -14,8 +14,8 @@ export const ForgotPassword = () => {
     setShowModal(false);
     try {
       await forgetPassword({ username });
-    } catch {
-      //Intentionally ignored.
+    } catch (error) {
+      console.log(error);
     } finally {
       setLoading(false);
       setShowModal(true);
