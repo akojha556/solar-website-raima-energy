@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const StatusModal = ({ title, message, setShowModal }) => {
+export const StatusModal = ({ title, message, setShowModal, buttonText }) => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/70">
@@ -11,7 +11,7 @@ export const StatusModal = ({ title, message, setShowModal }) => {
                     className="text-white"
                     onClick={() => setShowModal(false)}
                 >
-                    <Link to="/login" className="w-full bg-blue-700 px-4 py-2 rounded">Go to login</Link>
+                    <Link to="/login" className="w-full bg-blue-700 px-4 py-2 rounded">{buttonText}</Link>
                 </button>
             </div>
         </div>

@@ -2,12 +2,15 @@ import { useState } from "react";
 import { loginAdmin } from "../../../services/authService";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { StatusModal } from "../../../components/admin/StatusModal";
 
 const Login = () => {
      const [username, setUsername] = useState("");
      const [password, setPassword] = useState("");
      const [isLoading, setIsLoading] = useState(false);
      const [showPassword, setShowPassword] = useState(false);
+     const [showModal, setShowModal] = useState(false);
+     const [modalData, setModalData] = useState("");
 
      const navigate = useNavigate();
 
@@ -18,8 +21,9 @@ const Login = () => {
                await loginAdmin({ username, password });
                navigate("/admin/dashboard");
           } catch (error) {
-               console.log(error.response.data.message);
-               alert(error.response.data.message)
+               const errMessage = error.response.data.message;
+               setModalData(errMessage);
+               setShowModal(true);
           } finally {
                setIsLoading(false);
           }
@@ -94,6 +98,7 @@ const Login = () => {
                               {isLoading ? "Logging in..." : "Login"}
                          </button>
                     </form>
+                    {showModal && <StatusModal title={modalData} message="The email or password you entered is incorrect. Please try again." setShowModal={setShowModal} buttonText="Try Again" />}
                </div>
           </div>
      );

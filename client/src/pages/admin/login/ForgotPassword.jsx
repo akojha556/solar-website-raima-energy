@@ -13,13 +13,9 @@ export const ForgotPassword = () => {
     setLoading(true);
     setShowModal(false);
     try {
-      const response = await forgetPassword({ username });
-      console.log(response);
-      alert(response.message);
-    } catch (error) {
-      const errorMessage = error.response.data.message;
-      alert(errorMessage);
-      console.log(errorMessage);
+      await forgetPassword({ username });
+    } catch {
+      //Intentionally ignored.
     } finally {
       setLoading(false);
       setShowModal(true);
@@ -75,7 +71,7 @@ export const ForgotPassword = () => {
 
         </form>
         {showModal &&
-          <StatusModal title="Email sent" message="We have sent you a reset link, kindly check your email." setShowModal={setShowModal} />
+          <StatusModal title="Email sent" message="If an account exists for this email, a password reset link has been sent." setShowModal={setShowModal} buttonText="OK" />
         }
       </div>
     </div>

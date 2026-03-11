@@ -149,7 +149,7 @@ export const ResetPassword = () => {
                         </button>
                     </form>
                     {showModal &&
-                        <StatusModal title="Password Reset Successful" message="Your password has been updated successfully. You can now log in using your new password." setShowModal={setShowModal} />
+                        <StatusModal title="Password Reset Successful" message="Your password has been updated successfully. You can now log in using your new password." setShowModal={setShowModal} buttonText="Log-in Now" />
                     }
                 </div>
             </div>
