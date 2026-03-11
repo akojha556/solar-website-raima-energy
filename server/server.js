@@ -13,8 +13,6 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
-app.set("trust proxy", 1);
-
 app.use(
      cors({
           origin: [
@@ -24,6 +22,8 @@ app.use(
           credentials: true,
      })
 );
+
+app.set("trust proxy", 1);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
