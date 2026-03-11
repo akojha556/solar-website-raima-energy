@@ -5,7 +5,7 @@ import { protect } from "../middleware/auth-middleware.js";
 
 export const adminRouter = express.Router();
 
-adminRouter.post("/admin-login", loginAdmin);
+adminRouter.post("/admin-login", limiter, loginAdmin);
 adminRouter.post("/admin-logout", logoutAdmin);
 adminRouter.get("/me", protect, getMe);
 adminRouter.post("/forget-password", limiter, forgetPassword);
