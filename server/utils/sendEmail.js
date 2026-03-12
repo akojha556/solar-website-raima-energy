@@ -9,10 +9,16 @@ export const sendEmail = async (email, subject, text) => {
           }
      });
 
-     await transporter.sendMail({
-          from: process.env.USER_EMAIL,
-          to: email,
-          subject,
-          text
-     });
-}
+     try {
+          const info = await transporter.sendMail({
+               from: process.env.USER_EMAIL,
+               to: email,
+               subject: subject,
+               text: text
+          });
+
+          console.log("Email sent:", info.response);
+     } catch (error) {
+          console.log("Error sending email:", error);
+     }
+};

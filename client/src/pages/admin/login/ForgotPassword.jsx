@@ -13,7 +13,8 @@ export const ForgotPassword = () => {
     setLoading(true);
     setShowModal(false);
     try {
-      await forgetPassword({ username });
+      const response = await forgetPassword({ username: username });
+      console.log(response);
     } catch (error) {
       console.log(error);
     } finally {

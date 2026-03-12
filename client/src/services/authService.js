@@ -7,8 +7,8 @@ export const loginAdmin = async (data) => {
 };
 
 //Forget password
-export const forgetPassword = async (email) => {
-     const response = await api.post("/api/admin/forget-password", email);
+export const forgetPassword = async (username) => {
+     const response = await api.post("/api/admin/forget-password", username);
      return response.data;
 };
 
